@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { RevealJS } from "@gregcello/revealjs-react";
+import { HighlightPlugin, NotesPlugin } from "@gregcello/revealjs-react";
+import Introduction from './chapters/Introduction';
+import Software from './chapters/Software';
+import Uncertainty from './chapters/Uncertainty';
+import SoilMoisture from './chapters/SoilMoisture';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{width: '100vw', height: '100vh', margin: 0, padding: 0}}>
+      <RevealJS plugins={[HighlightPlugin, NotesPlugin]} overview slideNumber="c/t">
+        
+        {/* Introduction */}
+        <Introduction />
+        <Software />
+        <Uncertainty />
+        <SoilMoisture />
+      </RevealJS>
     </div>
   );
 }
