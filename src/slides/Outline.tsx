@@ -36,8 +36,9 @@ const Outline: React.FC = () => {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6} lg={3}>
-                    <Card className="fragment fade-in">
+                    <Card className="fragment fade-in" sx={{p: 1}}>
                         <CardActionArea href="#/start-soil-moisture">
+                            <CardMedia component="img" image="img/geostatistical_patterns.png" style={{height: '100%', maxHeight: '350px'}} />
                             <CardContent>
                                 <Typography variant="h5" component="div">Dynamic patterns in Soil Moisture</Typography>
                             </CardContent>
