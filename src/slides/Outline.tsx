@@ -1,7 +1,12 @@
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material"
 import MainSlide from "../components/MainSlide"
 
-const Outline: React.FC = () => {
+
+interface OutlineParams {
+    withFragments?: boolean
+}
+
+const Outline: React.FC<OutlineParams> = ({ withFragments }) => {
     return (
         <MainSlide title="Outline" autoAnimate id="outline">
             <Grid container spacing={3}>
@@ -16,7 +21,7 @@ const Outline: React.FC = () => {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6} lg={3}>
-                    <Card className="fragment fade-in">
+                    <Card className={withFragments ? "fragment fade-in" : ""}>
                         <CardActionArea href="#/start-software">
                             <CardMedia component="img" image="img/geostatistical_software.png" style={{height: '100%', maxHeight: '350px'}} />
                             <CardContent>
@@ -26,7 +31,7 @@ const Outline: React.FC = () => {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6} lg={3}>
-                    <Card className="fragment fade-in">
+                    <Card className={withFragments ? "fragment fade-in" : ""}>
                         <CardActionArea href="#/start-uncertainty">
                             <CardMedia component="img" image="img/geostatistical_uncertainty.png" style={{height: '100%', maxHeight: '350px'}} />
                             <CardContent>
@@ -36,7 +41,7 @@ const Outline: React.FC = () => {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6} lg={3}>
-                    <Card className="fragment fade-in" sx={{p: 1}}>
+                    <Card className={withFragments ? "fragment fade-in" : ""} sx={{p: 1}}>
                         <CardActionArea href="#/start-soil-moisture">
                             <CardMedia component="img" image="img/geostatistical_patterns.png" style={{height: '100%', maxHeight: '350px'}} />
                             <CardContent>
