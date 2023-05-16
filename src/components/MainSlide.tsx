@@ -9,7 +9,7 @@ interface MainSlideProps extends SlideProps {
 const MainSlide: React.FC<React.PropsWithChildren<MainSlideProps>> = ({ children, title, ...slideProps }) => {
     return (
         <Slide {...slideProps}>
-            <Grid container spacing={0} className="justify-col" sx={{height: '100vh'}}>
+            <Grid container spacing={0} className="justify-col" sx={{minHeight: '100vh', maxHeight: '100vh', p: 3}}>
                 <Grid item xs={12} className="justify-row">
                     <img src="img/logo_kit.png" alt="KIT logo" style={{maxHeight: '65px'}} />
                     { title ? <H2>{ title }</H2> : null}
