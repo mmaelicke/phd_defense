@@ -2,6 +2,7 @@ import { H1, H2, Slide } from "@gregcello/revealjs-react"
 import { Grid } from "@mui/material"
 import MainSlide from "../components/MainSlide"
 import Outline from "../slides/Outline"
+import BasicVariogram from "../slides/BasicVariogram"
 
 const Introduction: React.FC = () => {
     return (<>
@@ -21,10 +22,11 @@ const Introduction: React.FC = () => {
             </Grid>
         </Slide>
 
-        <Outline />
+        <Outline withFragments />
 
         <MainSlide autoAnimate title="Motivation" id="start-motivation">
-            <h1>Motivation</h1>
+            <BasicVariogram />
+
         </MainSlide>
     </>)
 }
