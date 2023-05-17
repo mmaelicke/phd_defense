@@ -7,6 +7,15 @@
     transition: filter 0.8s ease-in-out;
 }
 
+.fragment.transparent {
+    opacity: 0.9;
+}
+
+.fragment.transparent.visible {
+    opacity: 1.0;
+    transition: filter 0.8s ease-in-out;
+}
+
 .justify-row {
     display: flex;
     flex-direction: row;
