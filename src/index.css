@@ -1,10 +1,10 @@
 .fragment.blur {
-    filter: blur(5px);
+    filter: blur(7px);
 }
 
 .fragment.blur.visible {
     filter: blur(0);
-    transition: filter 0.5s ease-in-out;
+    transition: filter 0.8s ease-in-out;
 }
 
 .justify-row {
@@ -17,4 +17,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    color: #2EA28A;
+    font-weight: 700;
 }
