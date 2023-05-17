@@ -147,7 +147,7 @@ const BasicVariogram = () => {
         <Grid container spacing={1}>
             
             <Grid item xs={12} md={4} sx={{justifyContent: 'center'}} flexDirection="column">
-                <FormControl fullWidth className="fragment zoom-in">
+                <FormControl fullWidth className="fragment custom blur">
                     <InputLabel id="variogram-model">Variogram Model</InputLabel>
                     <Select labelId="variogram-model" value={step !== 'init' ? step : 'none'} label="Variogram Model" onChange={e => setStep(e.target.value)}>
                         <MenuItem value="none">No model fitted</MenuItem>
@@ -157,7 +157,7 @@ const BasicVariogram = () => {
                     </Select>
                 </FormControl>
 
-                <FormControl fullWidth className="fragment zoom-in" sx={{mt: 2}}>
+                <FormControl fullWidth className="fragment custom blur" sx={{mt: 2}}>
                     <FormControlLabel label="Show parameters" control={<Switch checked={hasDescription} disabled={step==='none'} onChange={e => setHasDescription(e.target.checked)} />} />
                 </FormControl>
             </Grid>
