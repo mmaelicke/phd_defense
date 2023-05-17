@@ -2,7 +2,7 @@ import MainSlide from "../components/MainSlide"
 
 const SoilMoisture: React.FC = () => {
     return (<>
-        <MainSlide autoAnimate title="Soil Moisture" id="start-soil-moisture">
+        <MainSlide title="Soil Moisture" id="start-soil-moisture">
             <h1>Soil Moisture</h1>
         </MainSlide>
     </>)
