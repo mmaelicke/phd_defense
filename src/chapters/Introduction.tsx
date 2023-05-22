@@ -53,6 +53,15 @@ const Introduction: React.FC = () => {
             </Paper>
         </MainSlide>
 
+        <MainSlide title="Observations">
+            <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
+                <Box component="img" src="img/pancake_field_rgb.png" sx={{maxHeight: 450}} className="fragment" />
+                <Box component="img" src="img/pancake_field_r.png" sx={{maxHeight: 450}} className="fragment" />
+                <Box component="img" src="img/pancake_field_sample.png" sx={{maxHeight: 450}} className="fragment" />
+                <Box component="img" src="img/pancake_animation.gif" sx={{maxHeight: 450}} className="fragment" />
+            </Paper>
+        </MainSlide>
+        
         <MainSlide autoAnimate title="Intro to Variograms">
             <BasicVariogram />
 
