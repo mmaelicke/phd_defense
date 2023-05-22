@@ -53,7 +53,7 @@ const Introduction: React.FC = () => {
             </Paper>
         </MainSlide>
 
-        <MainSlide autoAnimate title="Motivation">
+        <MainSlide autoAnimate title="Intro to Variograms">
             <BasicVariogram />
 
         </MainSlide>
