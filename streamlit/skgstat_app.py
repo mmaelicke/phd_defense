@@ -4,6 +4,7 @@ import streamlit as st
 import numpy as np
 from skgstat import plotting
 import skgstat as skg
+import plotly.graph_objects as go
 
 # set the backend to plotly
 plotting.backend('plotly')
@@ -40,7 +41,7 @@ ESTIMATORS = dict(
 FIT_METHOD = dict(
     trf='Trust Region Reflective',
     lm='Levenberg-Marquardt',
-    custom='Manual fit'
+    manual='Manual fit'
 )
 
 @st.cache_data
@@ -79,21 +80,6 @@ def build_variogram() -> skg.Variogram:
         else:
             maxlag = maxl_method
 
-
-    # add the model parameters
-    with st.sidebar.expander('Variogram Model', expanded=False):
-        # model
-        model = st.selectbox("Model Type", options=list(MODELS.keys()), format_func=lambda x: MODELS[x])
-        use_nugget = st.checkbox("Use Nugget", value=False)
-
-        # fit method
-        fit_method = st.selectbox("Fit Method", options=list(FIT_METHOD.keys()), format_func=lambda x: FIT_METHOD[x])
-        fit_params = dict(fit_mehtod=fit_method)
-
-        if fit_method == 'custom':
-            _r = st.slider("Effective range", value=100.0, min_value=0.1, max_value=1000.0, step=0.1)
-
-
     # build the variogram
     vario = skg.Variogram(
         coords, 
@@ -102,25 +88,90 @@ def build_variogram() -> skg.Variogram:
         bin_method=bin_method,
         n_lags=n_lags,
         maxlag=maxlag,
-        model=model,
-        use_nugget=use_nugget,
         normalize=False
     )
+
+    # add the model parameters
+    with st.sidebar.expander('Variogram Model', expanded=False):
+        # model
+        model = st.selectbox("Model Type", options=list(MODELS.keys()), format_func=lambda x: MODELS[x])
+        use_nugget = st.checkbox("Use Nugget", value=False)
+
+        # update the variogram
+        vario.model = model
+        vario.use_nugget = use_nugget
+        
+        # fit method
+        fit_method = st.selectbox("Fit Method", options=list(FIT_METHOD.keys()), format_func=lambda x: FIT_METHOD[x])
+
+        if fit_method == 'manual':
+            fit_params = dict(method='manual')
+            fit_params['range'] = st.slider("Effective range", value=float(np.mean(vario.bins)), min_value=float(vario.bins[0]), max_value=float(vario.bins[-1]), step=0.1)
+            if use_nugget:
+                _n, _s = st.slider("Nugget & Sill", value=(0.0, float(0.8 * vario.experimental.max())), min_value=0.0, max_value=float(1.5*vario.experimental.max()), step=0.1)
+                fit_params['nugget'] = _n
+                fit_params['sill'] = _s
+            else:
+                _s = st.slider("Sill", value=float(0.8 * vario.experimental.max()), min_value=0.0, max_value=float(1.5*vario.experimental.max()), step=0.1)
+                fit_params['sill'] = _s
+            
+            vario.fit(**fit_params)
+        else:
+            fs = st.selectbox("Fit Sigma", options=['No weights', 'linear', 'sq'])
+            fit_sigma = fs if fs != 'No weights' else None
+        
+            # fit the variogram
+            vario.fit_method = fit_method
+            vario.fit_sigma = fit_sigma
 
     # return 
     return vario
 
 def main_app():
-    st.title("SciKit-GStat")
+    #st.title("SciKit-GStat")
 
     # build the variogram
     vario = build_variogram()
 
+    # build a grid
+    row = st.container()
+
     # finally plot the variogram
     fig = vario.plot(show=False)
     fig.update_layout(legend=dict(orientation='h'))
-    st.plotly_chart(fig, use_container_width=True)
+    row.plotly_chart(fig, use_container_width=True)
 
+    # check if the user wants diagnostics and plots
+    show_diag = st.sidebar.checkbox("Show metrics", value=False)
+    show_plots = st.sidebar.checkbox("Show plots", value=False)
+    
+    # buidl the right amount of columns
+    if show_diag and not show_plots:
+        frmse, crmse, _ = st.columns(3)
+    elif show_diag and show_plots:
+        frmse, plt1, plt2 = st.columns((2, 4, 4))
+        crmse = frmse
+    elif not show_diag and show_plots:
+        plt1, plt2 = st.columns(2)
+    
+    if show_diag:
+        # add some metrics
+        frmse.metric('Fit - RMSE', value=float(vario.rmse.round(1)))
+        crmse.metric('CV - RMSE', value=float(vario.cross_validate(n=200, seed=42).round()))
+
+    if show_plots:
+        # add other plots
+        pp_plot = vario.distance_difference_plot(show=False)
+        plt1.plotly_chart(pp_plot, use_container_width=True)
+
+        # get a kriging 
+        krige = vario.to_gs_krige()
+        x = np.linspace(0, np.max(vario.coordinates[:, 0]), 100)
+        y = np.linspace(0, np.max(vario.coordinates[:, 1]), 100)
+        field, sigma = krige.structured([x, y])
+
+        fig = go.Figure(go.Surface(x=x, y=y, z=field, colorscale='Earth_r'))
+        plt2.plotly_chart(fig, use_container_width=True)
 
 if __name__ == "__main__":
     # first set some general parameters
