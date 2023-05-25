@@ -1,3 +1,4 @@
+# VERSION 0.1.1
 from typing import Tuple
 
 import streamlit as st
@@ -25,7 +26,7 @@ BIN_METHOD = dict(
     scott='Scott\' Rule',
     doane='Doane\'s Rule',
     fd='Freedman-Diaconis\' Estimator',
-    sq='Square Root',
+    sqrt='Square Root',
     sturges='Sturges\' Rule',
     kmeans='K-Means clustering',
     ward='Ward\'s hierarchical clustering',
