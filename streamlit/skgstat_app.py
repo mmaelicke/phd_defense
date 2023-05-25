@@ -85,7 +85,7 @@ def build_variogram() -> skg.Variogram:
         coords, 
         values,
         estimator=estimator,
-        bin_method=bin_method,
+        bin_func=bin_method,
         n_lags=n_lags,
         maxlag=maxlag,
         normalize=False
@@ -172,6 +172,7 @@ def main_app():
 
         fig = go.Figure(go.Surface(x=x, y=y, z=field, colorscale='Earth_r'))
         plt2.plotly_chart(fig, use_container_width=True)
+
 
 if __name__ == "__main__":
     # first set some general parameters
