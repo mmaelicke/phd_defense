@@ -5,10 +5,10 @@ RUN mkdir /app
 
 # copy the source files
 COPY ./requirements.txt /app/requirements.txt
-COPY ./skgstat.py /app/skgstat.py
+COPY ./skgstat_app.py /app/skgstat_app.py
 
 # install the requirements
 RUN pip install -r /app/requirements.txt
 
 # run the app as default CMD
-CMD ["streamlit", "run", "/app/skgstat.py", "--server.headless", "true", "--server.fileWatcherType", "none", "--browser.gatherUsageStats", "false"]
+CMD ["streamlit", "run", "/app/skgstat_app.py", "--server.headless", "true", "--server.fileWatcherType", "none", "--browser.gatherUsageStats", "false"]
