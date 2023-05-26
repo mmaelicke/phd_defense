@@ -1,9 +1,13 @@
+import { Paper } from "@mui/material"
 import MainSlide from "../components/MainSlide"
+import BasicUncertainty from "../slides/BasicUncertainty"
 
 const Uncertainty: React.FC = () => {
     return (<>
         <MainSlide title="Uncertainty" id="start-uncertainty">
-            <h1>Uncertainty</h1>
+            <Paper elevation={3} sx={{p: 2}}>
+                <BasicUncertainty />
+            </Paper>
         </MainSlide>
     </>)
 }
