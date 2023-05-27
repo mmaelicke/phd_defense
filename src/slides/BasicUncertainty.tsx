@@ -16,6 +16,7 @@ const MARKS = [
 const BasicUncertainty: React.FC = () => {
     // component state for changing the figure
     const [sampleSize, setSampleSize] = useState<'30' | '50' | '100' | '300'>('30')
+    const [method, setMethod] = useState<'z-score' | 'k-fold' | 'mc'>('k-fold')
 
     // create the state of the plot
     const [data, setData] = useState<Partial<Data>[]>([])
@@ -28,7 +29,7 @@ const BasicUncertainty: React.FC = () => {
             {
                 mode: 'lines',
                 x: DATA[`${sampleSize}`]['bins'] as number[],
-                y: DATA[`${sampleSize}`]['k-fold'].map(tup => tup[0]) as number[],
+                y: DATA[`${sampleSize}`][method].map(tup => tup[0]) as number[],
                 fill: 'none',
                 line: {color: 'gray'},
                 showlegend: false
@@ -36,7 +37,7 @@ const BasicUncertainty: React.FC = () => {
             {
                 mode: 'lines',
                 x: DATA[`${sampleSize}`]['bins'] as number[],
-                y: DATA[`${sampleSize}`]['k-fold'].map(tup => tup[1]) as number[],
+                y: DATA[`${sampleSize}`][method].map(tup => tup[1]) as number[],
                 fill: 'tonexty',
                 line: {color: 'gray'},
                 name: '95% uncertainty band'
@@ -45,6 +46,7 @@ const BasicUncertainty: React.FC = () => {
 
         // build the layout
         const newLayout = {
+            title: `${method} uncertainty propagation`,
             autosize: true,
             xaxis: {title: 'Separating distance (m)'},
             yaxis: {title: 'Semivariance (bit)'},
@@ -55,7 +57,7 @@ const BasicUncertainty: React.FC = () => {
         setData(newData)
         setLayout(newLayout)
 
-    }, [sampleSize])
+    }, [sampleSize, method])
 
     return (
         <Grid container spacing={3}>
@@ -70,8 +72,10 @@ const BasicUncertainty: React.FC = () => {
             <Grid item xs={6}>
                 <FormControl fullWidth>
                     <InputLabel id="propagation-method">Propagation Method</InputLabel>
-                    <Select labelId="propagaion-method" label="Propagation Method" value="k-fold">
+                    <Select labelId="propagaion-method" label="Propagation Method" value={method} onChange={(e) => setMethod(e.target.value as 'z-score' | 'k-fold' | 'mc')}>
                         <MenuItem value="k-fold">K-Fold</MenuItem>
+                        <MenuItem value="z-score">Z-Score</MenuItem>
+                        <MenuItem value="mc">Monte Carlo</MenuItem>
                     </Select>
                 </FormControl>
             </Grid>
