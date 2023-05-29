@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Grid, Slider } from "@mui/material";
+import { FormControl, Grid, InputLabel, MenuItem, Select, Slider } from "@mui/material";
 import { Data, Layout, ScatterData } from "plotly.js";
 import Plot from "react-plotly.js";
 
@@ -104,7 +104,7 @@ const BasicUncertainModels: React.FC = () => {
             autosize: true,
             xaxis: {title: 'Distance (m)'},
             yaxis: {title: 'Semivariance (bit)'},
-            legend: {orientation: 'h'}
+            legend: {orientation: 'h', yanchor: 'top', y: 1.2}
         } as Layout
 
         // finally set the new data
@@ -115,18 +115,29 @@ const BasicUncertainModels: React.FC = () => {
     return (
         <Grid container spacing={3}>
 
-            <Grid item xs={2}>
-                <Slider orientation="vertical" defaultValue={sill} min={0} max={2000} onChange={(e, value) => setSill(value as number)} />
+            <Grid item xs={12}>
+                <FormControl fullWidth>
+                    <InputLabel id="model-label">Theoretical Model</InputLabel>
+                    <Select labelId="model-label" label="Theoretical Model" value={model} onChange={e => setModel(e.target.value as 'spherical' | 'gaussian' | 'exponential')}>
+                        <MenuItem value="spherical">Spherical Model</MenuItem>
+                        <MenuItem value="exponential">Exponential Model</MenuItem>
+                        <MenuItem value="gaussian">Gaussian Model</MenuItem>
+                    </Select>
+                </FormControl>
             </Grid>
-            <Grid item xs={10}>
+
+            <Grid item xs={1} sx={{py: 5}}>
+                <Slider orientation="vertical" defaultValue={sill} min={0} max={2000} onChange={(e, value) => setSill(value as number)} valueLabelDisplay="auto" />
+            </Grid>
+            <Grid item xs={11}>
                 <Plot
                     data={data}
                     layout={layout}
                     style={{width: '100%', height: '400px'}}
                 />
             </Grid>
-            <Grid item xs={12}>
-                <Slider defaultValue={range} min={10} max={350} onChange={(e, value) => setRange(value as number)} />
+            <Grid item xs={12} sx={{px: 5}}>
+                <Slider defaultValue={range} min={10} max={350} onChange={(e, value) => setRange(value as number)} valueLabelDisplay="auto" />
             </Grid>
 
         </Grid>
