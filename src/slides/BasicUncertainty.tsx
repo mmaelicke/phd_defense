@@ -1,10 +1,10 @@
 import { FormControl, Grid, InputLabel, MenuItem, Select, Slider, Typography } from "@mui/material"
-
-// statically import DATA
-import DATA from './data/uncertainty.json'
 import { useEffect, useState } from "react"
 import { Data, Layout, ScatterData } from "plotly.js"
 import Plot from "react-plotly.js"
+
+// statically import DATA
+import DATA from './data/uncertainty.json'
 
 const MARKS = [
     {value: 30, label: '30'},
