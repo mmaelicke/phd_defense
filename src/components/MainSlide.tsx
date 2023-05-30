@@ -1,5 +1,5 @@
 import { Slide, SlideProps, H2 } from "@gregcello/revealjs-react"
-import { Box, Grid, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import React from "react"
 
 interface MainSlideProps extends SlideProps {
