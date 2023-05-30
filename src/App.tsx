@@ -6,9 +6,12 @@ import Software from './chapters/Software';
 import Uncertainty from './chapters/Uncertainty';
 import SoilMoisture from './chapters/SoilMoisture';
 import Appendix from './chapters/Appendix';
+import { CssBaseline } from '@mui/material';
 
 function App() {
   return (
+    <>
+    <CssBaseline />
     <div style={{width: '100vw', height: '100vh', margin: 0, padding: 0}}>
       <RevealJS plugins={[HighlightPlugin, NotesPlugin]} overview slideNumber="c/t">
         
@@ -20,6 +23,7 @@ function App() {
         <Appendix />
       </RevealJS>
     </div>
+    </>
   );
 }
 
