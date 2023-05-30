@@ -5,11 +5,11 @@ import Outline from "../slides/Outline"
 
 const Software: React.FC = () => {
     return (<>
-        <Outline highlight="software" id="start-software" />
+        <Outline highlight="software" />
         
-        <MainSlide title="Software">
+        <MainSlide title="Software" id="start-software">
             <Paper elevation={3} sx={{height: '100%'}}>
-            <iframe data-src="https://skg.geostat.hydrocode.de" style={{width: '100%', height: '100%'}} frameBorder="0" />
+            <iframe data-src="https://skg.geostat.hydrocode.de" style={{width: '100%', height: '100%'}} frameBorder="0" title="Software example"/>
             </Paper>
         </MainSlide>
     </>)
