@@ -1,8 +1,12 @@
 import MainSlide from "../components/MainSlide"
+import Outline from "../slides/Outline"
 
 const SoilMoisture: React.FC = () => {
     return (<>
-        <MainSlide title="Soil Moisture" id="start-soil-moisture">
+
+        <Outline highlight="moisture" id="start-soil-moisture" />
+
+        <MainSlide title="Soil Moisture">
             <h1>Soil Moisture</h1>
         </MainSlide>
     </>)
