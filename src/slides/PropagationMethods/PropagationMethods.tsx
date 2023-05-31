@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper } from "@mui/material"
 import { CandlestickChart, Loop, StackedLineChart } from "@mui/icons-material"
 import ZScoreExample from "./ZScoreExample";
+import KFoldExample from "./KFoldExample";
 
 const PropagationMethods = () => {
     // add a state to switch the current sub-application
@@ -43,6 +44,7 @@ const PropagationMethods = () => {
 
             <Grid item xs={9} className="fragment" sx={{height: '500px'}}>
                 { currentApp === 'z-score' ? <ZScoreExample /> : null }
+                { currentApp === 'k-fold' ? <KFoldExample /> : null }
             </Grid>
         </Grid>
     )
