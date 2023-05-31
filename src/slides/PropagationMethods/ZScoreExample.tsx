@@ -16,7 +16,7 @@ const MAX_Y = 0.3
 
 function calculateConfidenceInterval(mean: number, stdDev: number, n: number, alpha: number): [number[], number[], number, number] {
   // calculate the x and y values for the normal distribution
-  const x = linspace(0, MAX_X, 100);
+  const x: number[] = linspace(0, MAX_X, 100);
   const y = x.map((xi) => normal.pdf(xi, mean, stdDev));
 
   // calculate the z-score for the given significance level
@@ -34,9 +34,8 @@ function calculateConfidenceInterval(mean: number, stdDev: number, n: number, al
 
 const ZScoreExample: React.FC = () => {
     // component state to make up an example
-    const [sampleSize, setSampleSize] = useState<number>(200)
+    const [sampleSize, setSampleSize] = useState<number>(10)
     const [sample, setSample] = useState<number[]>([])
-    const [interval, setInterval] = useState<[number, number]>([0, 0])
     
     // state to store the plot data
     const [data, setData] = useState<Partial<Data>[]>([])
@@ -140,7 +139,7 @@ const ZScoreExample: React.FC = () => {
                 <Box sx={{p:2, width: '100%'}}>
                     <Slider value={sampleSize} min={10} max={500} step={10} valueLabelDisplay="auto" onChange={(_, value) => setSampleSize(value as number)} />
                 </Box>
-                <Plot data={data} layout={layout} style={{height: '350px'}} />
+                <Plot data={data} layout={layout} style={{height: '400px'}} />
             </Stack>
         </Zoom>
     )
