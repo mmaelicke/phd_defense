@@ -3,6 +3,7 @@ import { Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper
 import { CandlestickChart, Loop, StackedLineChart } from "@mui/icons-material"
 import ZScoreExample from "./ZScoreExample";
 import KFoldExample from "./KFoldExample";
+import MCExample from "./MCExample";
 
 const PropagationMethods = () => {
     // add a state to switch the current sub-application
@@ -12,8 +13,8 @@ const PropagationMethods = () => {
         <Grid container spacing={1}>
             
             <Grid item xs={3} sx={{height: '100%'}}>
-            <Paper elevation={3} sx={{p: 0}}>
-                    <List className="fragment">
+            <Paper elevation={3} sx={{p: 0}} className="fragment">
+                    <List>
                         <ListItem disablePadding>
                             <ListItemButton selected={currentApp==='z-score'} onClick={() => setCurrentApp('z-score')}>
                                 <ListItemIcon>
@@ -45,6 +46,7 @@ const PropagationMethods = () => {
             <Grid item xs={9} className="fragment" sx={{height: '500px'}}>
                 { currentApp === 'z-score' ? <ZScoreExample /> : null }
                 { currentApp === 'k-fold' ? <KFoldExample /> : null }
+                { currentApp === 'mc' ? <MCExample /> : null}
             </Grid>
         </Grid>
     )
