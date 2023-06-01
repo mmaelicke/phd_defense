@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Button, CircularProgress, FormControl, Stack, TextField, Zoom } from "@mui/material"
 
 import randn from "@stdlib/random/base/randn";
@@ -6,9 +6,8 @@ import randu from "@stdlib/random/base/randu";
 import ones from "@stdlib/array/base/ones";
 import linspace from "@stdlib/array/base/linspace";
 import normal from "@stdlib/stats/base/dists/normal";
-import { Annotations, Data, Layout, PlotData, ScatterData } from "plotly.js";
+import { Data, Layout} from "plotly.js";
 import Plot from "react-plotly.js";
-import cloneDeep from "lodash.clonedeep";
 
 // generate a random master dataset
 const R = randn.factory({ seed: 42 })
@@ -35,8 +34,10 @@ const MCExample: React.FC = () => {
     const [iteration, setIteration] = useState<number>(0)
     const [running, setRunning] = useState<boolean>(false)
 
-    // create a state that stores the new sample means
-    const [means, setMeans] = useState<number[]>([])
+    // create a state that stores the new sample means and the last sample
+    //const [means, setMeans] = useState<number[]>([])
+    const meansRef = useRef<number[]>([])
+    const [lastSample, setLastSample] = useState<number[]>([])
 
     // create a state for both plots
     const [data1, setData1] = useState<Partial<Data>[]>([])
@@ -50,7 +51,8 @@ const MCExample: React.FC = () => {
             setData1([])
             setData2([])
             setLayout2({})
-            setMeans([])
+            meansRef.current = []
+            setLastSample([])
             setIteration(1)
         }
         if (!running) {
@@ -71,68 +73,75 @@ const MCExample: React.FC = () => {
             const newSample = MASTER_SAMPLE.map(x => ((randu() - 0.5) * sigma) + x)
             
             // update the means
-            const newMeans = cloneDeep(means)
-            newMeans.push(newSample.reduce((a, b) => a + b, 0) / newSample.length)
-            setMeans(newMeans)
-
-            // build new plot data
-            const newData1 = [
-                ...newSample.map((x, i) => {
-                    return {
-                        type: 'scatter',
-                        x: [0.1, 0.8],
-                        y: [MASTER_SAMPLE[i], x],
-                        line: {color: 'blue', opacity: 0.5, width: 0.8},
-                        marker: {color: 'blue', size: 6},
-                        showlegend: false
-                    } as Partial<Data>
-                })
-            ]
-
-            // plot the new means' distribution
-            const [x, y] = fitNormal(newMeans)
-            const newData2 = [
-                {
-                    mode: 'lines',
-                    x: x,
-                    y: y,
-                    line: {color: 'blue', width: 0.6},
-                    fill: 'tozeroy',
-                    fillcolor: 'rgba(0, 0, 255, 0.2)'
-                }
-            ]
-
-            const newLayout2 = {
-                autosize: true,
-                xaxis: {range: [6, 9]},
-                yaxis: {range: [0, 1.0]},
-                shapes: [
-                    ...newMeans.map(x => {
-                        return {
-                            type: 'line',
-                            xref: 'x',
-                            yref: 'y',
-                            x0: x,
-                            y0: 0,
-                            x1: x,
-                            y1: 0.4,
-                            line: {color: 'red', width: 1, dash: 'dot'}
-                        }
-                    })
-                ]
-            } as Layout
-
-
-            // update the plots
-            setData1(newData1)
-            setData2(newData2)
-            setLayout2(newLayout2)
+            //const newMeans = cloneDeep(means)
+            meansRef.current.push(newSample.reduce((a, b) => a + b, 0) / newSample.length)
             
+            // set the new state
+            //setMeans(newMeans)
+            setLastSample(newSample)
+
             // start the next step 1.4 seconds later
             setTimeout(() => setIteration(iteration + 1), iteration < 5 ? 1400 : 100)
         }
-    }, [iteration])
+    }, [iteration, sigma])
 
+    // effect to update the plot whenever a new sample was taken
+    useEffect(() => {
+        // build new plot data
+        setData1([
+            ...lastSample.map((x, i) => {
+                return {
+                    type: 'scatter',
+                    x: [0.1, 0.8],
+                    y: [MASTER_SAMPLE[i], x],
+                    line: {color: 'blue', opacity: 0.5, width: 0.8},
+                    marker: {color: 'blue', size: 6},
+                    showlegend: false
+                } as Partial<Data>
+            })
+        ])
+    }, [lastSample])
+
+    // effect to update the plot whenever a new mean was calculated
+    useEffect(() => {
+        // plot the new means' distribution
+        const [x, y] = fitNormal(meansRef.current)
+        const newData2 = [
+            {
+                mode: 'lines',
+                x: x,
+                y: y,
+                line: {color: 'blue', width: 0.6},
+                fill: 'tozeroy',
+                fillcolor: 'rgba(0, 0, 255, 0.2)'
+            }
+        ]
+
+        const newLayout2 = {
+            autosize: true,
+            xaxis: {range: [6, 9]},
+            yaxis: {range: [0, 1.0]},
+            shapes: [
+                ...meansRef.current.map(x => {
+                    return {
+                        type: 'line',
+                        xref: 'x',
+                        yref: 'y',
+                        x0: x,
+                        y0: 0,
+                        x1: x,
+                        y1: 0.4,
+                        line: {color: 'red', width: 1, dash: 'dot'}
+                    }
+                })
+            ]
+        } as Layout
+
+
+        // update the plots
+        setData2(newData2)
+        setLayout2(newLayout2)
+    }, [lastSample])
 
     return (
         <Zoom in>
