@@ -5,6 +5,7 @@ import BasicUncertainty from "../slides/BasicUncertainty"
 import BasicUncertainModels from "../slides/BasicUncertainModels"
 import Outline from "../slides/Outline"
 import PropagationMethods from "../slides/PropagationMethods/PropagationMethods"
+import ParallelMetrics from "../slides/ParallelMetrics"
 
 const Uncertainty: React.FC = () => {
     return (<>
@@ -23,6 +24,12 @@ const Uncertainty: React.FC = () => {
         <MainSlide title="Uncertain Models">
             <Paper elevation={3} sx={{p: 2}}>
                 <BasicUncertainModels />
+            </Paper>
+        </MainSlide>
+
+        <MainSlide title="Uncertain Models">
+            <Paper elevation={3}>
+                <ParallelMetrics />
             </Paper>
         </MainSlide>
     </>)
