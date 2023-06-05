@@ -24,6 +24,3 @@ yarn-error.log*
 
 # ignore python stuff as well
 __pycache__
-
-# some project specifics
-dev_data/*
