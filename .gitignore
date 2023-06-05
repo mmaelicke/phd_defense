@@ -26,4 +26,4 @@ yarn-error.log*
 __pycache__
 
 # some project specifics
-daily_app.hf5
+dev_data/*
