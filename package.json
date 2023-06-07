@@ -20,6 +20,7 @@
     "plotly.js": "^2.22.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-force-graph": "^1.43.0",
     "react-plotly.js": "^2.6.0",
     "react-scripts": "5.0.1",
     "reveal.js": "^4.5.0",
