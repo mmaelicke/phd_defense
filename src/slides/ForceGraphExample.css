@@ -4,4 +4,5 @@ div.scene-container {
 
 canvas {
     width: 100%!important;
+    border-radius: 0px 15px 0px 15px;
 }
