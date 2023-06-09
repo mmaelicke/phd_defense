@@ -13,7 +13,14 @@ function App() {
     <>
     <CssBaseline />
     <div style={{width: '100vw', height: '100vh', margin: 0, padding: 0}}>
-      <RevealJS plugins={[HighlightPlugin, NotesPlugin]} overview slideNumber="c/t">
+      <RevealJS 
+        plugins={[HighlightPlugin, NotesPlugin]} 
+        overview 
+        slideNumber="c/t"
+        hash
+        autoAnimateDuration={1.4}
+
+      >
         
         {/* Presentation chapters */}
         <Introduction />
