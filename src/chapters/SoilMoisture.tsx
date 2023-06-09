@@ -4,6 +4,7 @@ import MainSlide from "../components/MainSlide"
 import Outline from "../slides/Outline"
 import ForceGraphExample from "../slides/ForceGraphExample"
 import GraphExamples from "../slides/GraphExamples"
+import ClusterGraphs from "../slides/ClusterGraphs"
 
 const SoilMoisture: React.FC = () => {
     return (<>
@@ -25,6 +26,12 @@ const SoilMoisture: React.FC = () => {
         <MainSlide title="Benchmark Graphs">
             <Paper elevation={3}>
                 <GraphExamples />
+            </Paper>
+        </MainSlide>
+
+        <MainSlide title="Cluster mean covariance graph">
+            <Paper elevation={3}>
+                <ClusterGraphs />
             </Paper>
         </MainSlide>
 
