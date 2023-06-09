@@ -3,6 +3,7 @@ import { Box, Paper } from "@mui/material"
 import MainSlide from "../components/MainSlide"
 import Outline from "../slides/Outline"
 import ForceGraphExample from "../slides/ForceGraphExample"
+import GraphExamples from "../slides/GraphExamples"
 
 const SoilMoisture: React.FC = () => {
     return (<>
@@ -19,6 +20,12 @@ const SoilMoisture: React.FC = () => {
 
         <MainSlide title="Force-directed graphs">
             <ForceGraphExample />
+        </MainSlide>
+
+        <MainSlide title="Benchmark Graphs">
+            <Paper elevation={3}>
+                <GraphExamples />
+            </Paper>
         </MainSlide>
 
     </>)
