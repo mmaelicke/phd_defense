@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import { Button, FormControl, FormControlLabel, Grid, Slider, Stack, Switch, ToggleButton, ToggleButtonGroup } from "@mui/material"
+import { Button, Grid, Slider, Stack, ToggleButton, ToggleButtonGroup } from "@mui/material"
+import { ThreeDRotation, ViewInAr, ScatterPlot, Straighten, CandlestickChart } from "@mui/icons-material"
 import { ForceGraph2D, ForceGraph3D, ForceGraphVR } from "react-force-graph"
 
 import './ClusterGraphs.css'
@@ -34,6 +35,10 @@ const ClusterGraphs: React.FC = () => {
     const [currentGraph, setCurrentGraph] = useState<'yl' | 'gr' | 'bu'>('yl')
     const [graphData, setGraphData] = useState<typeof DATA.yl.graph>(cloneDeep(DATA.yl.graph))
 
+    // state to switch from 2D to 3D graph
+    const [graphType, setGraphType] = useState<'2d' | '3d' | 'ar'>('3d')
+    const [GraphElement, setGraphElement] = useState<typeof ForceGraph2D | typeof ForceGraph3D | typeof ForceGraphVR>(ForceGraph3D)
+
     // heat up a distance-keeping force, when the graph initializes
     useEffect(() => {
         if (graphRef.current) {
@@ -43,6 +48,17 @@ const ClusterGraphs: React.FC = () => {
                 //.iterations(() => 1)
             }
     }, [])
+
+    // change the graph element, when the 2D/3D switch changes
+    useEffect(() => {
+        if (graphType === '3d') {
+            setGraphElement(ForceGraph3D)
+        } else if (graphType === 'ar') {
+            setGraphElement(ForceGraphVR)
+        } else {
+            setGraphElement(ForceGraph2D)
+        }
+    }, [graphType])
 
     // change the distance-keeping force, when the distance value changes or the filter changes
     useEffect(() => {
@@ -63,15 +79,19 @@ const ClusterGraphs: React.FC = () => {
     return (
         <Grid container>
             
-            <Grid item xs={4} justifyContent="space-around" direction="column" display="flex">
-                <Stack sx={{p: 3}}>
-                    <Stack direction="row" justifyContent="stretch">
-                        
-                    </Stack>
+            <Grid item xs={4} justifyContent="space-between" direction="column" display="flex">
+                <Stack sx={{p: 1}}>
+                    <Stack direction="row" justifyContent="space-between">
                     <ToggleButtonGroup exclusive value={distVal} onChange={(_, val) => setDistVal(val)}>
-                        <ToggleButton value="separating" >Distance</ToggleButton>
-                        <ToggleButton value="residual">Value difference</ToggleButton>
+                        <ToggleButton value="separating" ><Straighten /></ToggleButton>
+                        <ToggleButton value="residual"><CandlestickChart /></ToggleButton>
                     </ToggleButtonGroup>
+                    <ToggleButtonGroup exclusive value={graphType} onChange={(_, val) => setGraphType(val)}>
+                        <ToggleButton value="2d"><ScatterPlot /></ToggleButton>
+                        <ToggleButton value="3d"><ThreeDRotation /></ToggleButton>
+                        <ToggleButton value="ar"><ViewInAr /></ToggleButton>
+                    </ToggleButtonGroup>
+                    </Stack>
                     <Stack sx={{p:3}}>
                         <Slider min={MIN_D} max={MAX_D} value={distFilter} valueLabelDisplay="auto" onChange={(_, v) => setDistFilter(v as number[])} /> 
                     </Stack>
@@ -81,23 +101,25 @@ const ClusterGraphs: React.FC = () => {
                     <Button variant="contained" color="success" onClick={() => setCurrentGraph('gr')} disabled={currentGraph==='gr'}>Green</Button>
                     <Button variant="contained" color="primary" onClick={() => setCurrentGraph('bu')} disabled={currentGraph==='bu'}>Blue</Button>
                 </Stack>
+                <span />
             </Grid>
 
             <Grid item xs={8} component="div" ref={containerRef}>
-                <ForceGraph3D 
-                    ref={graphRef}
-                    graphData={graphData}
-                    nodeVal="obs_norm"
-                    height={450}
-                    width={containerRef.current ? containerRef.current.clientWidth : 400}
-                    backgroundColor="rgba(0,0,0,0.8)"
-                    linkColor={() => DATA[currentGraph].color}
-                    linkOpacity={0.5}
-                    nodeColor={() => '#2EA28A'}
-                    linkWidth={1}
-                    enableNodeDrag
-                    enableNavigationControls
-                    showNavInfo={false}
+                <GraphElement {...{ 
+                    ref: graphRef,
+                    graphData: graphData,
+                    nodeVal: "obs_norm",
+                    height: 450,
+                    width: containerRef.current ? containerRef.current.clientWidth : 400,
+                    backgroundColor: "rgba(0,0,0,0.8)",
+                    linkColor: () => DATA[currentGraph].color,
+                    ...( graphType !== '2d' && {linkOpacity: 0.8} ),
+                    nodeColor: () => '#2EA28A',
+                    linkWidth: 1,
+                    //enableNodeDrag
+                    //enableNavigationControls
+                    showNavInfo: false,
+                }}
                 />
             </Grid>
 
