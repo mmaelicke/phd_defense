@@ -59,6 +59,7 @@ const Introduction: React.FC = () => {
                 <Box component="img" src="img/pancake_field_r.png" sx={{maxHeight: 450}} className="fragment" />
                 <Box component="img" src="img/pancake_field_sample.png" sx={{maxHeight: 450}} className="fragment" />
                 <Box component="img" src="img/pancake_animation.gif" sx={{maxHeight: 450}} className="fragment" />
+                <Box component="img" src="img/lagclasses_animation.gif" sx={{maxHeight: 450}} className="fragment" />
             </Paper>
         </MainSlide>
         
