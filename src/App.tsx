@@ -6,7 +6,11 @@ import Software from './chapters/Software';
 import Uncertainty from './chapters/Uncertainty';
 import SoilMoisture from './chapters/SoilMoisture';
 import Appendix from './chapters/Appendix';
+
 import { CssBaseline } from '@mui/material';
+import 'reveal.js/plugin/highlight/monokai.css'
+import 'reveal.js/plugin/highlight/zenburn.css'
+//import  'reveal.js/plugin/highlight/highlight'
 
 function App() {
   return (
