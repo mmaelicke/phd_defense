@@ -1,7 +1,12 @@
 import { Box, Paper, Stack } from "@mui/material"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Background, Controls, ReactFlow, Node, Edge } from "reactflow"
 import 'reactflow/dist/style.css'
+
+
+import highlight from 'highlight.js';
+import python from 'highlight.js/lib/languages/python';
+import 'highlight.js/styles/monokai.css'
 
 // statically define nodes and edges
 const nodes: Node[] = [
@@ -44,6 +49,11 @@ const SoftwareFlowchart: React.FC = () => {
     // create a state to handle the currently clicked node
     const [currentNode, setCurrentNode] = useState<string | null>(null)
 
+    useEffect(() => {
+        highlight.registerLanguage('python', python)
+        highlight.highlightAll()
+      }, [currentNode])
+
     return (
         <Stack direction="row" spacing={2}>
             <Box sx={{height: 500, width: 550}}>
@@ -54,7 +64,7 @@ const SoftwareFlowchart: React.FC = () => {
             </Box>
             <Paper elevation={3} sx={{height: 500, p: 0, m:0}}>
                 <pre style={{width: '350px', textAlign: 'left', margin: 0, height: '100%'}}>
-                    <code data-trim data-noescape style={{borderRadius: '5px', padding: '15px'}} data-line-numbers="5,6,8-12">
+                    <code className="language-python" data-trim data-noescape style={{borderRadius: '5px', padding: '15px'}} data-line-numbers="5,6,8-12">
                         {currentNode ? `${VARIO}${CODE[currentNode].code}` : '# No node selected.'}
                     </code>
                 </pre>

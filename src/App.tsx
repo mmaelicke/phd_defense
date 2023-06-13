@@ -1,4 +1,3 @@
-import React from 'react';
 import { RevealJS } from "@gregcello/revealjs-react";
 import { HighlightPlugin, NotesPlugin } from "@gregcello/revealjs-react";
 import Introduction from './chapters/Introduction';
@@ -8,11 +7,14 @@ import SoilMoisture from './chapters/SoilMoisture';
 import Appendix from './chapters/Appendix';
 
 import { CssBaseline } from '@mui/material';
-import 'reveal.js/plugin/highlight/monokai.css'
-import 'reveal.js/plugin/highlight/zenburn.css'
+//import 'reveal.js/plugin/highlight/monokai.css'
+//import 'reveal.js/plugin/highlight/zenburn.css'
 //import  'reveal.js/plugin/highlight/highlight'
 
+
+
 function App() {
+
   return (
     <>
     <CssBaseline />
