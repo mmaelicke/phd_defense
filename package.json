@@ -16,6 +16,7 @@
     "@types/node": "^16.18.25",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.1",
+    "highlight.js": "^11.8.0",
     "lodash.clonedeep": "^4.5.0",
     "plotly.js": "^2.22.0",
     "react": "^18.2.0",
@@ -23,6 +24,7 @@
     "react-force-graph": "^1.43.0",
     "react-plotly.js": "^2.6.0",
     "react-scripts": "5.0.1",
+    "reactflow": "^11.7.2",
     "reveal.js": "^4.5.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
@@ -53,6 +55,7 @@
   },
   "devDependencies": {
     "@types/lodash.clonedeep": "^4.5.7",
-    "@types/react-plotly.js": "^2.6.0"
+    "@types/react-plotly.js": "^2.6.0",
+    "@types/reveal.js": "^4.4.2"
   }
 }
