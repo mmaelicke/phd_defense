@@ -25,16 +25,6 @@ const Outline: React.FC<OutlineParams> = ({ withFragments, highlight, id }) => {
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6} lg={3}>
-                    <Card className={withFragments ? "fragment fade-in" : ""} sx={{backgroundColor: highlight==='software' ? 'rgba(1,1,1,0.2)' : 'transparent'}}>
-                        <CardActionArea href="#/start-software">
-                            <CardMedia component="img" image="img/geostatistical_software.png" className="card-img" />
-                            <CardContent>
-                                <Typography variant="h5" component="div">Geostatistical Software</Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} md={6} lg={3}>
                     <Card className={withFragments ? "fragment fade-in" : ""} sx={{backgroundColor: highlight==='uncertainty' ? 'rgba(1,1,1,0.2)' : 'transparent'}}>
                         <CardActionArea href="#/start-uncertainty">
                             <CardMedia component="img" image="img/geostatistical_uncertainty.png" className="card-img" />
@@ -50,6 +40,16 @@ const Outline: React.FC<OutlineParams> = ({ withFragments, highlight, id }) => {
                             <CardMedia component="img" image="img/geostatistical_patterns.png" className="card-img" />
                             <CardContent>
                                 <Typography variant="h5" component="div">Soil Moisture patterns</Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+                </Grid>
+                <Grid item xs={12} md={6} lg={3}>
+                    <Card className={withFragments ? "fragment fade-in" : ""} sx={{backgroundColor: highlight==='software' ? 'rgba(1,1,1,0.2)' : 'transparent'}}>
+                        <CardActionArea href="#/start-software">
+                            <CardMedia component="img" image="img/geostatistical_software.png" className="card-img" />
+                            <CardContent>
+                                <Typography variant="h5" component="div">Geostatistical Software</Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>
