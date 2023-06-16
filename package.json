@@ -23,6 +23,7 @@
     "react-compare-slider": "^2.2.0",
     "react-dom": "^18.2.0",
     "react-force-graph": "^1.43.0",
+    "react-katex": "^3.0.1",
     "react-plotly.js": "^2.6.0",
     "react-scripts": "5.0.1",
     "reactflow": "^11.7.2",
@@ -56,6 +57,7 @@
   },
   "devDependencies": {
     "@types/lodash.clonedeep": "^4.5.7",
+    "@types/react-katex": "^3.0.0",
     "@types/react-plotly.js": "^2.6.0",
     "@types/reveal.js": "^4.4.2"
   }

@@ -1,17 +1,19 @@
 import { H1, H2, RevealJS, Slide } from "@gregcello/revealjs-react";
 import { HighlightPlugin, NotesPlugin } from "@gregcello/revealjs-react";
+import { CssBaseline, Grid } from '@mui/material';
+
+
+import Motivation from "./chapters/Motivation";
 import Introduction from './chapters/Introduction';
 import Software from './chapters/Software';
 import Uncertainty from './chapters/Uncertainty';
 import SoilMoisture from './chapters/SoilMoisture';
 import Appendix from './chapters/Appendix';
 
-import { CssBaseline, Grid } from '@mui/material';
-import Motivation from "./chapters/Motivation";
 //import 'reveal.js/plugin/highlight/monokai.css'
 //import 'reveal.js/plugin/highlight/zenburn.css'
 //import  'reveal.js/plugin/highlight/highlight'
-
+import 'katex/dist/katex.min.css'
 
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
     <CssBaseline />
     <div style={{width: '100vw', height: '100vh', margin: 0, padding: 0}}>
       <RevealJS 
-        plugins={[HighlightPlugin, NotesPlugin]} 
+        plugins={[HighlightPlugin, NotesPlugin ]} 
         overview 
         slideNumber="c/t"
         hash
