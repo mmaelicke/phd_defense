@@ -54,8 +54,11 @@ const Introduction: React.FC = () => {
                     <Grid item xs={12} md={6}>
                         <Box component="img" src="img/starzel_radar.jpg" sx={{maxHeight: 400}} />
                     </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Box component="img" src="img/starzel_model.jpg" sx={{maxHeight: 400}} className="fragment custom blur transparent" />
+                    <Grid item xs={12} md={6} className="r-stack">
+                        <Box component="img" src="img/starzel_plot_0.png" sx={{maxHeight: 400}} className="fragment" />
+                        <Box component="img" src="img/starzel_plot_1.png" sx={{maxHeight: 400}} className="fragment" />
+                        <Box component="img" src="img/starzel_plot_2.png" sx={{maxHeight: 400}} className="fragment" />
+                        <Box component="img" src="img/starzel_plot_3.png" sx={{maxHeight: 400}} className="fragment" />
                     </Grid>
                 </Grid>
                 
@@ -87,7 +90,7 @@ const Introduction: React.FC = () => {
             <BasicVariogram />
         </MainSlide> */}
 
-        <MainSlide title="Uncertain observations">
+        {/* <MainSlide title="Uncertain observations">
             <Stack direction="row" sx={{height: '100%'}}>
                 <Stack direction="column" justifyContent="space-evenly">
                     <span /><span />
@@ -98,7 +101,7 @@ const Introduction: React.FC = () => {
                     <span /><span />
                 </Stack>
             </Stack>
-        </MainSlide>
+        </MainSlide> */}
     </>)
 }
 
