@@ -3,6 +3,7 @@ import MainSlide from "../components/MainSlide"
 import Outline from "../slides/Outline"
 
 import CompareObservationUncertainty from "../slides/CompareObservationUncertainty"
+import BasicVariogram from "../slides/BasicVariogram"
 
 const LI: React.FC<React.PropsWithChildren> = ({ children }) => (
     <Typography variant="h6" component="div">{ children }</Typography>
@@ -22,6 +23,20 @@ const Motivation: React.FC = () => {
             </Paper>
         </MainSlide>
 
+        <MainSlide title="Building a pancake variogram">
+            <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
+                <Box component="img" src="img/pancake_field_rgb.png" sx={{maxHeight: 450}} />
+                <Box component="img" src="img/pancake_field_r.png" sx={{maxHeight: 450}} className="fragment" />
+                <Box component="img" src="img/pancake_field_sample.png" sx={{maxHeight: 450}} className="fragment" />
+                <Box component="img" src="img/pancake_animation.gif" sx={{maxHeight: 450}} className="fragment" />
+                <Box component="img" src="img/lagclasses_animation.gif" sx={{maxHeight: 450}} className="fragment" />
+            </Paper>
+        </MainSlide>
+
+        <MainSlide autoAnimate title="Intro to Variograms">
+            <BasicVariogram />
+        </MainSlide>
+
         <MainSlide title="Interpolate a pancake">
             <Paper elevation={3}>
                 <Stack direction="row" spacing={3} sx={{pt: 2}}>
@@ -37,6 +52,14 @@ const Motivation: React.FC = () => {
             </Paper>
         </MainSlide>
 
+        <MainSlide title="Propagate uncertainties">
+            <Paper elevation={3} sx={{p: '0.3rem'}} className="r-stack">
+                <Box component="img" src="img/motivation_variogram_step_0.png" sx={{height: 450}} />
+                <Box component="img" src="img/motivation_variogram_step_1.png" sx={{height: 450}} className="fragment" />
+                <Box component="img" src="img/motivation_variogram_step_2.png" sx={{height: 450}} className="fragment" />
+            </Paper>
+        </MainSlide>
+
         <MainSlide title="Uncertain pancakes">
             <Paper elevation={3}>
                 <CompareObservationUncertainty />
@@ -45,13 +68,16 @@ const Motivation: React.FC = () => {
 
         <MainSlide title="Pancakes as datasets">
             <Stack direction="column" spacing={3} sx={{textAlign: 'left'}}>
-                <LI>-&gt; Software stack can easily be tested across a large number of geostatistical datasets</LI>
-                <LI>- Software stack could generalize to pancakes</LI>
+                <Stack direction="column" spacing={3} className="">
+                    <LI>- Software stack can generalize to pancakes</LI>
+                    <LI>- Pancake prooved to be suitable datasets</LI>
+                    <LI>- Not bound to specificities of any location of the earth (uniqueness of location)</LI>
+                </Stack>
                 
-                <Stack direction="column" spacing={3} className="fragment">
-                <LI>- Pancake prooved to be suitable datasets</LI>
-                <LI>- Spatial variations are not purley random, but driven by thermodynamic principles</LI>
-                <LI>- Not bound to specificities of any location of the earth (uniqueness of location)</LI>
+                <Stack direction="column" spacing={3} className="fragment fade-up"> 
+                    <LI>- Observation uncertainties should be propagated into the variogram</LI>
+                    <LI>- Uncertainty bands allow for a multi-model approach</LI>
+                    <LI>- Models can exhibit different structural properties</LI>
                 </Stack>
             </Stack>
         </MainSlide>
