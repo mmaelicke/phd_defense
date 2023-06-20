@@ -4,10 +4,8 @@ import Outline from "../slides/Outline"
 
 import CompareObservationUncertainty from "../slides/CompareObservationUncertainty"
 import BasicVariogram from "../slides/BasicVariogram"
+import LI from "../components/LI"
 
-const LI: React.FC<React.PropsWithChildren> = ({ children }) => (
-    <Typography variant="h6" component="div">{ children }</Typography>
-)
 
 const Motivation: React.FC = () => {
     return <>

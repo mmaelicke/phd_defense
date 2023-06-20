@@ -1,11 +1,8 @@
 import { Box, Grid, Paper, Stack, Typography } from "@mui/material"
 import MainSlide from "../components/MainSlide"
 import React from "react"
+import LI from "../components/LI"
 
-
-const LI: React.FC<React.PropsWithChildren> = ({children}) => (
-    <Typography variant="h6" component="div">{children}</Typography>
-)
 
 const Introduction: React.FC = () => {
     return (<>
@@ -68,7 +65,7 @@ const Introduction: React.FC = () => {
         <MainSlide title="">
             <Stack direction="column" sx={{textAlign: 'left', height: '100%'}} justifyContent="space-evenly">
                 <LI>- Point observations are precise, but may miss events</LI>
-                <LI>- Radar capture spatial correlation, but may be imprecise</LI>
+                <LI>- Radar captures spatial correlation, but may be imprecise</LI>
                 <Box className="fragment">
                     <LI> =&gt; using both data sources at once</LI>
                     <LI> =&gt; <i>geostatistics</i> provide means for merging <strong>and</strong> analyzing this relationship</LI>
