@@ -33,6 +33,14 @@ const Uncertainty: React.FC = () => {
         <MainSlide title="Uncertainty">
             <PropagationMethods />
         </MainSlide>
+
+        <MainSlide title="Generalize uncertainty in geostatistics">
+            <Stack direction="column" spacing={2}>
+                <LI>- Aleatory uncertainties are propagated by Monte Carlo</LI>
+                <LI>- Epistemic uncertainties:</LI>
+                    <LI ></LI>
+            </Stack>
+        </MainSlide>
         
         <MainSlide title="Uncertainty">
             <Paper elevation={3} sx={{p: 2}}>
