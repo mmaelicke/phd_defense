@@ -73,8 +73,8 @@ const BasicUncertainty: React.FC = () => {
                 <FormControl fullWidth>
                     <InputLabel id="propagation-method">Propagation Method</InputLabel>
                     <Select labelId="propagaion-method" label="Propagation Method" value={method} onChange={(e) => setMethod(e.target.value as 'z-score' | 'k-fold' | 'mc')}>
-                        <MenuItem value="k-fold">K-Fold</MenuItem>
-                        <MenuItem value="z-score">Z-Score</MenuItem>
+                        <MenuItem value="k-fold">K-fold bootstrap</MenuItem>
+                        <MenuItem value="z-score">Conf. Interval</MenuItem>
                         <MenuItem value="mc">Monte Carlo</MenuItem>
                     </Select>
                 </FormControl>
