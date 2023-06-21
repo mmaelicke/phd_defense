@@ -113,7 +113,7 @@ const BasicUncertainModels: React.FC = () => {
     }, [range, sill, model])
 
     return (
-        <Grid container spacing={3}>
+        <Grid container spacing={3} sx={{width: 'inherit'}}>
 
             <Grid item xs={12}>
                 <FormControl fullWidth>
