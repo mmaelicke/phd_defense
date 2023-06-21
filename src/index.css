@@ -7,12 +7,42 @@
     transition: filter 0.8s ease-in-out;
 }
 
+.fragment.blur-out {
+    filter: blur(0);
+    transition: filter 0.8s ease-in-out;
+}
+
+.fragment.blur-out.visible {
+    filter: blur(7px);
+    transition: filter 0.8s ease-in-out;
+}
+
+.fragment.blur-in-out {
+    filter: blur(0);
+    transition: filter 0.8s ease-in-out;
+}
+
+.fragment.blur-in-out.current-fragment {
+    filter: blur(7px);
+    transition: filter 0.8s ease-in-out;
+}
+
 .fragment.transparent {
     opacity: 0.3;
 }
 
 .fragment.transparent.visible {
     opacity: 1.0;
+    transition: filter 0.8s ease-in-out;
+}
+
+.fragment.transparent-out {
+    opacity: 1.0;
+    transition: filter 0.8s ease-in-out;
+}
+
+.fragment.transparent-out.visible {
+    opacity: 0.3;
     transition: filter 0.8s ease-in-out;
 }
 
@@ -32,4 +62,11 @@ a {
     text-decoration: none;
     color: #2EA28A;
     font-weight: 700;
+}
+
+.info-box {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0.5px solid #2EA28A;
+    border-radius: 0px 10px 0px 10px;
+    box-shadow: 1px 4px 6px #2EA28A;
 }
