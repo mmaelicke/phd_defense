@@ -1,4 +1,4 @@
-import { Box, Paper, Stack, Typography } from "@mui/material"
+import { Box, Paper, Stack } from "@mui/material"
 
 import MainSlide from "../components/MainSlide"
 import BasicUncertainty from "../slides/BasicUncertainty"
@@ -30,34 +30,79 @@ const Uncertainty: React.FC = () => {
             </Stack>
         </MainSlide>
 
-        <MainSlide title="Uncertainty">
+        <MainSlide title="Uncertainty propagation methods">
             <PropagationMethods />
         </MainSlide>
 
         <MainSlide title="Generalize uncertainty in geostatistics">
-            <Stack direction="column" spacing={2}>
+            <Stack direction="column" spacing={3} sx={{height: '100%'}} justifyContent="space-evenly">
+                <span />
                 <LI>- Aleatory uncertainties are propagated by Monte Carlo</LI>
+                
+                <Box className="fragment">
                 <LI>- Epistemic uncertainties:</LI>
-                    <LI ></LI>
+                    <LI sx={{pl: 5}}>- confidence interval of the lag class mean</LI>
+                    <LI sx={{pl: 5}}>- bootstraping the k-fold semi-variance</LI>
+                </Box>
+                <span /><span />
             </Stack>
         </MainSlide>
         
-        <MainSlide title="Uncertainty">
-            <Paper elevation={3} sx={{p: 2}}>
-                <BasicUncertainty />
+        <MainSlide title="Uncertainty bounds of a pancake">
+            <Paper elevation={3} sx={{p: 2}} className="r-stack">
+                <Box className="fragment custom blur-out" data-fragment-index="1">
+                    <BasicUncertainty />
+                </Box>
+                <Box className="fragment zoom-in" data-fragment-index="1" >
+                    <Stack direction="column" spacing={3} alignContent="space-evenly" sx={{p: 3}} className="info-box">
+                        <LI>- Observation uncertainty allows for definition of uncertainty bounds</LI>
+                        <LI className="fragment">- Choice of method for estimation is epistemic in nature</LI>
+                        <LI className="fragment">- The subsequent propagation does not account for these uncertainties</LI>
+                    </Stack>
+                </Box>
+                
+            </Paper>
+        </MainSlide>
+
+        <MainSlide title="Uncertain model parameterization">
+            <Paper elevation={3} sx={{p: 2}} className="r-stack">
+                <Box className="fragment custom blur-out" data-fragment-index="1">
+                    <BasicUncertainModels />
+                </Box>
+                <Box className="fragment zoom-in" data-fragment-index="1">
+                    <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{p: 3}} className="info-box">
+                        <LI>- Uncertainty bounds allow for multiple parameterization and models</LI>
+                        <LI>- Parameter interactions </LI>
+                        <LI className="fragment fade-up">- How to assess models (and parameters)?</LI>
+                    </Stack>
+                </Box>
             </Paper>
         </MainSlide>
 
         <MainSlide title="Uncertain Models">
-            <Paper elevation={3} sx={{p: 2}}>
-                <BasicUncertainModels />
+            <Paper elevation={3} className="r-stack">
+                <Box className="fragment custom blur-in-out" data-fragment-index="1" sx={{width: '100%'}}>
+                    <ParallelMetrics />
+                </Box>
+                <Box className="fragment fade-in" data-fragment-index="1">
+                    <Box className="fragment fade-out" data-fragment-index="2">
+                        <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{p: 3}} className="info-box">
+                            <LI>- Assess models and parameterizations using different metrics</LI>
+                            <LI>- Rank models for each metric</LI>
+                        </Stack>
+                    </Box>
+                </Box>
             </Paper>
         </MainSlide>
 
-        <MainSlide title="Uncertain Models">
-            <Paper elevation={3}>
-                <ParallelMetrics />
-            </Paper>
+        <MainSlide title="Summary">
+            <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{height: '100%'}}>
+                <span />
+                <LI>- bullet point 1</LI>
+                <LI>- bullet point 2</LI>
+                <LI>- bullet point 3</LI>
+                <span />
+            </Stack>
         </MainSlide>
     </>)
 }
