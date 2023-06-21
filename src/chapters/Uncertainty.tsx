@@ -98,9 +98,10 @@ const Uncertainty: React.FC = () => {
         <MainSlide title="Summary">
             <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{height: '100%'}}>
                 <span />
-                <LI>- bullet point 1</LI>
-                <LI>- bullet point 2</LI>
-                <LI>- bullet point 3</LI>
+                <LI>- Hard to decide on the <i>correct</i> model</LI>
+                <LI className="fragment fade-up">- Uncertain empirical variograms allow for a multi-model approach</LI>
+                <LI className="fragment fade-up">- Exclude models (or parameterization) which are <strong>not</strong> suitable</LI>
+                <LI className="fragment fade-up">- </LI>
                 <span />
             </Stack>
         </MainSlide>
