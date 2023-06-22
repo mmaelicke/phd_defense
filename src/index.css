@@ -69,4 +69,5 @@ a {
     border: 0.5px solid #2EA28A;
     border-radius: 0px 10px 0px 10px;
     box-shadow: 1px 4px 6px #2EA28A;
+    padding: 1rem;
 }
