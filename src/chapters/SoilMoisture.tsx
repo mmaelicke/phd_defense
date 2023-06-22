@@ -12,7 +12,7 @@ const SoilMoisture: React.FC = () => {
 
         <Outline highlight="moisture" />
 
-        <MainSlide title="">
+        <MainSlide title="Attert catchment in Luxembourg" id="start-soil-moisture" autoAnimate>
             <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
                 <Box component="img" src="img/Attert.png" sx={{maxHeight: '450px'}} />
                 <Typography variant="caption" component="div" sx={{textAlign: 'left', mt: 1}}>
@@ -21,7 +21,7 @@ const SoilMoisture: React.FC = () => {
             </Paper>
         </MainSlide>
 
-        <MainSlide title="Soil Moisture" id="start-soil-moisture" autoAnimate>
+        <MainSlide title="Moving window variogram models" autoAnimate>
             <Paper elevation={3} className="r-stack" sx={{p: 2, m: 'auto', width: 'fit-content'}}>
                 <Box component="img" src="img/moisture_cluster_step1.png" sx={{maxHeight: '450px'}}  />
                 <Box component="img" src="img/moisture_cluster_step2.gif" sx={{maxHeight: '450px'}} className="fragment" data-fragment-index="1" />
@@ -36,6 +36,34 @@ const SoilMoisture: React.FC = () => {
                     </Stack>
                 </Box>
             </Paper>
+        </MainSlide>
+
+        <MainSlide title="" autoAnimate>
+            <Stack direction="row">
+                <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
+                    <Box component="img" src="img/moisture_cluster_step3.png" 
+                        sx={{width: '400px', '&:hover': {width: '700px', position: 'absolute', top: '80px', left: '50px', zIndex: 100}}} 
+                    />
+                </Paper>
+                <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
+                    <Box component="img" src="img/maelicke_clustergram.png" 
+                        sx={{width: '450px', '&:hover': {width: '900px', position: 'absolute', top: '80px', left: '50px', zIndex: 100}}} 
+                    />
+                </Paper>
+            </Stack>
+        </MainSlide>
+
+        <MainSlide title="Summary">
+            <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
+                <LI>- Moving variograms cluster with temporal coherence</LI>
+                <LI className="fragment fade-up">- Clustering of variogram <strong>parameters</strong> yieled very similar results</LI>
+                <LI className="fragment fade-up">- Geostatistical software could reproduce the 2020 results rapidly</LI>
+                <LI className="fragment fade-up">- Lays the foundation for facilitating development of new methods</LI>
+            </Stack>
+        </MainSlide>
+
+        <MainSlide title="Going crazy">
+            <Stack></Stack>
         </MainSlide>
 
         <MainSlide title="Force-directed graphs">
