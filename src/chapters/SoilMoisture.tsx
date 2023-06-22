@@ -38,20 +38,28 @@ const SoilMoisture: React.FC = () => {
             </Paper>
         </MainSlide>
 
-        <MainSlide title="" autoAnimate>
-            <Stack direction="row">
+        <section>
+            <MainSlide title="" autoAnimate>
+                <Stack direction="row">
+                    <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
+                        <Box component="img" src="img/moisture_cluster_step3.png" 
+                            sx={{width: '400px', '&:hover': {width: '700px', position: 'absolute', top: '80px', left: '50px', zIndex: 100}}} 
+                        />
+                    </Paper>
+                    <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
+                        <Box component="img" src="img/maelicke_clustergram.png" 
+                            sx={{width: '450px', '&:hover': {width: '900px', position: 'absolute', top: '80px', left: '50px', zIndex: 100}}} 
+                        />
+                    </Paper>
+                </Stack>
+            </MainSlide>
+        {/* add an appendix to this slide */}
+            <MainSlide title="Appendix: Mean shift">
                 <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
-                    <Box component="img" src="img/moisture_cluster_step3.png" 
-                        sx={{width: '400px', '&:hover': {width: '700px', position: 'absolute', top: '80px', left: '50px', zIndex: 100}}} 
-                    />
+                    <Box component="img" src="img/appendix_mean_shift.png" sx={{maxHeight: '450px'}} />
                 </Paper>
-                <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
-                    <Box component="img" src="img/maelicke_clustergram.png" 
-                        sx={{width: '450px', '&:hover': {width: '900px', position: 'absolute', top: '80px', left: '50px', zIndex: 100}}} 
-                    />
-                </Paper>
-            </Stack>
-        </MainSlide>
+            </MainSlide>
+        </section>
 
         <MainSlide title="Summary">
             <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
