@@ -51,7 +51,7 @@ const Motivation: React.FC = () => {
         </MainSlide>
 
         <MainSlide title="Propagate uncertainties">
-            <Paper elevation={3} sx={{p: '0.3rem'}} className="r-stack">
+            <Paper elevation={3} sx={{p: 1, width: 'fit-content', m: 'auto'}} className="r-stack">
                 <Box component="img" src="img/motivation_variogram_step_0.png" sx={{height: 450}} />
                 <Box component="img" src="img/motivation_variogram_step_1.png" sx={{height: 450}} className="fragment" />
                 <Box component="img" src="img/motivation_variogram_step_2.png" sx={{height: 450}} className="fragment" />
@@ -65,7 +65,7 @@ const Motivation: React.FC = () => {
         </MainSlide>
 
         <MainSlide title="Pancakes as datasets">
-            <Stack direction="column" spacing={3} sx={{textAlign: 'left'}}>
+            <Stack direction="column" spacing={3} sx={{textAlign: 'left'}} className="info-box">
                 <Stack direction="column" spacing={3} className="">
                     <LI>- Software stack can generalize to pancakes</LI>
                     <LI>- Pancake prooved to be suitable datasets</LI>
