@@ -1,4 +1,4 @@
-import { Button, Grid, Paper, Slider, Stack } from '@mui/material'
+import { Button, CircularProgress, Grid, Paper, Slider, Stack } from '@mui/material'
 import { useEffect, useRef, useState } from 'react'
 import { ForceGraph3D, ForceGraph2D } from 'react-force-graph'
 
@@ -37,6 +37,7 @@ const ForceGraphExample = () => {
     // state for controlling the current step
     const [withTriangle, setWithTriangle] = useState<boolean>(false)
     const [withLargeGraph, setWithLargeGraph] = useState<boolean>(false)
+    const [armed, setArmed] = useState<boolean>(false)
 
     // get a reference to the Paper
     const containerRef = useRef<HTMLDivElement>(null)
@@ -47,17 +48,21 @@ const ForceGraphExample = () => {
     // state for graph data
     const [graphData, setGraphData] = useState<{nodes: Node[], links: Link[]}>(SAMPLE)
 
+    // loading screen
+    useEffect(() => {
+        setTimeout(() => setArmed(true), 1500)
+    }, [])
 
     // adjust the distance and stregth of the links, when links change
     useEffect(() => {
-        if (graphRef.current) {
+        if (graphRef.current && armed) {
             //graphRef.current.d3Force('link', null);
             (graphRef.current).d3Force('link')
                 .distance((link: Link) => link.distance || 5)
                 //.strength((link: Link) => link.strength || 0.1)
                 //.iterations(() => 100)
         }
-    }, [])
+    }, [armed])
 
     // handle slider change
     const onLinkChange = (index: number, value: number) => {
@@ -147,21 +152,28 @@ const ForceGraphExample = () => {
                 </Grid>
                 
                 <Grid item xs={8} component="div" ref={containerRef} sx={{p: 0, borderRadius: '5px'}}>
-                    <ForceGraph3D
-                        ref={graphRef} 
-                        graphData={graphData} 
-                        nodeVal="value"
-                        height={450} 
-                        width={containerRef.current ? containerRef.current.clientWidth : 400}
-                        backgroundColor='rgba(0,0,0,0.0)'
-                        linkColor={l => l.color ? l.color : 'rgb(0,0,0)'} 
-                        linkOpacity={0.8}
-                        nodeColor={() => '#2EA28A'}
-                        linkLabel={'label'}
-                        linkWidth={2}
-                        forceEngine="d3"
-                        enableNodeDrag
-                    />
+                    { !armed ? (
+                        <Stack direction="column" justifyContent="center" alignItems="center" sx={{height: '450px'}}>
+                            {/* <Typography variant="h6">Loading...</Typography> */}
+                            <CircularProgress />
+                        </Stack>
+                    ) : (
+                        <ForceGraph3D
+                            ref={graphRef} 
+                            graphData={graphData} 
+                            nodeVal="value"
+                            height={450}
+                            width={containerRef.current ? containerRef.current.clientWidth : 400}
+                            backgroundColor='rgba(0,0,0,0.0)'
+                            linkColor={l => l.color ? l.color : 'rgb(0,0,0)'} 
+                            linkOpacity={0.8}
+                            nodeColor={() => '#2EA28A'}
+                            linkLabel={'label'}
+                            linkWidth={2}
+                            //forceEngine="d3"
+                            //enableNodeDrag
+                        />
+                     )}
                 </Grid>
 
             </Grid>
