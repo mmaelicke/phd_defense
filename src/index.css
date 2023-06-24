@@ -4,27 +4,27 @@
 
 .fragment.blur.visible {
     filter: blur(0);
-    transition: filter 0.8s ease-in-out;
+    transition: filter 0.4s ease-in-out;
 }
 
 .fragment.blur-out {
     filter: blur(0);
-    transition: filter 0.8s ease-in-out;
+    transition: filter 0.4s ease-in-out;
 }
 
 .fragment.blur-out.visible {
     filter: blur(7px);
-    transition: filter 0.8s ease-in-out;
+    transition: filter 0.4s ease-in-out;
 }
 
 .fragment.blur-in-out {
     filter: blur(0);
-    transition: filter 0.8s ease-in-out;
+    transition: filter 0.4s ease-in-out;
 }
 
 .fragment.blur-in-out.current-fragment {
     filter: blur(7px);
-    transition: filter 0.8s ease-in-out;
+    transition: filter 0.4s ease-in-out;
 }
 
 .fragment.transparent {
