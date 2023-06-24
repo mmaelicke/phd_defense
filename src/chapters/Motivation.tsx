@@ -16,7 +16,7 @@ const Motivation: React.FC = () => {
         </MainSlide>
 
         <MainSlide title="The original pancake">
-            <Paper elevation={3} sx={{width: 'fit-content', p: 1}}>
+            <Paper elevation={3} sx={{width: 'fit-content', p: 1, m: 'auto'}}>
                 <Box component="img" src="img/first_pancake.png" sx={{height: 450}} />
             </Paper>
         </MainSlide>
@@ -59,25 +59,24 @@ const Motivation: React.FC = () => {
         </MainSlide>
 
         <MainSlide title="Uncertain pancakes">
-            <Paper elevation={3}>
-                <CompareObservationUncertainty />
-            </Paper>
-        </MainSlide>
-
-        <MainSlide title="Pancakes as datasets">
-            <Stack direction="column" spacing={3} sx={{textAlign: 'left'}} className="info-box">
-                <Stack direction="column" spacing={3} className="">
+            <Paper elevation={3} className="r-stack">
+                <Box className="fragment custom blur-out" data-fragment-index="2">
+                    <CompareObservationUncertainty />
+                </Box>
+                <Stack direction="column" spacing={3} className="info-box fragment zoom-in" data-fragment-index="2">
                     <LI>- Software stack can generalize to pancakes</LI>
                     <LI>- Pancake prooved to be suitable datasets</LI>
                     <LI>- Not bound to specificities of any location of the earth (uniqueness of location)</LI>
                 </Stack>
-                
-                <Stack direction="column" spacing={3} className="fragment fade-up"> 
+            </Paper>
+        </MainSlide>
+
+        <MainSlide title="Summary">
+                <Stack direction="column" spacing={3} className="info-box"> 
                     <LI>- Observation uncertainties should be propagated into the variogram</LI>
                     <LI>- Uncertainty bands allow for a multi-model approach</LI>
                     <LI>- Models can exhibit different structural properties</LI>
                 </Stack>
-            </Stack>
         </MainSlide>
 
         <Outline withFragments />

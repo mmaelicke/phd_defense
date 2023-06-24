@@ -30,6 +30,7 @@ const CompareObservationUncertainty: React.FC = () => {
                             itemTwo={<Box component="img" src="img/motivation_pancake_krige_up.png" sx={{height: 450}} />}
                             position={50}
                             className="fragment zoom-in"
+                            data-fragment-index="1"
                         />
                 
             </Stack>
