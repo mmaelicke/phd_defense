@@ -70,8 +70,21 @@ const SoilMoisture: React.FC = () => {
             </Stack>
         </MainSlide>
 
-        <MainSlide title="Going crazy">
-            <Stack></Stack>
+        <MainSlide title="Going beyond classic variogram analysis">
+            <Box className="r-stack">
+            <Box className="fragment custom blur-out" data-fragment-index="2">
+                <Paper elevation={3} sx={{p: 0, width: 'fit-content', m: 'auto'}} className="r-stack">
+                    <Box component="img" src="img/default_variogram.png" sx={{maxHeight: '450px'}} />
+                    <Box component="img" src="img/default_variogram_hist.png" sx={{maxHeight: '450px'}} className="fragment" data-fragment-index="1" />
+                </Paper>
+            </Box>
+            <Stack direction="column" sx={{p: 3}} className="info-box fragment zoom-in" data-fragment-index="2">
+                <LI>- Semi-variance is an expected value of (lagged) observation residuals</LI>
+                <LI>- Histogram helps to assess empirical variogram, but not with <strong>interpretation</strong></LI>
+                <LI className="fragment" data-fragment-index="3">- Correlation can be simplistically reduced to the effective range</LI>
+                <LI className="fragment" data-fragment-index="4">=&gt; experimental visualization to add a new perspective</LI>
+            </Stack>
+            </Box>
         </MainSlide>
 
         <MainSlide title="Force-directed graphs">
@@ -79,8 +92,15 @@ const SoilMoisture: React.FC = () => {
         </MainSlide>
 
         <MainSlide title="Benchmark Graphs">
-            <Paper elevation={3}>
-                <GraphExamples />
+            <Paper elevation={3} sx={{width: 'fit-content'}} className="r-stack">
+                <Box className="fragment custom blur-out" data-fragment-index="2">
+                    <GraphExamples />
+                </Box>
+                <Stack direction="column" spacing={3} sx={{p: 3}} className="fragment zoom-in info-box" data-fragment-index="2">
+                    <LI>- Each benchmark field exhibits distinctly different graphs</LI>
+                    <LI className="fragment">- Shapes of the graphs vary significantly between benchmark fields</LI>
+                    <LI className="fragment">- Graphs exhibit clear differences in their evolution.</LI>
+                </Stack>
             </Paper>
         </MainSlide>
 
@@ -88,6 +108,38 @@ const SoilMoisture: React.FC = () => {
             <Paper elevation={3}>
                 <ClusterGraphs />
             </Paper>
+        </MainSlide>
+
+        <MainSlide title="Cluster covariance graph emergence">
+            <Paper elevation={3} sx={{p: 1, width: 'fit-content', m: 'auto'}} className="r-stack">
+                <Box component="img" src="img/graph_emergence_1.png" sx={{maxHeight: '450px'}} />
+                <Box className="fragment" data-fragment-index="1">
+                    <Box component="img" src="img/graph_emergence_2.png" sx={{maxHeight: '450px'}} className="fragment custom blur-out" data-fragment-index="2" />
+                </Box>
+                <Stack direction="column" spacing={3} sx={{p: 3}} className="fragment zoom-in info-box" data-fragment-index="2">
+                    <LI>- Cluster emergence differences can be described visually</LI>
+                    <LI className="fragment" data-fragment-index="3">- Graphs converge into a very similar state</LI>
+                </Stack>
+            </Paper>
+        </MainSlide>
+
+        <MainSlide title="Summary">
+            <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
+                <LI>- Experimental visualization of a variograms' correlation structure is possible</LI>
+                <LI className="fragment fade-up">- Graphs exhibit clear differences between benchmark fields</LI>
+                <LI className="fragment fade-up">- Cluster graphs converge into a very similar state</LI>
+                <LI className="fragment fade-up">- Hard to link the graphs back to variogram parameters</LI>
+            </Stack>
+        </MainSlide>
+
+        <MainSlide title="Outlook">
+            <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
+                <LI>- Add force-directed graphs to the software and publish the results</LI>
+                <LI className="fragment fade-up">- Assess more graph theoretical metrics to grasp differences in the graphs</LI>
+                <LI className="fragment fade-up">- Clustering of variogram parameters: Mean shift?</LI>
+                <LI className="fragment fade-up" sx={{pl: 5}}>- difficult to define a distance in parameter space</LI>
+                <LI className="fragment fade-up" sx={{pl: 5}}>- hierachical clustering, terminated with respect to (observation) uncertainty</LI>
+            </Stack>
         </MainSlide>
 
     </>)
