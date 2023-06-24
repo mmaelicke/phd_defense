@@ -20,20 +20,16 @@ const Introduction: React.FC = () => {
         </MainSlide>
 
         <MainSlide title="Observations are sparse" id="start-introduction">
-            <Paper elevation={3} sx={{padding: '0.3rem'}}>
-            <Stack direction="row" spacing={2}>
-                <Box>
+            <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
+                <Box className="fragment custom blur-out" data-fragment-index="1">
                     <Box component="img" src="img/kidd_fig1.jpg" sx={{maxHeight: 400}} />
                     <Typography variant="caption" component="div" sx={{textAlign: 'left', mt: 1}}>
                         Distance to the next professionally operated rain gauge, global coverage. Figure taken from <a href="https://journals.ametsoc.org/view/journals/bams/98/1/bams-d-14-00283.1.xml#:~:text=View%20Full%20Size-,Fig.%201.,-Map%20showing%20the" target="_blank" rel="noreferrer">Kidd et al. (2017)</a>.
                     </Typography>
                 </Box>
-                <Stack direction="column" className="fragment" justifyContent="space-evenly">
-                    <span />
-                    <Typography variant="h6">Precise <i>point</i> observations</Typography>
-                    <Typography variant="h6" className="fragment">but spatially sparse</Typography>
-                    <span />
-                </Stack>
+                <Stack direction="column" className="fragment zoom-in info-box" spacing={3} data-fragment-index="1">
+                    <LI>- Precise <i>point</i> observations</LI>
+                    <LI>- but spatially sparse</LI>
                 </Stack>
             </Paper>
             
@@ -46,23 +42,31 @@ const Introduction: React.FC = () => {
         </MainSlide>
 
         <MainSlide title="Remote sensing may be imprecise">
-            <Paper elevation={3} sx={{padding: '0.3rem'}}>
-                <Grid container spacing={1}>
-                    <Grid item xs={12} md={6}>
-                        <Box component="img" src="img/starzel_radar.jpg" sx={{maxHeight: 400}} />
-                    </Grid>
-                    <Grid item xs={12} md={6} className="r-stack">
-                        <Box component="img" src="img/starzel_plot_0.png" sx={{maxHeight: 400}} className="fragment" />
-                        <Box component="img" src="img/starzel_plot_1.png" sx={{maxHeight: 400}} className="fragment" />
-                        <Box component="img" src="img/starzel_plot_2.png" sx={{maxHeight: 400}} className="fragment" />
-                        <Box component="img" src="img/starzel_plot_3.png" sx={{maxHeight: 400}} className="fragment" />
-                    </Grid>
-                </Grid>
-                
+            <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
+                <Stack direction="row" spacing={3} sx={{p: 1}} className="fragment custom blur-out" data-fragment-index="5">
+                    <Box>
+                        <Box component="img" src="img/starzel_radar.jpg" sx={{maxHeight: 400, maxWidth: 400}} />
+                    </Box>
+                    <Box className="r-stack">
+                        <Box component="img" src="img/starzel_plot_0.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="1" />
+                        <Box component="img" src="img/starzel_plot_1.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="2" />
+                        <Box component="img" src="img/starzel_plot_2.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="3" />
+                        <Box component="img" src="img/starzel_plot_3.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="4" />
+                    </Box>
+                </Stack>
+
+                <Stack direction="column" className="fragment zoom-in info-box" spacing={3} data-fragment-index="5">
+                <LI>- Point observations are precise, but may miss events</LI>
+                <LI>- Radar captures spatial correlation, but may be imprecise</LI>
+                <Box className="fragment" data-fragment-index="6">
+                    <LI> =&gt; using both data sources at once</LI>
+                    <LI> =&gt; <i>geostatistics</i> provide means for merging <strong>and</strong> analyzing this relationship</LI>
+                </Box>
+                </Stack>
             </Paper>
         </MainSlide>
 
-        <MainSlide title="">
+        {/* <MainSlide title="">
             <Stack direction="column" sx={{textAlign: 'left', height: '100%'}} justifyContent="space-evenly">
                 <LI>- Point observations are precise, but may miss events</LI>
                 <LI>- Radar captures spatial correlation, but may be imprecise</LI>
@@ -71,34 +75,8 @@ const Introduction: React.FC = () => {
                     <LI> =&gt; <i>geostatistics</i> provide means for merging <strong>and</strong> analyzing this relationship</LI>
                 </Box>
             </Stack>
-        </MainSlide>
-
-        {/* <MainSlide title="Building a pancake variogram">
-            <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
-                <Box component="img" src="img/pancake_field_rgb.png" sx={{maxHeight: 450}} className="fragment" />
-                <Box component="img" src="img/pancake_field_r.png" sx={{maxHeight: 450}} className="fragment" />
-                <Box component="img" src="img/pancake_field_sample.png" sx={{maxHeight: 450}} className="fragment" />
-                <Box component="img" src="img/pancake_animation.gif" sx={{maxHeight: 450}} className="fragment" />
-                <Box component="img" src="img/lagclasses_animation.gif" sx={{maxHeight: 450}} className="fragment" />
-            </Paper>
-        </MainSlide> */}
-        
-        {/* <MainSlide autoAnimate title="Intro to Variograms">
-            <BasicVariogram />
         </MainSlide> */}
 
-        {/* <MainSlide title="Uncertain observations">
-            <Stack direction="row" sx={{height: '100%'}}>
-                <Stack direction="column" justifyContent="space-evenly">
-                    <span /><span />
-                    <LI>- Variogram correlates distance to similarity</LI>
-                    <LI>- Modelled by a formal mathematical function</LI>
-                    <LI>- Needed for interpolation or simulation</LI>
-                    <LI>- </LI>
-                    <span /><span />
-                </Stack>
-            </Stack>
-        </MainSlide> */}
     </>)
 }
 
