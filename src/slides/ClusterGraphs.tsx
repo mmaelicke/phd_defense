@@ -36,7 +36,7 @@ const ClusterGraphs: React.FC = () => {
     const [graphData, setGraphData] = useState<typeof DATA.yl.graph>(cloneDeep(DATA.yl.graph))
 
     // state to switch from 2D to 3D graph
-    const [graphType, setGraphType] = useState<'2d' | '3d' | 'ar'>('3d')
+    const [graphType, setGraphType] = useState<'2d' | '3d' | 'ar'>('2d')
     const [GraphElement, setGraphElement] = useState<typeof ForceGraph2D | typeof ForceGraph3D | typeof ForceGraphVR>(ForceGraph3D)
 
     // heat up a distance-keeping force, when the graph initializes
