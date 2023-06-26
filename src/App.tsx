@@ -14,6 +14,7 @@ import Appendix from './chapters/Appendix';
 //import 'reveal.js/plugin/highlight/zenburn.css'
 //import  'reveal.js/plugin/highlight/highlight'
 import 'katex/dist/katex.min.css'
+import Conclusion from "./chapters/Conclusion";
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <Uncertainty />
         <SoilMoisture />
         <Software />
+        <Conclusion />
         <Appendix />
       </RevealJS>
     </div>
