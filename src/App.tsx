@@ -54,7 +54,7 @@ function App() {
         <Introduction />
         <Uncertainty />
         <SoilMoisture />
-        <Software />
+        {/* <Software /> */}
         <Conclusion />
         <Appendix />
       </RevealJS>
