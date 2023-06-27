@@ -7,12 +7,35 @@ import Outline from "../slides/Outline"
 import PropagationMethods from "../slides/PropagationMethods/PropagationMethods"
 import ParallelMetrics from "../slides/ParallelMetrics"
 import LI from "../components/LI"
+import CompareObservationUncertainty from "../slides/CompareObservationUncertainty"
 
 const Uncertainty: React.FC = () => {
     return (<>
+
         <Outline highlight="uncertainty" />
 
-        <MainSlide title="How to propagate uncertainties" id="start-uncertainty">
+        <MainSlide title="Propagate uncertainties">
+            <Paper elevation={3} sx={{p: 1, width: 'fit-content', m: 'auto'}} className="r-stack">
+                <Box component="img" src="img/motivation_variogram_step_0.png" sx={{height: 450}} />
+                <Box component="img" src="img/motivation_variogram_step_1.png" sx={{height: 450}} className="fragment" />
+                <Box component="img" src="img/motivation_variogram_step_2.png" sx={{height: 450}} className="fragment" />
+            </Paper>
+        </MainSlide>
+
+        <MainSlide title="Uncertain pancakes">
+            <Paper elevation={3} className="r-stack">
+                <Box className="fragment custom blur-out" data-fragment-index="2">
+                    <CompareObservationUncertainty />
+                </Box>
+                <Stack direction="column" spacing={3} className="info-box fragment zoom-in" data-fragment-index="2">
+                    <LI>- Observation uncertainties should be propagated into the variogram</LI>
+                    <LI>- Uncertainty bands allow for a multi-model approach</LI>
+                    <LI>- Models can exhibit different structural properties</LI>
+                </Stack>
+            </Paper>
+        </MainSlide>
+
+        {/* <MainSlide title="How to propagate uncertainties" id="start-uncertainty">
             <Stack direction="row" spacing={2}>
                 <Box className="fragment zoom-in">
                     <Paper elevation={3} sx={{p: 1, width: 'fit-content'}} className="r-stack">
@@ -28,11 +51,29 @@ const Uncertainty: React.FC = () => {
                     <span />
                 </Stack>
             </Stack>
-        </MainSlide>
+        </MainSlide> */}
 
-        <MainSlide title="Uncertainty propagation methods">
-            <PropagationMethods />
-        </MainSlide>
+        <section>
+            <MainSlide title="Uncertainty propagation methods">
+                <PropagationMethods />
+            </MainSlide>
+
+            <MainSlide title="Uncertainty bounds of a pancake">
+                <Paper elevation={3} sx={{p: 2}} className="r-stack">
+                    <Box className="fragment custom blur-out" data-fragment-index="1">
+                        <BasicUncertainty />
+                    </Box>
+                    <Box className="fragment zoom-in" data-fragment-index="1" >
+                        <Stack direction="column" spacing={3} alignContent="space-evenly" sx={{p: 3}} className="info-box">
+                            <LI>- Observation uncertainty allows for definition of uncertainty bounds</LI>
+                            <LI className="fragment">- Choice of method for estimation is epistemic in nature</LI>
+                            <LI className="fragment">- The subsequent propagation does not account for these uncertainties</LI>
+                        </Stack>
+                    </Box>
+                </Paper>
+            </MainSlide>
+            
+        </section>
 
         <MainSlide title="Generalize uncertainty in geostatistics">
             <Stack direction="column" spacing={3} className="info-box">
@@ -46,22 +87,6 @@ const Uncertainty: React.FC = () => {
                 </Box>
                 <span />
             </Stack>
-        </MainSlide>
-        
-        <MainSlide title="Uncertainty bounds of a pancake">
-            <Paper elevation={3} sx={{p: 2}} className="r-stack">
-                <Box className="fragment custom blur-out" data-fragment-index="1">
-                    <BasicUncertainty />
-                </Box>
-                <Box className="fragment zoom-in" data-fragment-index="1" >
-                    <Stack direction="column" spacing={3} alignContent="space-evenly" sx={{p: 3}} className="info-box">
-                        <LI>- Observation uncertainty allows for definition of uncertainty bounds</LI>
-                        <LI className="fragment">- Choice of method for estimation is epistemic in nature</LI>
-                        <LI className="fragment">- The subsequent propagation does not account for these uncertainties</LI>
-                    </Stack>
-                </Box>
-                
-            </Paper>
         </MainSlide>
 
         <MainSlide title="Uncertain model parameterization">
@@ -100,7 +125,7 @@ const Uncertainty: React.FC = () => {
             <Stack direction="column" spacing={3} className="info-box">
                 <span />
                 <LI>- Hard to decide on the <i>correct</i> model</LI>
-                <LI className="fragment fade-up">- Uncertain empirical variograms allow for a multi-model approach</LI>
+                <LI className="fragment fade-up">- Thus, a number of equally probable are parameterized</LI>
                 <LI className="fragment fade-up">- Exclude models (or parameterization) which are <strong>not</strong> suitable</LI>
                 <span />
             </Stack>

@@ -21,16 +21,16 @@ const Introduction: React.FC = () => {
 
         <MainSlide title="Observations are sparse" id="start-introduction">
             <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
-                <Box className="fragment custom blur-out" data-fragment-index="1">
+                <Box className="fragment-disabled custom blur-out" data-fragment-index="1">
                     <Box component="img" src="img/kidd_fig1.jpg" sx={{maxHeight: 400}} />
                     <Typography variant="caption" component="div" sx={{textAlign: 'left', mt: 1}}>
                         Distance to the next professionally operated rain gauge, global coverage. Figure taken from <a href="https://journals.ametsoc.org/view/journals/bams/98/1/bams-d-14-00283.1.xml#:~:text=View%20Full%20Size-,Fig.%201.,-Map%20showing%20the" target="_blank" rel="noreferrer">Kidd et al. (2017)</a>.
                     </Typography>
                 </Box>
-                <Stack direction="column" className="fragment zoom-in info-box" spacing={3} data-fragment-index="1">
+                {/* <Stack direction="column" className="fragment zoom-in info-box" spacing={3} data-fragment-index="1">
                     <LI>- Precise <i>point</i> observations</LI>
                     <LI>- but spatially sparse</LI>
-                </Stack>
+                </Stack> */}
             </Paper>
             
             <aside className="notes">
