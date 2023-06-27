@@ -22,8 +22,8 @@ const Uncertainty: React.FC = () => {
                 </Box>
                 <Stack direction="column" spacing={3} justifyContent="space-evenly" className="fragment">
                     <span />
-                    <LI>- Observation uncertainties =&gt; errorbars on the y-axis</LI>
-                    <LI>- Locations uncertainties =&gt;  errorbars on the x-axis</LI>
+                    <LI>- Uncertain observation =&gt; <strong>y-</strong>errorbars </LI>
+                    <LI>- Uncertain location =&gt;  <strong>x-</strong>errorbars</LI>
                     <LI className="fragment">- This work focuses only on y-axis errorbars</LI>
                     <span />
                 </Stack>
@@ -71,8 +71,8 @@ const Uncertainty: React.FC = () => {
                 </Box>
                 <Box className="fragment zoom-in" data-fragment-index="1">
                     <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{p: 3}} className="info-box">
-                        <LI>- Uncertainty bounds allow for multiple parameterization and models</LI>
-                        <LI>- Parameter interactions </LI>
+                        <LI>- Uncertainty bounds allow for multiple parameterizations and models</LI>
+                        {/* <LI>- Parameter interactions </LI> */}
                         <LI className="fragment fade-up">- How to assess models (and parameters)?</LI>
                     </Stack>
                 </Box>
@@ -89,6 +89,7 @@ const Uncertainty: React.FC = () => {
                         <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{p: 3}} className="info-box">
                             <LI>- Assess models and parameterizations using different metrics</LI>
                             <LI>- Rank models for each metric</LI>
+                            <LI>- Calucluate percentiles for ranks</LI>
                         </Stack>
                     </Box>
                 </Box>
