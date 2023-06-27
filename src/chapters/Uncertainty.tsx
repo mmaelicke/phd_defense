@@ -35,7 +35,7 @@ const Uncertainty: React.FC = () => {
         </MainSlide>
 
         <MainSlide title="Generalize uncertainty in geostatistics">
-            <Stack direction="column" spacing={3} sx={{height: '100%'}} justifyContent="space-evenly">
+            <Stack direction="column" spacing={3} className="info-box">
                 <span />
                 <LI>- Aleatory uncertainties are propagated by Monte Carlo</LI>
                 
@@ -44,7 +44,7 @@ const Uncertainty: React.FC = () => {
                     <LI sx={{pl: 5}}>- confidence interval of the lag class mean</LI>
                     <LI sx={{pl: 5}}>- bootstraping the k-fold semi-variance</LI>
                 </Box>
-                <span /><span />
+                <span />
             </Stack>
         </MainSlide>
         
@@ -96,12 +96,11 @@ const Uncertainty: React.FC = () => {
         </MainSlide>
 
         <MainSlide title="Summary">
-            <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{height: '100%'}}>
+            <Stack direction="column" spacing={3} className="info-box">
                 <span />
                 <LI>- Hard to decide on the <i>correct</i> model</LI>
                 <LI className="fragment fade-up">- Uncertain empirical variograms allow for a multi-model approach</LI>
                 <LI className="fragment fade-up">- Exclude models (or parameterization) which are <strong>not</strong> suitable</LI>
-                <LI className="fragment fade-up">- </LI>
                 <span />
             </Stack>
         </MainSlide>
