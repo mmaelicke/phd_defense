@@ -28,7 +28,7 @@ const ClusterGraphs: React.FC = () => {
     const graphRef = useRef<any>(null)
 
     // set the current distance value to use and a filter for the distance
-    const [distVal, setDistVal] = useState<'separating' | 'residual'>('separating')
+    const [distVal, setDistVal] = useState<'separating' | 'residual'>('residual')
     const [distFilter, setDistFilter] = useState<number[]>([MIN_D, 550])
 
     // state for loading the correct graph
