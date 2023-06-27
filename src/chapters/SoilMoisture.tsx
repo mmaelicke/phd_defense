@@ -39,6 +39,17 @@ const SoilMoisture: React.FC = () => {
         </MainSlide>
 
         <section>
+            <MainSlide title="Build on tested software">
+                <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
+                    <LI className="fragment fade-up">- Containerized SciKit-GStat could reproduce the 2020 results exactly</LI>
+                    <LI className="fragment fade-up">- Clustered variogram <strong>parameters</strong> instead of empirical variograms</LI>
+                    <LI className="fragment fade-up">- (Generic) workflow tool was used to test different scenarios</LI>
+                    <LI className="fragment fade-up">- Lays the foundation for facilitating development of new methods</LI>
+                </Stack>
+            </MainSlide>
+            
+            {/* ADD A APPENDIX SLIDE ABOUT THE tool-runner here  */}
+            
             <MainSlide title="" autoAnimate>
                 <Stack direction="row">
                     <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
@@ -53,7 +64,7 @@ const SoilMoisture: React.FC = () => {
                     </Paper>
                 </Stack>
             </MainSlide>
-        {/* add an appendix to this slide */}
+
             <MainSlide title="Appendix: Mean shift">
                 <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
                     <Box component="img" src="img/appendix_mean_shift.png" sx={{maxHeight: '450px'}} />
@@ -61,16 +72,7 @@ const SoilMoisture: React.FC = () => {
             </MainSlide>
         </section>
 
-        <MainSlide title="Summary">
-            <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
-                <LI>- Moving variograms cluster with temporal coherence</LI>
-                <LI className="fragment fade-up">- Clustering of variogram <strong>parameters</strong> yieled very similar results</LI>
-                <LI className="fragment fade-up">- Geostatistical software could reproduce the 2020 results rapidly</LI>
-                <LI className="fragment fade-up">- Lays the foundation for facilitating development of new methods</LI>
-            </Stack>
-        </MainSlide>
-
-        <MainSlide title="Going beyond classic variogram analysis">
+        {/* <MainSlide title="Going beyond classic variogram analysis">
             <Box className="r-stack">
             <Box className="fragment custom blur-out" data-fragment-index="2">
                 <Paper elevation={3} sx={{p: 0, width: 'fit-content', m: 'auto'}} className="r-stack">
@@ -85,10 +87,16 @@ const SoilMoisture: React.FC = () => {
                 <LI className="fragment" data-fragment-index="4">=&gt; experimental visualization to add a new perspective</LI>
             </Stack>
             </Box>
-        </MainSlide>
+        </MainSlide> */}
 
         <MainSlide title="Force-directed graphs">
             <ForceGraphExample />
+        </MainSlide>
+
+        <MainSlide title="Cluster mean covariance graph">
+            <Paper elevation={3}>
+                <ClusterGraphs />
+            </Paper>
         </MainSlide>
 
         <MainSlide title="Benchmark Graphs">
@@ -101,12 +109,6 @@ const SoilMoisture: React.FC = () => {
                     <LI className="fragment">- Shapes of the graphs vary significantly between benchmark fields</LI>
                     <LI className="fragment">- Graphs exhibit clear differences in their evolution.</LI>
                 </Stack>
-            </Paper>
-        </MainSlide>
-
-        <MainSlide title="Cluster mean covariance graph">
-            <Paper elevation={3}>
-                <ClusterGraphs />
             </Paper>
         </MainSlide>
 
