@@ -49,7 +49,7 @@ const Outline: React.FC<OutlineParams> = ({ withFragments, highlight, id }) => {
                         <CardActionArea href="#/start-software">
                             <CardMedia component="img" image="img/geostatistical_software.png" className="card-img" />
                             <CardContent>
-                                <Typography variant="h5" component="div">Geostatistical Software</Typography>
+                                <Typography variant="h5" component="div">Conclusion & Outlook</Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>
