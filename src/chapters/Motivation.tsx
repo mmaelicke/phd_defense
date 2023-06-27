@@ -2,7 +2,6 @@ import { Box, Paper, Stack, Typography } from "@mui/material"
 import MainSlide from "../components/MainSlide"
 import Outline from "../slides/Outline"
 
-import CompareObservationUncertainty from "../slides/CompareObservationUncertainty"
 import BasicVariogram from "../slides/BasicVariogram"
 import LI from "../components/LI"
 import SoftwareFlowchart from "../slides/SoftwareFlowchart"
@@ -15,15 +14,6 @@ const Motivation: React.FC = () => {
                 How can pancakes help us to build better geostatistical software?
             </Typography>
         </MainSlide>
-
-        <section>
-            <MainSlide title="Software Overview">
-                <SoftwareFlowchart />
-            </MainSlide>
-            <MainSlide title="Software Overview">
-                <SoftwareFlowchart withCode />
-            </MainSlide>
-        </section>
 
         <MainSlide title="The original pancake">
             <Paper elevation={3} sx={{width: 'fit-content', p: 1, m: 'auto'}}>
@@ -60,34 +50,27 @@ const Motivation: React.FC = () => {
             </Paper>
         </MainSlide>
 
-        <MainSlide title="Propagate uncertainties">
-            <Paper elevation={3} sx={{p: 1, width: 'fit-content', m: 'auto'}} className="r-stack">
-                <Box component="img" src="img/motivation_variogram_step_0.png" sx={{height: 450}} />
-                <Box component="img" src="img/motivation_variogram_step_1.png" sx={{height: 450}} className="fragment" />
-                <Box component="img" src="img/motivation_variogram_step_2.png" sx={{height: 450}} className="fragment" />
-            </Paper>
-        </MainSlide>
-
-        <MainSlide title="Uncertain pancakes">
-            <Paper elevation={3} className="r-stack">
-                <Box className="fragment custom blur-out" data-fragment-index="2">
-                    <CompareObservationUncertainty />
+        <section>
+            
+            <MainSlide title="Software Overview">
+                <Box className="r-stack">
+                    <Box className="fragment custom blur-out" data-fragment-index="2">
+                        <SoftwareFlowchart />
+                    </Box>
+                    <Stack direction="column" spacing={3} sx={{p: 3}} className="info-box fragment zoom-in" data-fragment-index="2">
+                        <LI>- open-source package actively developed since 2017</LI>
+                        <LI>- integrates well with packages for scientific computing</LI>
+                        <LI>- extensive documentation & Model description paper in GMD</LI>
+                        <LI>- used in at least 4 different summer schools</LI>
+                    </Stack>
                 </Box>
-                <Stack direction="column" spacing={3} className="info-box fragment zoom-in" data-fragment-index="2">
-                    <LI>- Software stack can generalize to pancakes</LI>
-                    <LI>- Pancake prooved to be suitable datasets</LI>
-                    <LI>- Not bound to specificities of any location of the earth (uniqueness of location)</LI>
-                </Stack>
-            </Paper>
-        </MainSlide>
+                
+            </MainSlide>
 
-        <MainSlide title="Summary">
-                <Stack direction="column" spacing={3} className="info-box"> 
-                    <LI>- Observation uncertainties should be propagated into the variogram</LI>
-                    <LI>- Uncertainty bands allow for a multi-model approach</LI>
-                    <LI>- Models can exhibit different structural properties</LI>
-                </Stack>
-        </MainSlide>
+            <MainSlide title="Software Overview">
+                <SoftwareFlowchart withCode />
+            </MainSlide>
+        </section>
 
         <Outline withFragments />
     </>
