@@ -1,7 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material"
 import MainSlide from "../components/MainSlide"
 import LI from "../components/LI"
-import SoftwareFlowchart from "../slides/SoftwareFlowchart"
 
 const Conclusion: React.FC = () => {
     return (<>
@@ -21,10 +20,6 @@ const Conclusion: React.FC = () => {
                 <LI>-(Experimental) expansion to force-directed graphs only due to robust software</LI> */}
             </Box>
         </MainSlide>
-
-        {/* <MainSlide title="Software Overview">
-            <SoftwareFlowchart />
-        </MainSlide> */}
         
         <MainSlide title="Conclusion">
             <Stack direction="column" justifyContent="space-evenly" sx={{height: '100%'}}>

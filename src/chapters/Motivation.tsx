@@ -5,6 +5,7 @@ import Outline from "../slides/Outline"
 import CompareObservationUncertainty from "../slides/CompareObservationUncertainty"
 import BasicVariogram from "../slides/BasicVariogram"
 import LI from "../components/LI"
+import SoftwareFlowchart from "../slides/SoftwareFlowchart"
 
 
 const Motivation: React.FC = () => {
@@ -14,6 +15,15 @@ const Motivation: React.FC = () => {
                 How can pancakes help us to build better geostatistical software?
             </Typography>
         </MainSlide>
+
+        <section>
+            <MainSlide title="Software Overview">
+                <SoftwareFlowchart />
+            </MainSlide>
+            <MainSlide title="Software Overview">
+                <SoftwareFlowchart withCode />
+            </MainSlide>
+        </section>
 
         <MainSlide title="The original pancake">
             <Paper elevation={3} sx={{width: 'fit-content', p: 1, m: 'auto'}}>

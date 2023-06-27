@@ -63,8 +63,11 @@ const CODE: {[key: string]: {code: string, preamble: boolean}} = {
     }
 }
 
+interface SoftwareFlowchartProps {
+    withCode?: boolean
+}
 
-const SoftwareFlowchart: React.FC = () => {
+const SoftwareFlowchart: React.FC<SoftwareFlowchartProps> = ({ withCode }) => {
     // create a state to handle the currently clicked node
     const [currentNode, setCurrentNode] = useState<string | null>(null)
 
@@ -75,28 +78,30 @@ const SoftwareFlowchart: React.FC = () => {
 
     return (
         <Stack direction="row" spacing={2}>
-            <Box sx={{height: 550, width: 510}}>
+            <Box sx={{height: 550, width: 510, margin: 'auto'}}>
                 <ReactFlow nodes={nodes} edges={edges} onNodeClick={(_, node) => setCurrentNode(node.id)}>
                     <Background />
                     <Controls />
                 </ReactFlow>
             </Box>
-            <Paper elevation={3} sx={{height: 500, p: 0, m:0}}>
-                {/* <pre style={{width: '400px', textAlign: 'left', margin: 0, fontSize: '12pt', height: '100%'}}>
-                    <code className="language-python" data-trim data-noescape style={{borderRadius: '5px', padding: '15px'}}>
-                        {currentNode ? `${CODE[currentNode].preamble ? VARIO : ''}${CODE[currentNode].code}` : '# No node selected.'}
-                    </code>
-                </pre> */}
-                <Code 
-                    language="python" 
-                    style={{height: '100%', width: '400px', textAlign: 'left', margin: 0, borderRadius: '15px', fontSize: '12pt'}}
-                    lineNumbers
-                >
-                    {({
-                        code: currentNode ? `${CODE[currentNode].preamble ? VARIO : ''}${CODE[currentNode].code}` : '# No node selected.'
-                    } as unknown) as {code: string} & ReactNode }
-                </Code>
-            </Paper>
+            {withCode ? (
+                <Paper elevation={3} sx={{height: 500, p: 1, m:0}}>
+                    {/* <pre style={{width: '400px', textAlign: 'left', margin: 0, fontSize: '12pt', height: '100%'}}>
+                        <code className="language-python" data-trim data-noescape style={{borderRadius: '5px', padding: '15px'}}>
+                            {currentNode ? `${CODE[currentNode].preamble ? VARIO : ''}${CODE[currentNode].code}` : '# No node selected.'}
+                        </code>
+                    </pre> */}
+                    <Code 
+                        language="python" 
+                        style={{height: '100%', width: '400px', textAlign: 'left', margin: 0, borderRadius: '15px', fontSize: '12pt'}}
+                        lineNumbers
+                    >
+                        {({
+                            code: currentNode ? `${CODE[currentNode].preamble ? VARIO : ''}${CODE[currentNode].code}` : '# No node selected.'
+                        } as unknown) as {code: string} & ReactNode }
+                    </Code>
+                </Paper>
+            ) : null}
         </Stack>
     )
 }
