@@ -132,7 +132,7 @@ const SoilMoisture: React.FC = () => {
             </Stack>
         </MainSlide>
 
-        <MainSlide title="Outlook">
+        {/* <MainSlide title="Outlook">
             <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
                 <LI>- Add force-directed graphs to the software and publish the results</LI>
                 <LI className="fragment fade-up">- Assess more graph theoretical metrics to grasp differences in the graphs</LI>
@@ -140,7 +140,7 @@ const SoilMoisture: React.FC = () => {
                 <LI className="fragment fade-up" sx={{pl: 5}}>- difficult to define a distance in parameter space</LI>
                 <LI className="fragment fade-up" sx={{pl: 5}}>- hierachical clustering, terminated with respect to (observation) uncertainty</LI>
             </Stack>
-        </MainSlide>
+        </MainSlide> */}
 
     </>)
 }
