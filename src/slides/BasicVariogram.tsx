@@ -29,8 +29,8 @@ const BasicVariogram = () => {
 
         let newLayout = {
             autosize: true,
-            xaxis: {title: 'Separating distance (m)'},
-            yaxis: {title: 'Semivariance (bit)'},
+            xaxis: {title: 'Separating distance (pixel)'},
+            yaxis: {title: 'Semivariance (intensity²)'},
             legend: {orientation: 'h', yanchor: 'bottom', y: 1.02, xanchor: 'right', x: 1}
         } as Layout
 
