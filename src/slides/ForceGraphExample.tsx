@@ -37,7 +37,7 @@ const ForceGraphExample = () => {
     // state for controlling the current step
     const [withTriangle, setWithTriangle] = useState<boolean>(false)
     const [withLargeGraph, setWithLargeGraph] = useState<boolean>(false)
-    const [armed, setArmed] = useState<boolean>(false)
+    const [armed, setArmed] = useState<'unarm' | 'loading' | 'arm'>('unarm')
 
     // get a reference to the Paper
     const containerRef = useRef<HTMLDivElement>(null)
@@ -50,12 +50,14 @@ const ForceGraphExample = () => {
 
     // loading screen
     useEffect(() => {
-        setTimeout(() => setArmed(true), 1500)
-    }, [])
+        if (armed === 'loading') {
+            setTimeout(() => setArmed('arm'), 1500)
+        }
+    }, [armed])
 
     // adjust the distance and stregth of the links, when links change
     useEffect(() => {
-        if (graphRef.current && armed) {
+        if (graphRef.current && armed === 'arm') {
             //graphRef.current.d3Force('link', null);
             (graphRef.current).d3Force('link')
                 .distance((link: Link) => link.distance || 5)
@@ -152,10 +154,12 @@ const ForceGraphExample = () => {
                 </Grid>
                 
                 <Grid item xs={8} component="div" ref={containerRef} sx={{p: 0, borderRadius: '5px'}}>
-                    { !armed ? (
+                    { armed !== 'arm' ? (
                         <Stack direction="column" justifyContent="center" alignItems="center" sx={{height: '450px'}}>
                             {/* <Typography variant="h6">Loading...</Typography> */}
-                            <CircularProgress />
+                            { armed === 'unarm' ? (
+                            <Button variant="outlined" color="success" onClick={() => setArmed('loading')}>Load</Button>
+                            ) : <CircularProgress /> }
                         </Stack>
                     ) : (
                         <ForceGraph3D
