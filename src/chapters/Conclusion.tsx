@@ -24,6 +24,7 @@ const Conclusion: React.FC = () => {
             </Box>
         </MainSlide>
         
+        <section>
         <MainSlide title="Conclusion">
             <Stack direction="column" justifyContent="space-evenly" sx={{height: '100%'}}>
                 <Box>
@@ -38,7 +39,7 @@ const Conclusion: React.FC = () => {
                 <Typography variant="h6">Uncertainty extension</Typography>
                 <Box className="info-box" sx={{mt: 3, p: 3}}>
                     <LI className="">- Propagation of uncertainty allowed for multi-model approaches</LI>
-                    <LI className="fragment">- Epistemic uncertainties in model selection persist irrespective of their repesentation</LI>
+                    <LI className="fragment">- Epistemic uncertainties in model selection persist regardless of their repesentation</LI>
                 </Box>
                 </Box>
             </Stack>
@@ -53,6 +54,7 @@ const Conclusion: React.FC = () => {
                 <LI className="fragment fade-up" sx={{pl: 5}}>- hierachical clustering, terminated with respect to (observation) uncertainty</LI>
             </Stack>
         </MainSlide>
+        </section>
 
             
             

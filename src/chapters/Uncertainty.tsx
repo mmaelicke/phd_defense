@@ -78,12 +78,12 @@ const Uncertainty: React.FC = () => {
         <MainSlide title="Generalize uncertainty in geostatistics">
             <Stack direction="column" spacing={3} className="info-box">
                 <span />
-                <LI>- Aleatory uncertainties are propagated by Monte Carlo</LI>
+                <LI>- Aleatory uncertainties are propagated by a Monte Carlo simulation</LI>
                 
                 <Box className="fragment">
                 <LI>- Epistemic uncertainties:</LI>
-                    <LI sx={{pl: 5}}>- confidence interval of the lag class mean</LI>
-                    <LI sx={{pl: 5}}>- bootstraping the k-fold semi-variance</LI>
+                    <LI sx={{pl: 5}}>- confidence interval of the lag class's mean</LI>
+                    <LI sx={{pl: 5}}>- bootstraping a k-fold semi-variance</LI>
                 </Box>
                 <span />
             </Stack>
@@ -113,6 +113,9 @@ const Uncertainty: React.FC = () => {
                     <Box className="fragment fade-out" data-fragment-index="2">
                         <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{p: 3}} className="info-box">
                             <LI>- Assess models and parameterizations using different metrics</LI>
+                            <LI variant="body1" sx={{pl: 5}}>- RMSE</LI>
+                            <LI variant="body1" sx={{pl: 5}}>- Deviance information criterion (DIC)</LI>
+                            <LI variant="body1" sx={{pl: 5}}>- cross-validation</LI>
                             <LI>- Rank models for each metric</LI>
                             <LI>- Calucluate percentiles for ranks</LI>
                         </Stack>

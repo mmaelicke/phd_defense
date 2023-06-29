@@ -106,7 +106,7 @@ const SoilMoisture: React.FC = () => {
                 </Box>
                 <Stack direction="column" spacing={3} sx={{p: 3}} className="fragment zoom-in info-box" data-fragment-index="2">
                     <LI>- Each benchmark field exhibits distinctly different graphs</LI>
-                    <LI className="fragment">- Shapes of the graphs vary significantly between benchmark fields</LI>
+                    {/* <LI className="fragment">- Shapes of the graphs vary significantly between benchmark fields</LI> */}
                     <LI className="fragment">- Graphs exhibit clear differences in their evolution.</LI>
                 </Stack>
             </Paper>
@@ -119,15 +119,15 @@ const SoilMoisture: React.FC = () => {
                     <Box component="img" src="img/graph_emergence_2.png" sx={{maxHeight: '450px'}} className="fragment custom blur-out" data-fragment-index="2" />
                 </Box>
                 <Stack direction="column" spacing={3} sx={{p: 3}} className="fragment zoom-in info-box" data-fragment-index="2">
-                    <LI>- Cluster emergence differences can be described visually</LI>
-                    <LI className="fragment" data-fragment-index="3">- Graphs converge into a very similar state</LI>
+                    <LI>- Cluster emerge differently, but converge into a similar state</LI>
+                    <LI className="fragment" data-fragment-index="3">- Capturing these differences in a metric is challenging</LI>
                 </Stack>
             </Paper>
         </MainSlide>
 
         <MainSlide title="Summary">
             <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
-                <LI>- Experimental visualization of a variograms' correlation structure is possible</LI>
+                <LI>- Experimental visualization of a datasets' correlation structure is possible</LI>
                 <LI className="fragment fade-up">- Graphs exhibit clear differences between benchmark fields</LI>
                 <LI className="fragment fade-up">- Cluster graphs converge into a very similar state</LI>
                 <LI className="fragment fade-up">- Hard to link the graphs back to variogram parameters</LI>

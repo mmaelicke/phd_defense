@@ -54,15 +54,15 @@ const Motivation: React.FC = () => {
             
             <MainSlide title="Software Overview">
                 <Box className="r-stack">
-                    <Box className="fragment custom blur-out" data-fragment-index="2">
+                    <Box className="fragments custom blur-out" data-fragment-index="2">
                         <SoftwareFlowchart />
                     </Box>
-                    <Stack direction="column" spacing={3} sx={{p: 3}} className="info-box fragment zoom-in" data-fragment-index="2">
+                    {/* <Stack direction="column" spacing={3} sx={{p: 3}} className="info-box fragment zoom-in" data-fragment-index="2">
                         <LI>- open-source package actively developed since 2017</LI>
                         <LI>- integrates well with packages for scientific computing</LI>
                         <LI>- extensive documentation & Model description paper in GMD</LI>
                         <LI>- used in at least 4 different summer schools</LI>
-                    </Stack>
+                    </Stack> */}
                 </Box>
                 
             </MainSlide>
