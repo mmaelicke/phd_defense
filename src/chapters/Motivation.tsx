@@ -124,7 +124,7 @@ const Motivation: React.FC = () => {
 
         <section>
             
-            <MainSlide title="Software Overview">
+            <MainSlide title="Software Overview" id="software">
                 <Box className="r-stack">
                     <Box className="fragments custom blur-out" data-fragment-index="2">
                         <SoftwareFlowchart />
