@@ -19,6 +19,10 @@ const SoilMoisture: React.FC = () => {
                     Figure changed after <a href="https://hess.copernicus.org/articles/23/3807/2019/#section3" target="_blank" rel="noreferrer">Loritz et al. (2019)</a>
                 </Typography>
             </Paper>
+
+            <aside className="notes">
+                <p>We use a soil moisture dataset observed in the Attert catchment in Luxembourg. Specifically, we used data from the Colpach sub-catchment, which consists of approximately 60 different locations with soil moisture measurements at three different depths.</p>
+            </aside>
         </MainSlide>
 
         <MainSlide title="Moving window variogram models" autoAnimate>
@@ -36,6 +40,17 @@ const SoilMoisture: React.FC = () => {
                     </Stack>
                 </Box>
             </Paper>
+
+            <aside className="notes">
+                <p>For this analysis, I focused on the measurements at a depth of 30 cm, using data from the year 2015.</p>
+                <p>To analyze the soil moisture data, I calculated variograms using a moving window approach with a window size of 30 days. The variograms reflect the relationship between the spatial distances and the differences in soil moisture values.</p>
+                <p>As depicted in the graph, during dry periods, the variograms exhibit a nugget effect with a low sill value, indicating little correlation between nearby locations.</p>
+                <p>However, in the fall, as rainfall increases, the sill values rise, indicating stronger spatial correlation, and the shape of the models may change slightly. The correlation length also becomes shorter during heavy rainfall events towards the end of the year.</p>
+                <p>Next, I employed the mean-shift clustering algorithm to cluster the variogram parameters.</p>
+                <p>Unlike the original 2020 publication, I did not cluster the empirical variograms themselves. Instead, I utilized the capabilities of the software to reproduce the analysis within minutes and explore alternative clustering methods.</p>
+                <p>The clustering results are quite promising, as they reveal three distinct clusters primarily differentiated by their sill values. The correlation lengths were relatively similar among the clusters.</p>
+                <p>By examining the lower plot depicting the time series, we can observe that the clusters emerge coherently over time. Each cluster can be associated with different processes: the yellow cluster represents dry conditions, the blue cluster indicates soil drying or wetting, and the green cluster signifies wet soil conditions.</p>
+            </aside>
         </MainSlide>
 
         <section>
@@ -46,11 +61,16 @@ const SoilMoisture: React.FC = () => {
                     <LI className="fragment fade-up">- (Generic) workflow tool was used to test different scenarios</LI>
                     <LI className="fragment fade-up">- Lays the foundation for facilitating development of new methods</LI>
                 </Stack>
+
+                <aside className="notes">
+                    <p>It is worth mentioning that the software used for this analysis is a containerized version of SciKit-GStat, which allows for easy replication of the original 2020 results.</p>
+                    <p>Additionally, the software provides a robust and reproducible environment where different scenarios can be tested.</p>
+                    <p>For example, you can explore various window sizes, cluster using different metrics, or even cluster models instead of empirical variograms.</p>
+                    <p>This flexible and reliable software environment lays the foundation for facilitating the development of new methods, which I will introduce in the following section.</p>
+                </aside>
             </MainSlide>
             
-            {/* ADD A APPENDIX SLIDE ABOUT THE tool-runner here  */}
-            
-            <MainSlide title="" autoAnimate>
+            <MainSlide title="" autoAnimate visibility="uncounted">
                 <Stack direction="row">
                     <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
                         <Box component="img" src="img/moisture_cluster_step3.png" 
@@ -65,7 +85,7 @@ const SoilMoisture: React.FC = () => {
                 </Stack>
             </MainSlide>
 
-            <MainSlide title="Appendix: Mean shift">
+            <MainSlide title="Appendix: Mean shift" visibility="uncounted">
                 <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
                     <Box component="img" src="img/appendix_mean_shift.png" sx={{maxHeight: '450px'}} />
                 </Paper>
@@ -91,12 +111,29 @@ const SoilMoisture: React.FC = () => {
 
         <MainSlide title="Force-directed graphs">
             <ForceGraphExample />
+
+            <aside className="notes">
+                <p>I explored an alternative approach to visualizing the correlation structure of a geostatistical dataset using force-directed graphs.</p>
+                <p>I found this method particularly useful as it provides a different perspective compared to variograms.</p>
+                <p>A force-directed graph is a mathematical graph where each node represents an observation location, and the algorithm adjusts the positions of the nodes to keep the links at a pre-defined length.</p>
+                <p>To create the graph, I created links between observation locations that fell within the same lag class, with the link lengths set to the absolute value difference between them.</p>
+                <p>Initially, with a small number of observations and links, the force-directed graph is relatively straightforward to build.</p>
+                <p>However, as the number of observations increases, it becomes more challenging to find an exact configuration that respects all the settings.</p>
+                <p>Here, you can see that the graph cannot represent the settings for the links exactly, which can be thought of as "friction" in a network of springs under tension.</p>
+            </aside>
         </MainSlide>
 
         <MainSlide title="Cluster mean covariance graph">
             <Paper elevation={3}>
                 <ClusterGraphs />
             </Paper>
+
+            <aside className="notes">
+                <p>In this slide, I present the force-directed graphs for the yellow cluster of soil moisture measurements in the Colpach catchment.</p>
+                <p>What we can observe is that there are actually two separate, independent graphs when considering separating distances up to 500 meters.</p>
+                <p>However, when considering separating distances up to 1 kilometer, the two graphs become connected, particularly through three nodes in the middle. These nodes connect the other blobs but also keep them at some distance.</p>
+                <p>Furthermore, force-directed graphs were also generated for the green and blue clusters, and they exhibit similar structures with minor differences.</p>
+            </aside>
         </MainSlide>
 
         <MainSlide title="Benchmark Graphs">
@@ -110,6 +147,14 @@ const SoilMoisture: React.FC = () => {
                     <LI className="fragment">- Graphs exhibit clear differences in their evolution.</LI>
                 </Stack>
             </Paper>
+
+            <aside className="notes">
+                <p>To explore the limits of force-directed graphs, I calculated benchmark random fields and created force-directed graphs for them.</p>
+                <p>The first benchmark random field used a completely random distance matrix, resulting in a force-directed graph with a random structure.</p>
+                <p>The second benchmark random field was a deterministic field where I added up the indices for the values, resulting in a force-directed graph that resembled the field itself.</p>
+                <p>The third benchmark random field was a highly ordered field where all the values were the same, leading to a configuration with a lot of tension.</p>
+                <p>Each benchmark field exhibited a distinct graph shape, providing clearer differences in their evolution for further analysis.</p>
+            </aside>
         </MainSlide>
 
         <MainSlide title="Cluster covariance graph emergence">
@@ -123,6 +168,16 @@ const SoilMoisture: React.FC = () => {
                     <LI className="fragment" data-fragment-index="3">- Capturing these differences in a metric is challenging</LI>
                 </Stack>
             </Paper>
+
+            <aside className="notes">
+                <p>In this slide, you see the relative node velocity over time for the benchmark fields.</p>
+                <p>In the deterministic case with high variance, the nodes move at different speeds throughout the simulation.</p>
+                <p>In the case with no variance, there is initial movement, but the nodes gradually decay and converge into a stable state.</p>
+                <p>The random case quickly finds its configuration, with varying subsequent movement.</p>
+                <p>The cluster force-directed graphs show distinct emergence patterns, with each cluster exhibiting parts of the fingerprint of each benchmark field.</p>
+                <p>The evolution of the force-directed graphs for the three clusters also shows clear differences, although converging into the same state.</p>
+                <p>Formalizing the description of these differences is challenging and will be part of future work.</p>
+            </aside>
         </MainSlide>
 
         <MainSlide title="Summary">
@@ -132,6 +187,13 @@ const SoilMoisture: React.FC = () => {
                 <LI className="fragment fade-up">- Cluster graphs converge into a very similar state</LI>
                 <LI className="fragment fade-up">- Hard to link the graphs back to variogram parameters</LI>
             </Stack>
+
+            <aside className="notes">
+                <p>To summarize, with the software stack and reproducibility capabilities, it was possible to experimentally visualize correlation structures in a novel way.</p>
+                <p>The graphs exhibit distinct differences between benchmark fields, enabling the decoding of cluster differences.</p>
+                <p>Moreover, the cluster graphs converge into similar states, as expected since they represent the same dataset at different times.</p>
+                <p>However, linking these findings back to the variogram parameters remains a challenge.</p>
+            </aside>
         </MainSlide>
 
         {/* <MainSlide title="Outlook">

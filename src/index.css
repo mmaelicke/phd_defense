@@ -71,3 +71,7 @@ a {
     box-shadow: 1px 4px 6px #2EA28A;
     padding: 1rem;
 }
+
+aside.notes  {
+    font-size: 0.5rem;
+}

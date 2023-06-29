@@ -11,6 +11,10 @@ const Conclusion: React.FC = () => {
         <MainSlide title="Conclusion" id="start-conclusion" autoAnimate>
             <Typography variant="h4">How can pancakes help us to build better geostatistical software?</Typography>
             {/* <h4>How can pancakes help us to build better geostatistical software?</h4> */}
+
+            <aside className="notes">
+                <p>Let's come back to the initial question of this presentation.</p>
+            </aside>
         </MainSlide>
 
         <MainSlide title="Pancake Dataset" autoAnimate>
@@ -22,6 +26,12 @@ const Conclusion: React.FC = () => {
                 {/* <LI>-key advancement lies in the incorporation of observation uncertainties into the empirical variogram</LI>
                 <LI>-(Experimental) expansion to force-directed graphs only due to robust software</LI> */}
             </Box>
+
+            <aside className="notes">
+                <p>In terms of the contribution of pancake datasets, they serve as valuable geostatistical development datasets that are not artificially created.</p>
+                <p>They helped me to translate very specific Python scripts into a generic, robust, and tested software.</p>
+                <p>I could test methods on different samples, without the need to consider catchment-specific details, as usually done using environmental datasets, especially in reviews.</p>
+            </aside>
         </MainSlide>
         
         <section>
@@ -43,9 +53,16 @@ const Conclusion: React.FC = () => {
                 </Box>
                 </Box>
             </Stack>
+
+            <aside className="notes">
+                <p>The software package SciKit-GStat has gained wide acceptance and usage within the community. It has a model description paper in GMD (Geoscientific Model Development) and is cited extensively. The Github repository is utilized by other packages and in online lectures.</p>
+                <p>Additionally, the presentation itself serves as a live demonstration of the research software.</p>
+                <p>Finally, coming back to the uncertainty extension. Propagating uncertainties into empirical variograms allowed for a multi-model approach.</p>
+                <p>Epistemic uncertainties arising from model selection will persist regardless of their visualization. Not visualizing uncertainties does not eliminate their presence.</p>
+            </aside>
         </MainSlide>
 
-        <MainSlide title="Outlook">
+        <MainSlide title="Outlook" visibility="uncounted" >
             <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
                 <LI>- Add force-directed graphs to the software and publish the results</LI>
                 <LI className="fragment fade-up">- Assess more graph theoretical metrics to grasp differences in the graphs</LI>

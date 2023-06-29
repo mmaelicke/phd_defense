@@ -13,11 +13,19 @@ const Motivation: React.FC = () => {
             <Typography variant="h2" component="div">
                 How can pancakes help us to build better geostatistical software?
             </Typography>
+
+            <aside className="notes">
+                <p>... we will explore how pancakes can help us improve geostatistical software.</p>
+            </aside>
         </MainSlide>
 
         <MainSlide title="The original pancake">
             <Paper elevation={3} sx={{width: 'fit-content', p: 1, m: 'auto'}}>
                 <Box component="img" src="img/first_pancake.png" sx={{height: 450}} />
+
+                <aside className="notes">
+                    <p>During my parental leave in 2018, while making pancakes for dinner, I noticed a spatial correlation structure in the browning of the pancake. I did what everyone of you would have done.</p>
+                </aside>
             </Paper>
         </MainSlide>
 
@@ -29,10 +37,25 @@ const Motivation: React.FC = () => {
                 <Box component="img" src="img/pancake_animation.gif" sx={{maxHeight: 500}} className="fragment" />
                 <Box component="img" src="img/lagclasses_animation.gif" sx={{maxHeight: 500}} className="fragment" />
             </Paper>
+
+            <aside className="notes">
+                <p>I cropped and smoothed the pancake image and placed it on a Cartesian coordinate system.</p>
+                <p>Next, I extracted the red channel.</p>
+                <p>And started sampling the pancake surface, by calculating the intensity difference at two random locations.</p>
+                <p>Repeat this procedure for more locations and all combinations, and you end up with a point cloud, depicting the separating distance on the x-axis and the absolute value difference on the y-axis.</p>
+                <p>To describe the correlation between distance and absolute value difference, 25 evenly spaced lag classes are formed. Within each class, a metric of variability known as semi variance is calculated.</p>
+            </aside>
         </MainSlide>
 
         <MainSlide autoAnimate title="Intro to Variograms">
             <BasicVariogram />
+
+            <aside className="notes">
+                <p>We call this an empirical variogram, representing the relationship between separating distance (X-axis) and semi-variance (Y-axis). To describe it more coherently, we apply a formal mathematical model to it.</p>
+                <p>The software I'm about to present includes eight different models, three of which are implemented here. For example, fitting a Gaussian model doesn't seem to provide a good fit, while an exponential model appears more suitable.</p>
+                <p>The model is described by at least two parameters, shown here. The upper horizontal line represents the sill, indicating the maximum spatial correlation between observations, while the effective range on the X-axis denotes where the model reaches 95% of its value.</p>
+                <p>Now, discussing uncertainty, one crucial source arises from the fact that any geostatistical method we apply only uses the model, not the empirical variogram. Any uncertainty and errors introduced during model fitting will propagate into subsequent methods.</p>
+            </aside>
         </MainSlide>
 
         <MainSlide title="Interpolate a pancake">
@@ -48,6 +71,12 @@ const Motivation: React.FC = () => {
                     </Box>
                 </Stack>
             </Paper>
+
+            <aside className="notes">
+                <p>Returning to the pancakes, for illustration purposes, I fitted three variograms to the three different color channels and performed kriging interpolation for each channel.</p>
+                <p>Here is how the combination looks like. Based on the 300 observed points, kriging effectively reproduces mid and large-scale variability on the pancake surface, with generally matching colors. However, it struggles to reproduce sharp edges, at least with the chosen model.</p>
+                <p>This is how I utilized pancakes to develop geostatistical software.</p>
+            </aside>
         </MainSlide>
 
         <section>
@@ -63,11 +92,17 @@ const Motivation: React.FC = () => {
                         <LI>- extensive documentation & Model description paper in GMD</LI>
                         <LI>- used in at least 4 different summer schools</LI>
                     </Stack> */}
+
+                    <aside className="notes">
+                        <p>Now, let's discuss the software. The software is called SciKit-GStat, an open-source Python package widely recognized and accepted by the community. It integrates seamlessly with typical geostatistical and scientific packages in Python, such as NumPy, SciPy, and scikit-learn.</p>
+                        <p>Additionally, I developed an extension dedicated to uncertainty within SciKit-GStat. I am aware of a number of third-party applications building on SciKit-GStat.</p>
+                        <p>Finally, I created a suite of educational web applications called geostat apps, leveraging the capabilities of this software. We will delve into that in more detail later on.</p>
+                    </aside>
                 </Box>
                 
             </MainSlide>
 
-            <MainSlide title="Software Overview">
+            <MainSlide title="Software Overview" visibility="uncounted">
                 <SoftwareFlowchart withCode />
             </MainSlide>
         </section>

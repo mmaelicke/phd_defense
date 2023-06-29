@@ -2,10 +2,8 @@ import { H1, H2, RevealJS, Slide } from "@gregcello/revealjs-react";
 import { HighlightPlugin, NotesPlugin } from "@gregcello/revealjs-react";
 import { CssBaseline, Grid } from '@mui/material';
 
-
 import Motivation from "./chapters/Motivation";
 import Introduction from './chapters/Introduction';
-import Software from './chapters/Software';
 import Uncertainty from './chapters/Uncertainty';
 import SoilMoisture from './chapters/SoilMoisture';
 import Appendix from './chapters/Appendix';
@@ -13,9 +11,9 @@ import Appendix from './chapters/Appendix';
 //import 'reveal.js/plugin/highlight/monokai.css'
 //import 'reveal.js/plugin/highlight/zenburn.css'
 //import  'reveal.js/plugin/highlight/highlight'
-import 'katex/dist/katex.min.css'
 import Conclusion from "./chapters/Conclusion";
 
+import 'katex/dist/katex.min.css'
 
 function App() {
 
@@ -26,7 +24,8 @@ function App() {
       <RevealJS 
         plugins={[HighlightPlugin, NotesPlugin ]} 
         overview 
-        slideNumber="c/t"
+         slideNumber="c/t"
+        // slideNumber={slide =>  {console.log(slide); return `4`}}
         hash
         autoAnimateDuration={1.4}
 
@@ -47,6 +46,10 @@ function App() {
                 </Grid>
                 <Grid item xs={12}></Grid>
             </Grid>
+
+            <aside className="notes">
+              <p>Welcome to my PhD defense presentation, titled 'From method development to software integration: A comprehensive approach to geostatistical uncertainty.' In the next 30 minutes...</p>
+            </aside>
         </Slide>
         
         {/* Presentation chapters */}
