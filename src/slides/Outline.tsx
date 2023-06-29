@@ -16,7 +16,7 @@ const Outline: React.FC<OutlineParams> = ({ withFragments, highlight, id }) => {
             <Grid container spacing={3}>
                 <Grid item xs={12} md={6} lg={3}>
                     <Card>
-                        <CardActionArea href="#/start-motivation">
+                        <CardActionArea href="#/motivation">
                             <CardContent>
                                 <CardMedia component="img" image="https://imgs.xkcd.com/comics/like_im_five.png" className="card-img" />
                                 <Typography variant="h5" component="div">Motivation & Introduction</Typography>

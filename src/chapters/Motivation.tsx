@@ -5,11 +5,12 @@ import Outline from "../slides/Outline"
 import BasicVariogram from "../slides/BasicVariogram"
 import LI from "../components/LI"
 import SoftwareFlowchart from "../slides/SoftwareFlowchart"
+import { InlineMath } from "react-katex"
 
 
 const Motivation: React.FC = () => {
     return <>
-        <MainSlide id="start-motivation">
+        <MainSlide id="motivation">
             <Typography variant="h2" component="div">
                 How can pancakes help us to build better geostatistical software?
             </Typography>
@@ -47,16 +48,58 @@ const Motivation: React.FC = () => {
             </aside>
         </MainSlide>
 
-        <MainSlide autoAnimate title="Intro to Variograms">
-            <BasicVariogram />
+        <section>
+            <MainSlide autoAnimate title="Intro to Variograms" id="variogram">
+                <BasicVariogram />
 
-            <aside className="notes">
-                <p>We call this an empirical variogram, representing the relationship between separating distance (X-axis) and semi-variance (Y-axis). To describe it more coherently, we apply a formal mathematical model to it.</p>
-                <p>The software I'm about to present includes eight different models, three of which are implemented here. For example, fitting a Gaussian model doesn't seem to provide a good fit, while an exponential model appears more suitable.</p>
-                <p>The model is described by at least two parameters, shown here. The upper horizontal line represents the sill, indicating the maximum spatial correlation between observations, while the effective range on the X-axis denotes where the model reaches 95% of its value.</p>
-                <p>Now, discussing uncertainty, one crucial source arises from the fact that any geostatistical method we apply only uses the model, not the empirical variogram. Any uncertainty and errors introduced during model fitting will propagate into subsequent methods.</p>
-            </aside>
-        </MainSlide>
+                <aside className="notes">
+                    <p>We call this an empirical variogram, representing the relationship between separating distance (X-axis) and semi-variance (Y-axis). To describe it more coherently, we apply a formal mathematical model to it.</p>
+                    <p>The software I'm about to present includes eight different models, three of which are implemented here. For example, fitting a Gaussian model doesn't seem to provide a good fit, while an exponential model appears more suitable.</p>
+                    <p>The model is described by at least two parameters, shown here. The upper horizontal line represents the sill, indicating the maximum spatial correlation between observations, while the effective range on the X-axis denotes where the model reaches 95% of its value.</p>
+                    <p>Now, discussing uncertainty, one crucial source arises from the fact that any geostatistical method we apply only uses the model, not the empirical variogram. Any uncertainty and errors introduced during model fitting will propagate into subsequent methods.</p>
+                </aside>
+            </MainSlide>
+
+            <MainSlide title="Variogram models" id="models" visibility="uncounted">
+                <Stack direction="column" sx={{height: '100%'}} justifyContent="space-evenly">
+                    <Stack direction="column">
+                        <InlineMath math="\gamma(h) = 
+                            \begin{cases}
+                                b + C_0 \left(\frac{3}{2}\frac{h}{a} - \frac{1}{2}\left(\frac{h}{a}\right)^3\right) & \text{if } h \leq a \\
+                                b + C_0 & \text{if } h > a
+                            \end{cases}" 
+                        />
+                        <Box sx={{mt: 1}}><InlineMath math="a = \frac{r}{1}" /></Box>
+                    </Stack>
+                    <Stack direction="column">
+                        <InlineMath math="\gamma(h) = b + C_0 \left(1 - e^{-\frac{h}{a}}\right)" />
+                        <Box sx={{mt: 1}}><InlineMath math="a = \frac{r}{3}" /></Box>
+                    </Stack>
+                    <Stack direction="column">
+                        <InlineMath math="\gamma(h) = b + C_0 \left(1 - e^{-\frac{h^2}{a^2}}\right)" />
+                        <Box sx={{mt: 1}}><InlineMath math="a = \frac{r}{2}" /></Box>
+                    </Stack>
+                </Stack>
+            </MainSlide>
+
+            <MainSlide title="Variogram models" id="models-2" visibility="uncounted">
+                <Stack direction="column" sx={{height: '100%'}} justifyContent="space-evenly">
+                    <Stack direction="column">
+                        <InlineMath math="\gamma(h) = b + C_0 \left[7\frac{h^2}{a^2} - \frac{35}{4}\frac{h^3}{a^3} + \frac{7}{2}\frac{h^5}{a^5} - \frac{3}{4}\frac{h^7}{a^7} \right]" 
+                        />
+                        <Box sx={{mt: 1}}><InlineMath math="a = \frac{r}{1}" /></Box>
+                    </Stack>
+                    <Stack direction="column">
+                        <InlineMath math="\gamma(h) = b + C_0 \left(1 - e^{-(\frac{h}{a})^s}\right)" />
+                        <Box sx={{mt: 1}}><InlineMath math="a = \frac{r}{3^\frac{1}{s}}" /></Box>
+                    </Stack>
+                    <Stack direction="column">
+                        <InlineMath math="\gamma(h) = b + C_0 \left( 1 - \frac{1}{2^{\nu - 1} \Gamma(\nu)} \left(\frac{h}{a}\right)^{\nu} \Kappa_{\nu}\left(\frac{h}{a}\right)  \right)" />
+                        <Box sx={{mt: 1}}><InlineMath math="a = \frac{r}{2}" /></Box>
+                    </Stack>
+                </Stack>
+            </MainSlide>
+        </section>
 
         <MainSlide title="Interpolate a pancake">
             <Paper elevation={3}>
