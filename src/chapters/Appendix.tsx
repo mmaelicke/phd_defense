@@ -1,9 +1,9 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Paper, Typography } from "@mui/material"
 import MainSlide from "../components/MainSlide"
 
 const Appendix: React.FC = () => {
     return (<>
-        <MainSlide title="Appendix" id="appendix">
+        <MainSlide title="Appendix" id="appendix" visibility="uncounted">
             <Box sx={{textAlign: 'left'}}>
                 <Typography variant="h3" component="div">References</Typography>
                 <ul>
@@ -12,6 +12,22 @@ const Appendix: React.FC = () => {
                 </ul>
             </Box>
         </MainSlide>
+
+        <section>
+
+            <MainSlide title="Pancake model parameter grid search" visibility="uncounted" id="grid-search">
+                <Paper elevation={3} sx={{p: 1}}>
+                    <Box component="img" src="img/grid_search.png" sx={{height: 450}} />
+                </Paper>
+            </MainSlide>
+
+            <MainSlide title="Pancake kriging uncertainty bounds" visibility="uncounted">
+                <Paper elevation={3} sx={{p: 1, width: 'fit-content', m: 'auto'}}>
+                    <Box component="img" src="img/pancake_krige_uncertainty.png" sx={{maxHeight: 450, maxWidth: '100%', width: 'auto', height: 'auto'}} />
+                </Paper>
+            </MainSlide>
+
+        </section>
     </>)
 }
 
