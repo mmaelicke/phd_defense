@@ -43,6 +43,7 @@ const Introduction: React.FC = () => {
             </aside>
         </MainSlide>
 
+        <section>
         <MainSlide title="Remote sensing may be imprecise" id="starzel">
             <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
                 <Stack direction="row" spacing={3} sx={{p: 1}} className="fragment custom blur-out" data-fragment-index="5">
@@ -76,6 +77,16 @@ const Introduction: React.FC = () => {
                 <p>It's essential to note that point observations are usually precise but may miss events, while radar captures spatial correlations but can be imprecise. Using both data sources simultaneously allows us to harness the power of geostatistics for merging and analyzing this relationship.</p>
             </aside>
         </MainSlide>
+
+        <MainSlide title="Radar data quality" id="radar-quality" visibility="uncounted">
+            <Paper elevation={3} sx={{p: 1}}>
+                <Box component="img" src="img/radar_quality.png" sx={{height: 400}} />
+                <Typography variant="caption" component="div" sx={{textAlign: 'left'}}>
+                    <a href="https://www.dwd.de/EN/research/weatherforecasting/met_applications/radar_data_applications/radar_data_quality_control_node.html" rel="noreferrer">Source: Deutscher Wetterdienst (DWD) Radar Data Quality Control</a>
+                </Typography>
+            </Paper>
+        </MainSlide>
+        </section>
     </>)
 }
 
