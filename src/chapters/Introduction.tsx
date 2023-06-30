@@ -24,7 +24,7 @@ const Introduction: React.FC = () => {
             </aside>
         </MainSlide>
 
-        <MainSlide title="Observations are sparse" id="start-introduction">
+        <MainSlide title="Observations are sparse">
             <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
                 <Box className="fragment-disabled custom blur-out" data-fragment-index="1">
                     <Box component="img" src="img/kidd_fig1.jpg" sx={{maxHeight: 400}} />
@@ -43,7 +43,7 @@ const Introduction: React.FC = () => {
             </aside>
         </MainSlide>
 
-        <MainSlide title="Remote sensing may be imprecise">
+        <MainSlide title="Remote sensing may be imprecise" id="starzel">
             <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
                 <Stack direction="row" spacing={3} sx={{p: 1}} className="fragment custom blur-out" data-fragment-index="5">
                     <Box>
