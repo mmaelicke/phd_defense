@@ -6,6 +6,7 @@ import BasicVariogram from "../slides/BasicVariogram"
 import LI from "../components/LI"
 import SoftwareFlowchart from "../slides/SoftwareFlowchart"
 import { InlineMath } from "react-katex"
+import NuggetSillExample from "../slides/NuggetSillExample"
 
 
 const Motivation: React.FC = () => {
@@ -98,6 +99,12 @@ const Motivation: React.FC = () => {
                         <Box sx={{mt: 1}}><InlineMath math="a = \frac{r}{2}" /></Box>
                     </Stack>
                 </Stack>
+            </MainSlide>
+
+            <MainSlide title="Nugget / Sill ratio" id="nugget" visibility="uncounted">
+                <Paper elevation={3} sx={{width: 'fit-content', m: 'auto'}}>
+                    <NuggetSillExample />
+                </Paper>
             </MainSlide>
         </section>
 
