@@ -26,24 +26,32 @@ const Uncertainty: React.FC = () => {
             </aside>
         </MainSlide>
 
-        <MainSlide title="Uncertain pancakes">
-            <Paper elevation={3} className="r-stack">
-                <Box className="fragment custom blur-out" data-fragment-index="2">
-                    <CompareObservationUncertainty />
-                </Box>
-                <Stack direction="column" spacing={3} className="info-box fragment zoom-in" data-fragment-index="2">
-                    <LI>- Observation uncertainties should be propagated into the variogram</LI>
-                    <LI>- Uncertainty bands allow for a multi-model approach</LI>
-                    <LI>- Models can exhibit different structural properties</LI>
-                </Stack>
-            </Paper>
+        <section>
+            <MainSlide title="Uncertain pancakes">
+                <Paper elevation={3} className="r-stack">
+                    <Box className="fragment custom blur-out" data-fragment-index="2">
+                        <CompareObservationUncertainty />
+                    </Box>
+                    <Stack direction="column" spacing={3} className="info-box fragment zoom-in" data-fragment-index="2">
+                        <LI>- Observation uncertainties should be propagated into the variogram</LI>
+                        <LI>- Uncertainty bands allow for a multi-model approach</LI>
+                        <LI>- Models can exhibit different structural properties</LI>
+                    </Stack>
+                </Paper>
 
-            <aside className="notes">
-                <p>To give you an idea of the uncertainties we're dealing with, here you see the original pancake, and here you see a resample with a random error of five units of intensity. You can see that you can’t see any difference. To better understand how these uncertainties manifest, I introduced larger error margins, as you can see here. I performed the entire procedure, propagated the uncertainties into the pancake, and fitted several models.</p>
-                <p>In this visualization, you can see two kriging interpolations that are quite distinct. One model exhibits a longer range and a smaller sill, while the other has a shorter range and a higher sill.</p>
-                <p>Remember, we are dealing with small observation differences, which accumulate and lead to different model parameterization. Therefore, it's crucial to propagate observation uncertainties into the variogram and represent them with an uncertainty band. This approach allows for fitting multiple models, each potentially exhibiting different structural properties and correlation lengths, which can be a significant challenge to address.</p>
-            </aside>
-        </MainSlide>
+                <aside className="notes">
+                    <p>To give you an idea of the uncertainties we're dealing with, here you see the original pancake, and here you see a resample with a random error of five units of intensity. You can see that you can’t see any difference. To better understand how these uncertainties manifest, I introduced larger error margins, as you can see here. I performed the entire procedure, propagated the uncertainties into the pancake, and fitted several models.</p>
+                    <p>In this visualization, you can see two kriging interpolations that are quite distinct. One model exhibits a longer range and a smaller sill, while the other has a shorter range and a higher sill.</p>
+                    <p>Remember, we are dealing with small observation differences, which accumulate and lead to different model parameterization. Therefore, it's crucial to propagate observation uncertainties into the variogram and represent them with an uncertainty band. This approach allows for fitting multiple models, each potentially exhibiting different structural properties and correlation lengths, which can be a significant challenge to address.</p>
+                </aside>
+            </MainSlide>
+
+            <MainSlide title="RGB uncertainty bands">
+                <Paper elevation={3}>
+                    <Box component="img" src="img/pancake_band_variograms.png" sx={{maxHeight: 450, maxWidth: '100%',  width: 'auto', height: 'auto'}} />
+                </Paper>
+            </MainSlide>
+        </section>
 
         {/* <MainSlide title="How to propagate uncertainties" id="start-uncertainty">
             <Stack direction="row" spacing={2}>
