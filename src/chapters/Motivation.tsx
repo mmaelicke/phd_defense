@@ -1,4 +1,4 @@
-import { Box, Paper, Stack, Typography } from "@mui/material"
+import { Box, Grid, Paper, Stack, Typography } from "@mui/material"
 import MainSlide from "../components/MainSlide"
 import Outline from "../slides/Outline"
 
@@ -147,6 +147,40 @@ const Motivation: React.FC = () => {
 
             <MainSlide title="Software Overview" visibility="uncounted">
                 <SoftwareFlowchart withCode />
+            </MainSlide>
+
+            <MainSlide title="SciKit-GStat" visibility="uncounted" id="skgstat">
+                    <Grid container>
+                        
+                        <Grid item xs={12} md={6} spacing={1}>
+                            <Typography variant="h5"  sx={{textAlign: 'left', my: 2}}>Anisotropic variograms</Typography>
+                            <Stack direction="column">
+                                <LI>- Includes only point pairs within specified range of angles</LI>
+                                <LI>- Can handle arbitrary number of different angles</LI>
+                                <LI>- Only for 1D and 2D coordinates</LI>
+                            </Stack>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <Paper elevation={0} sx={{p: 1, width: 'fit-content', m: 'auto'}}>
+                                <Box component="img" src="img/pancake_pair_field.png" sx={{height: '250px'}} />
+                            </Paper>
+                        </Grid>
+
+                        <Grid item xs={12} md={6}>
+                            <Typography variant="h5"  sx={{textAlign: 'left', my: 3}}>Spatio-temporal variograms</Typography>
+                            <Stack direction="column">
+                                <LI>- SciKit-GStat provides three spatio-temporal models</LI>
+                                <LI>- Allows for irrelgular time-steps</LI>
+                                <LI>- Cannot handle sparse time-axis (yet)</LI>
+                            </Stack>
+                        </Grid>
+                        <Grid item xs={12} md={5}>
+                            <Paper elevation={0} sx={{p: 1, width: 'fit-content', m: 'auto'}}>
+                                <Box component="img" src="img/st_3dplot.png" sx={{height: '250px'}} />
+                            </Paper>
+                        </Grid>
+
+                    </Grid>
             </MainSlide>
         </section>
 
