@@ -33,11 +33,11 @@ const Motivation: React.FC = () => {
 
         <MainSlide title="Building a pancake variogram">
             <Paper elevation={3} sx={{padding: 1, width: 'fit-content', m: 'auto'}} className="r-stack">
-                <Box component="img" src="img/pancake_field_rgb.png" sx={{maxHeight: 500}} />
-                <Box component="img" src="img/pancake_field_r.png" sx={{maxHeight: 500}} className="fragment" />
-                <Box component="img" src="img/pancake_field_sample.png" sx={{maxHeight: 500}} className="fragment" />
-                <Box component="img" src="img/pancake_animation.gif" sx={{maxHeight: 500}} className="fragment" />
-                <Box component="img" src="img/lagclasses_animation.gif" sx={{maxHeight: 500}} className="fragment" />
+                <Box component="img" src="img/pancake_field_rgb.png" sx={{height: 450}} />
+                <Box component="img" src="img/pancake_field_r.png" sx={{height: 450}} className="fragment" />
+                <Box component="img" src="img/pancake_field_sample.png" sx={{height: 450}} className="fragment" />
+                <Box component="img" src="img/pancake_animation.gif" sx={{height: 450}} className="fragment" />
+                <Box component="img" src="img/lagclasses_animation.gif" sx={{height: 450}} className="fragment" />
             </Paper>
 
             <aside className="notes">

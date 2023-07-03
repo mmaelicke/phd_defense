@@ -85,9 +85,18 @@ const SoilMoisture: React.FC = () => {
                 </Stack>
             </MainSlide>
 
-            <MainSlide title="Appendix: Mean shift" visibility="uncounted">
+            <MainSlide title="Appendix: Mean shift" visibility="uncounted" id="mean-shift">
                 <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
                     <Box component="img" src="img/appendix_mean_shift.png" sx={{maxHeight: '450px'}} />
+                </Paper>
+            </MainSlide>
+
+            <MainSlide title="Appendix: Mean shift" visibility="uncounted">
+                <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
+                    <Box component="img" src="https://spin.atomicobject.com/wp-content/uploads/ms_2d_bw_.8.gif" sx={{maxHeight: '450px'}} />
+                    <Typography variant="caption" component="div" sx={{textAlign: 'left', p: 1}}>
+                        Image and animation <a href="https://spin.atomicobject.com/2015/05/26/mean-shift-clustering/" target="_blank" rel="noreferrer">linked from Atomic Object blog</a>
+                    </Typography>
                 </Paper>
             </MainSlide>
         </section>
