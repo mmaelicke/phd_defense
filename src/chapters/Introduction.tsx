@@ -44,49 +44,65 @@ const Introduction: React.FC = () => {
         </MainSlide>
 
         <section>
-        <MainSlide title="Remote sensing may be imprecise" id="starzel">
-            <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
-                <Stack direction="row" spacing={3} sx={{p: 1}} className="fragment custom blur-out" data-fragment-index="5">
-                    <Box>
-                        <Box component="img" src="img/starzel_radar.jpg" sx={{maxHeight: 400, maxWidth: 400}} />
-                    </Box>
-                    <Box className="r-stack">
-                        <Box component="img" src="img/starzel_plot_0.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="1" />
-                        <Box component="img" src="img/starzel_plot_1.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="2" />
-                        <Box component="img" src="img/starzel_plot_2.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="3" />
-                        <Box component="img" src="img/starzel_plot_3.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="4" />
-                    </Box>
-                </Stack>
+            <MainSlide title="Remote sensing may be imprecise" id="starzel">
+                <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
+                    <Stack direction="row" spacing={3} sx={{p: 1}} className="fragment custom blur-out" data-fragment-index="5">
+                        <Box>
+                            <Box component="img" src="img/starzel_radar.jpg" sx={{maxHeight: 400, maxWidth: 400}} />
+                        </Box>
+                        <Box className="r-stack">
+                            <Box component="img" src="img/starzel_plot_0.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="1" />
+                            <Box component="img" src="img/starzel_plot_1.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="2" />
+                            <Box component="img" src="img/starzel_plot_2.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="3" />
+                            <Box component="img" src="img/starzel_plot_3.png" sx={{maxHeight: 400}} className="fragment" data-fragment-index="4" />
+                        </Box>
+                    </Stack>
 
-                <Stack direction="column" className="fragment zoom-in info-box" spacing={3} data-fragment-index="5">
-                <LI>- Point observations are precise, but may miss events</LI>
-                <LI>- Radar captures spatial correlation, but may be imprecise</LI>
-                <Box className="fragment" data-fragment-index="6">
-                    <LI> =&gt; using both data sources at once</LI>
-                    <LI> =&gt; <i>geostatistics</i> provide means for merging <strong>and</strong> analyzing this relationship</LI>
-                </Box>
+                    <Stack direction="column" className="fragment zoom-in info-box" spacing={3} data-fragment-index="5">
+                    <LI>- Point observations are precise, but may miss events</LI>
+                    <LI>- Radar captures spatial correlation, but may be imprecise</LI>
+                    <Box className="fragment" data-fragment-index="6">
+                        <LI> =&gt; using both data sources at once</LI>
+                        <LI> =&gt; <i>geostatistics</i> provide means for merging <strong>and</strong> analyzing this relationship</LI>
+                    </Box>
+                    </Stack>
+                </Paper>
+
+                <aside className="notes">
+                    <p>You may suggest using rainfall radar instead. Indeed, rainfall patterns can be captured quite well in space using radar. Here's an example from the Starzel region in southwest Germany in 2008, where a severe flood occurred. However, you can also see that the storm of interest is shadowed by two other storms.</p>
+                    <p>The blue line represents the actual flood, while the green line depicts the flood prediction based on radar imagery.</p>
+                    <p>As you can see, the predicted flood was a two-year event, but the actual flood turned out to be a 100-year event.</p>
+                    <p>However, if we consider the ground observations in the area alone, we achieve better predictions, in this case.</p>
+                    <p>To obtain a more precise prediction, we can combine both the accuracy of ground observations and the spatial patterns captured by rainfall radar. By combining the strengths of both data sources, we can generate a more reliable prediction, represented by the red line in this case.</p>
+                    <p>It's essential to note that point observations are usually precise but may miss events, while radar captures spatial correlations but can be imprecise. Using both data sources simultaneously allows us to harness the power of geostatistics for merging and analyzing this relationship.</p>
+                </aside>
+            </MainSlide>
+
+            <MainSlide title="Radar data quality" id="radar-quality" visibility="uncounted">
+                <Paper elevation={3} sx={{p: 1}}>
+                    <Box component="img" src="img/radar_quality.png" sx={{height: 400}} />
+                    <Typography variant="caption" component="div" sx={{textAlign: 'left'}}>
+                        <a href="https://www.dwd.de/EN/research/weatherforecasting/met_applications/radar_data_applications/radar_data_quality_control_node.html" rel="noreferrer">Source: Deutscher Wetterdienst (DWD) Radar Data Quality Control</a>
+                    </Typography>
+                </Paper>
+            </MainSlide>
+        </section>
+
+        <MainSlide title="Research Questions">
+            <Paper elevation={3} sx={{p: 2}} className="r-stack">
+                <Stack direction="column" spacing={3} sx={{p: 1}}>
+                    <LI className="fragment">- By including observation uncertainties into variogram modeling, can we provide better insights into spatial datasets?</LI>
+                    <LI className="fragment">- By implementing a minimal interface and minimal metadata requirements,  geostatistical tools become reproducible and can easily be replicated and extended </LI>
                 </Stack>
             </Paper>
 
             <aside className="notes">
-                <p>You may suggest using rainfall radar instead. Indeed, rainfall patterns can be captured quite well in space using radar. Here's an example from the Starzel region in southwest Germany in 2008, where a severe flood occurred. However, you can also see that the storm of interest is shadowed by two other storms.</p>
-                <p>The blue line represents the actual flood, while the green line depicts the flood prediction based on radar imagery.</p>
-                <p>As you can see, the predicted flood was a two-year event, but the actual flood turned out to be a 100-year event.</p>
-                <p>However, if we consider the ground observations in the area alone, we achieve better predictions, in this case.</p>
-                <p>To obtain a more precise prediction, we can combine both the accuracy of ground observations and the spatial patterns captured by rainfall radar. By combining the strengths of both data sources, we can generate a more reliable prediction, represented by the red line in this case.</p>
-                <p>It's essential to note that point observations are usually precise but may miss events, while radar captures spatial correlations but can be imprecise. Using both data sources simultaneously allows us to harness the power of geostatistics for merging and analyzing this relationship.</p>
+                <p>Before we talk about uncertain empirical variograms, let's take a moment to reflect two core questions underpinning this work today.</p>
+                <p>'By including observation uncertainties into variogram modeling, can we provide better insights into spatial datasets?' - With this, we mainly seek to enhance existing approaches.</p>
+                <p>For the second part we want to explore research software reprocucibility. 'By implementing a minimal interface and minimal metadata requirements, geostatistical tools become reproducible and can easily be replicated and extended.'. 
+                    I will demonstrate this at a rather uncommon example. </p>
             </aside>
         </MainSlide>
-
-        <MainSlide title="Radar data quality" id="radar-quality" visibility="uncounted">
-            <Paper elevation={3} sx={{p: 1}}>
-                <Box component="img" src="img/radar_quality.png" sx={{height: 400}} />
-                <Typography variant="caption" component="div" sx={{textAlign: 'left'}}>
-                    <a href="https://www.dwd.de/EN/research/weatherforecasting/met_applications/radar_data_applications/radar_data_quality_control_node.html" rel="noreferrer">Source: Deutscher Wetterdienst (DWD) Radar Data Quality Control</a>
-                </Typography>
-            </Paper>
-        </MainSlide>
-        </section>
     </>)
 }
 

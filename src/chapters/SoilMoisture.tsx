@@ -6,6 +6,7 @@ import ForceGraphExample from "../slides/ForceGraphExample"
 import GraphExamples from "../slides/GraphExamples"
 import ClusterGraphs from "../slides/ClusterGraphs"
 import LI from "../components/LI"
+import WorkflowFlowchart from "../slides/WorkflowFlowchart"
 
 const SoilMoisture: React.FC = () => {
     return (<>
@@ -50,6 +51,25 @@ const SoilMoisture: React.FC = () => {
                 <p>Unlike the original 2020 publication, I did not cluster the empirical variograms themselves. Instead, I utilized the capabilities of the software to reproduce the analysis within minutes and explore alternative clustering methods.</p>
                 <p>The clustering results are quite promising, as they reveal three distinct clusters primarily differentiated by their sill values. The correlation lengths were relatively similar among the clusters.</p>
                 <p>By examining the lower plot depicting the time series, we can observe that the clusters emerge coherently over time. Each cluster can be associated with different processes: the yellow cluster represents dry conditions, the blue cluster indicates soil drying or wetting, and the green cluster signifies wet soil conditions.</p>
+            </aside>
+        </MainSlide>
+
+        <MainSlide title="What is so different?">
+            <Box className="r-stack">
+                <Box className="fragment custom blur-out" data-fragment-index="1">
+                    <WorkflowFlowchart />
+                </Box>
+                <Box className="fragment zoom-in" data-fragment-index="1">
+                    <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
+                        <LI>- Transparent about the data used</LI>
+                        <LI>- Parameterization clearly separated from data</LI>
+                        <LI>- Context and environment saved along with input &amp; output</LI>
+                    </Stack>
+                </Box>
+            </Box>
+
+            <aside className="notes">
+                <p></p>
             </aside>
         </MainSlide>
 
@@ -132,39 +152,42 @@ const SoilMoisture: React.FC = () => {
             </aside>
         </MainSlide>
 
-        <MainSlide title="Cluster mean covariance graph">
-            <Paper elevation={3}>
-                <ClusterGraphs />
-            </Paper>
 
-            <aside className="notes">
-                <p>In this slide, I present the force-directed graphs for the yellow cluster of soil moisture measurements in the Colpach catchment.</p>
-                <p>What we can observe is that there are actually two separate, independent graphs when considering separating distances up to 500 meters.</p>
-                <p>However, when considering separating distances up to 1 kilometer, the two graphs become connected, particularly through three nodes in the middle. These nodes connect the other blobs but also keep them at some distance.</p>
-                <p>Furthermore, force-directed graphs were also generated for the green and blue clusters, and they exhibit similar structures with minor differences.</p>
-            </aside>
-        </MainSlide>
+        <section>
+            <MainSlide title="Cluster mean covariance graph">
+                <Paper elevation={3}>
+                    <ClusterGraphs />
+                </Paper>
 
-        <MainSlide title="Benchmark Graphs">
-            <Paper elevation={3} sx={{width: 'fit-content'}} className="r-stack">
-                <Box className="fragment custom blur-out" data-fragment-index="2">
-                    <GraphExamples />
-                </Box>
-                <Stack direction="column" spacing={3} sx={{p: 3}} className="fragment zoom-in info-box" data-fragment-index="2">
-                    <LI>- Each benchmark field exhibits distinctly different graphs</LI>
-                    {/* <LI className="fragment">- Shapes of the graphs vary significantly between benchmark fields</LI> */}
-                    <LI className="fragment">- Graphs exhibit clear differences in their evolution.</LI>
-                </Stack>
-            </Paper>
+                <aside className="notes">
+                    <p>In this slide, I present the force-directed graphs for the yellow cluster of soil moisture measurements in the Colpach catchment.</p>
+                    <p>What we can observe is that there are actually two separate, independent graphs when considering separating distances up to 500 meters.</p>
+                    <p>However, when considering separating distances up to 1 kilometer, the two graphs become connected, particularly through three nodes in the middle. These nodes connect the other blobs but also keep them at some distance.</p>
+                    <p>Furthermore, force-directed graphs were also generated for the green and blue clusters, and they exhibit similar structures with minor differences.</p>
+                </aside>
+            </MainSlide>
 
-            <aside className="notes">
-                <p>To explore the limits of force-directed graphs, I calculated benchmark random fields and created force-directed graphs for them.</p>
-                <p>The first benchmark random field used a completely random distance matrix, resulting in a force-directed graph with a random structure.</p>
-                <p>The second benchmark random field was a deterministic field where I added up the indices for the values, resulting in a force-directed graph that resembled the field itself.</p>
-                <p>The third benchmark random field was a highly ordered field where all the values were the same, leading to a configuration with a lot of tension.</p>
-                <p>Each benchmark field exhibited a distinct graph shape, providing clearer differences in their evolution for further analysis.</p>
-            </aside>
-        </MainSlide>
+            <MainSlide title="Benchmark Graphs" visibility="uncounted">
+                <Paper elevation={3} sx={{width: 'fit-content'}} className="r-stack">
+                    <Box className="fragment custom blur-out" data-fragment-index="2">
+                        <GraphExamples />
+                    </Box>
+                    <Stack direction="column" spacing={3} sx={{p: 3}} className="fragment zoom-in info-box" data-fragment-index="2">
+                        <LI>- Each benchmark field exhibits distinctly different graphs</LI>
+                        {/* <LI className="fragment">- Shapes of the graphs vary significantly between benchmark fields</LI> */}
+                        <LI className="fragment">- Graphs exhibit clear differences in their evolution.</LI>
+                    </Stack>
+                </Paper>
+
+                <aside className="notes">
+                    <p>To explore the limits of force-directed graphs, I calculated benchmark random fields and created force-directed graphs for them.</p>
+                    <p>The first benchmark random field used a completely random distance matrix, resulting in a force-directed graph with a random structure.</p>
+                    <p>The second benchmark random field was a deterministic field where I added up the indices for the values, resulting in a force-directed graph that resembled the field itself.</p>
+                    <p>The third benchmark random field was a highly ordered field where all the values were the same, leading to a configuration with a lot of tension.</p>
+                    <p>Each benchmark field exhibited a distinct graph shape, providing clearer differences in their evolution for further analysis.</p>
+                </aside>
+            </MainSlide>
+        </section>
 
         <MainSlide title="Cluster covariance graph emergence">
             <Paper elevation={3} sx={{p: 1, width: 'fit-content', m: 'auto'}} className="r-stack">
