@@ -187,44 +187,49 @@ const SoilMoisture: React.FC = () => {
                     <p>Each benchmark field exhibited a distinct graph shape, providing clearer differences in their evolution for further analysis.</p>
                 </aside>
             </MainSlide>
+
+            <MainSlide title="Cluster covariance graph emergence">
+                <Paper elevation={3} sx={{p: 1, width: 'fit-content', m: 'auto'}} className="r-stack">
+                    <Box component="img" src="img/graph_emergence_1.png" sx={{maxHeight: '450px'}} />
+                    <Box className="fragment" data-fragment-index="1">
+                        <Box component="img" src="img/graph_emergence_2.png" sx={{maxHeight: '450px'}} className="fragment custom blur-out" data-fragment-index="2" />
+                    </Box>
+                    <Stack direction="column" spacing={3} sx={{p: 3}} className="fragment zoom-in info-box" data-fragment-index="2">
+                        <LI>- Cluster emerge differently, but converge into a similar state</LI>
+                        <LI className="fragment" data-fragment-index="3">- Capturing these differences in a metric is challenging</LI>
+                    </Stack>
+                </Paper>
+
+                <aside className="notes">
+                    <p>In this slide, you see the relative node velocity over time for the benchmark fields.</p>
+                    <p>In the deterministic case with high variance, the nodes move at different speeds throughout the simulation.</p>
+                    <p>In the case with no variance, there is initial movement, but the nodes gradually decay and converge into a stable state.</p>
+                    <p>The random case quickly finds its configuration, with varying subsequent movement.</p>
+                    <p>The cluster force-directed graphs show distinct emergence patterns, with each cluster exhibiting parts of the fingerprint of each benchmark field.</p>
+                    <p>The evolution of the force-directed graphs for the three clusters also shows clear differences, although converging into the same state.</p>
+                    <p>Formalizing the description of these differences is challenging and will be part of future work.</p>
+                </aside>
+            </MainSlide>
         </section>
 
-        <MainSlide title="Cluster covariance graph emergence">
-            <Paper elevation={3} sx={{p: 1, width: 'fit-content', m: 'auto'}} className="r-stack">
-                <Box component="img" src="img/graph_emergence_1.png" sx={{maxHeight: '450px'}} />
-                <Box className="fragment" data-fragment-index="1">
-                    <Box component="img" src="img/graph_emergence_2.png" sx={{maxHeight: '450px'}} className="fragment custom blur-out" data-fragment-index="2" />
-                </Box>
-                <Stack direction="column" spacing={3} sx={{p: 3}} className="fragment zoom-in info-box" data-fragment-index="2">
-                    <LI>- Cluster emerge differently, but converge into a similar state</LI>
-                    <LI className="fragment" data-fragment-index="3">- Capturing these differences in a metric is challenging</LI>
-                </Stack>
-            </Paper>
-
-            <aside className="notes">
-                <p>In this slide, you see the relative node velocity over time for the benchmark fields.</p>
-                <p>In the deterministic case with high variance, the nodes move at different speeds throughout the simulation.</p>
-                <p>In the case with no variance, there is initial movement, but the nodes gradually decay and converge into a stable state.</p>
-                <p>The random case quickly finds its configuration, with varying subsequent movement.</p>
-                <p>The cluster force-directed graphs show distinct emergence patterns, with each cluster exhibiting parts of the fingerprint of each benchmark field.</p>
-                <p>The evolution of the force-directed graphs for the three clusters also shows clear differences, although converging into the same state.</p>
-                <p>Formalizing the description of these differences is challenging and will be part of future work.</p>
-            </aside>
-        </MainSlide>
+        
 
         <MainSlide title="Summary">
             <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
                 <LI>- Experimental visualization of a datasets' correlation structure is possible</LI>
-                <LI className="fragment fade-up">- Graphs exhibit clear differences between benchmark fields</LI>
+                {/* <LI className="fragment fade-up">- Graphs exhibit clear differences between benchmark fields</LI> */}
                 <LI className="fragment fade-up">- Cluster graphs converge into a very similar state</LI>
                 <LI className="fragment fade-up">- Hard to link the graphs back to variogram parameters</LI>
+                <LI className="fragment fade-up">- Graph theory offers potential avenues for characterization of graph evolution and properties </LI>
             </Stack>
 
             <aside className="notes">
                 <p>To summarize, with the software stack and reproducibility capabilities, it was possible to experimentally visualize correlation structures in a novel way.</p>
-                <p>The graphs exhibit distinct differences between benchmark fields, enabling the decoding of cluster differences.</p>
-                <p>Moreover, the cluster graphs converge into similar states, as expected since they represent the same dataset at different times.</p>
+                {/* <p>The graphs exhibit distinct differences between benchmark fields, enabling the decoding of cluster differences.</p> */}
+                <p>The cluster graphs converge into similar states, as expected since they represent the same dataset at different times.</p>
                 <p>However, linking these findings back to the variogram parameters remains a challenge.</p>
+                <p>Graph theory might be the way forward to systematically explore and describe the emergence of these graphs and describe their properties in a concise way. We already made the first steps into this direction, which might serve as a solid foundation for our upcoming discussion.
+                </p>
             </aside>
         </MainSlide>
 

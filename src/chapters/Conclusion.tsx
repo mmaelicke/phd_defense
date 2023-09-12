@@ -48,7 +48,7 @@ const Conclusion: React.FC = () => {
                 <Box className="fragment fade-up">
                 <Typography variant="h6">Uncertainty extension</Typography>
                 <Box className="info-box" sx={{mt: 3, p: 3}}>
-                    <LI className="">- Propagation of uncertainty allowed for multi-model approaches</LI>
+                    <LI className="">- Propagation of uncertainty into the variogram allowed for multi-model approach</LI>
                     <LI className="fragment">- Epistemic uncertainties in model selection persist regardless of their repesentation</LI>
                 </Box>
                 </Box>
