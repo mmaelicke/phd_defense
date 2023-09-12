@@ -8,6 +8,7 @@ import highlight from 'highlight.js';
 import python from 'highlight.js/lib/languages/python';
 import yaml from 'highlight.js/lib/languages/yaml';
 import txt from 'highlight.js/lib/languages/plaintext';
+import json from 'highlight.js/lib/languages/json';
 import 'highlight.js/styles/monokai.css'
 import { Code } from "@gregcello/revealjs-react";
 
@@ -28,8 +29,10 @@ const edges: Edge[] = [
     {id: 'docker-output', source: 'docker', target: 'output', markerEnd: {type: MarkerType.Arrow}}
 ]
 
-const CODE: {[key: string]: string} = {
-    'tool': `
+const CODE: {[key: string]: {code: string, type: string}} = {
+    'tool': {
+        type: 'python',
+        code: `
 [...]
 from json2args import get_parameter
 
@@ -80,8 +83,10 @@ if toolname == 'moving-window':
 # no tool selected
 else:
     sys.exit(f'The tool {toolname} is not known.')
-`,
-    'yaml': `
+`},
+    'yaml': {
+        type: 'yaml',
+        code: `
 tools:
     moving-window:
         title: Moving window dispersion functions
@@ -96,15 +101,17 @@ tools:
                 Mapping of variogram parameters as defined 
                 by SciKit-GStat
     data:
-        timeseries:
-            type: csv
+        observations:
+            type: timeseries
         positions:
-            type: csv
+            type: dataframe
             description: | 
                  'x', ['y', 'z'] headed list of positions 
                  in the order of the timeseries
-`,
-    'output': `
+`},
+    'output': {
+        type: 'text',
+        code: `
 RUNNING TOOL 'moving-window'
 EXTENDED OUTPUT: true
 PYTHON: 3.10.4 (default, Sep  9 2021, 13:59:19)
@@ -125,7 +132,22 @@ Checksums:
 INPUT:  e57e0393***
 OUTPUT: 0e3a5b5d***
 ENV:    cd4e84f4***
-`
+`},
+    'params': {
+        type: 'json',
+        code: `
+    {
+        "moving-window": {
+            "parameters": {
+                "window_size": 10,
+            },
+            "data": {
+                "observations": "observations.csv",
+                "positions": "positions.csv"
+            }
+        }
+    }
+`}
 }
 
 const WorkflowFlowchart: React.FC = () => {
@@ -134,10 +156,18 @@ const WorkflowFlowchart: React.FC = () => {
 
     // use highlightjs
     useEffect(() => {
-        if (currentNode === 'yml') {
+        // skip if the node has no code example
+        if (!Object.keys(CODE).includes(currentNode)) {
+            return
+        }
+        
+        // otherwise load the correct language
+        if (CODE[currentNode].type === 'yaml') {
             highlight.registerLanguage('yaml', yaml)
-        } else if (currentNode === 'tool') {
+        } else if (CODE[currentNode].type === 'python') {
             highlight.registerLanguage('python', python)
+        } else if (CODE[currentNode].type === 'json') {
+            highlight.registerLanguage('json', json)
         } else {
             highlight.registerLanguage('text', txt)
         }
@@ -160,7 +190,7 @@ const WorkflowFlowchart: React.FC = () => {
                     lineNumbers
                 >
                     {({
-                        code: Object.keys(CODE).includes(currentNode) ?  CODE[currentNode] : '# no example available'
+                        code: Object.keys(CODE).includes(currentNode) ?  CODE[currentNode].code : '# no example available'
                     } as unknown) as {code: string} & ReactNode}
 
                 </Code>
