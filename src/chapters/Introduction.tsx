@@ -20,7 +20,7 @@ const Introduction: React.FC = () => {
 
             <aside className="notes">
                 <p>Now, when I presented the pancake dataset, you might have wondered:</p>
-                <p>Why can’t we just use the full pancake and calculate the variogram on all pixels, as we have these observations as well.</p>
+                <p>Why can’t we just use the full pancake and calculate the variogram on all pixels, as we have these observations as well. For the pancake, you could actually do that, but..</p>
             </aside>
         </MainSlide>
 
@@ -39,7 +39,7 @@ const Introduction: React.FC = () => {
             </Paper>
             
             <aside className="notes">
-                <p>Let's consider other variables like rainfall. The map is indicating the distance to the nearest rainfall ground station for each location on the Earth. The white areas signify distances of at least 100 kilometers. When we focus on Europe, especially in countries like Germany or the UK, the density increases, but we still observe distances of around 25 to 50 kilometers to the nearest rainfall station. Hence, our rainfall pancake has some gaps.</p>
+                <p>Let's consider other variables like rainfall. The presented map is indicating the distance to the nearest rainfall ground station for each location on the Earth. The white areas signify distances of at least 100 kilometers. When we focus on Europe, especially in countries like Germany or the UK, the density increases, but we still observe distances of around 25 to 50 kilometers to the nearest rainfall station. Hence, our rainfall pancake has gaps, and we do not have an exhaustive dataset.</p>
             </aside>
         </MainSlide>
 
@@ -70,11 +70,11 @@ const Introduction: React.FC = () => {
 
                 <aside className="notes">
                     <p>You may suggest using rainfall radar instead. Indeed, rainfall patterns can be captured quite well in space using radar. Here's an example from the Starzel region in southwest Germany in 2008, where a severe flood occurred. However, you can also see that the storm of interest is shadowed by two other storms.</p>
-                    <p>The blue line represents the actual flood, while the green line depicts the flood prediction based on radar imagery.</p>
+                    <p>The blue line represents the actual flood, while the green line depicts the flood prediction based on radar imagery only.</p>
                     <p>As you can see, the predicted flood was a two-year event, but the actual flood turned out to be a 100-year event.</p>
                     <p>However, if we consider the ground observations in the area alone, we achieve better predictions, in this case.</p>
-                    <p>To obtain a more precise prediction, we can combine both the accuracy of ground observations and the spatial patterns captured by rainfall radar. By combining the strengths of both data sources, we can generate a more reliable prediction, represented by the red line in this case.</p>
-                    <p>It's essential to note that point observations are usually precise but may miss events, while radar captures spatial correlations but can be imprecise. Using both data sources simultaneously allows us to harness the power of geostatistics for merging and analyzing this relationship.</p>
+                    <p>To obtain an even more precise prediction, we can combine both the accuracy of ground observations and the spatial patterns captured by rainfall radar. By combining the strengths of both data sources, we can generate a more reliable prediction, represented by the red line in this case.</p>
+                    <p>Point observations are usually precise but may miss events, while radar captures spatial correlations but can be imprecise. Using both data sources simultaneously allows us to harness the power of geostatistics for merging and analyzing this relationship.</p>
                 </aside>
             </MainSlide>
 
@@ -97,10 +97,9 @@ const Introduction: React.FC = () => {
             </Paper>
 
             <aside className="notes">
-                <p>Before we talk about uncertain empirical variograms, let's take a moment to reflect two core questions underpinning this work today.</p>
-                <p>'By including observation uncertainties into variogram modeling, can we provide better insights into spatial datasets?' - With this, we mainly seek to enhance existing approaches.</p>
-                <p>For the second part we want to explore research software reprocucibility. 'By implementing a minimal interface and minimal metadata requirements, geostatistical tools become reproducible and can easily be replicated and extended.'. 
-                    I will demonstrate this at a rather uncommon example. </p>
+                <p>Before we jump into the next section about uncertain empirical variograms, let's take a moment to formulate two core questions underpinning this presentation today.</p>
+                <p>'By including observation uncertainties into variogram modeling, can we provide better insights into spatial datasets?' - With this, I mainly seek to enhance existing approaches and propose an exiting new method for variography to you.</p>
+                <p>For the second part we want to explore research software reproducibility. 'By implementing a minimal interface and minimal metadata requirements, geostatistical tools become reproducible and can easily be replicated and extended'. I will demonstrate this at a rather uncommon example.</p>
             </aside>
         </MainSlide>
     </>)

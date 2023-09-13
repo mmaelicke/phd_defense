@@ -6,11 +6,12 @@ import './Outline.css'
 
 interface OutlineParams {
     withFragments?: boolean
+    withNotes?: boolean
     highlight?: string
     id?: string
 }
 
-const Outline: React.FC<OutlineParams> = ({ withFragments, highlight, id }) => {
+const Outline: React.FC<OutlineParams> = ({ withFragments, withNotes, highlight, id }) => {
     return (
         <MainSlide title="Outline" autoAnimate id={id ? id : "outline"}>
             <Grid container spacing={3}>
@@ -55,6 +56,13 @@ const Outline: React.FC<OutlineParams> = ({ withFragments, highlight, id }) => {
                     </Card>
                 </Grid>
             </Grid>
+
+            { withNotes && (<aside className="notes">
+                <p>After this short motivation, I hope you are on board for a bit more of introduction now.</p>
+                <p>Then, I will present some exciting findings about uncertainties in variogram analyses.</p>
+                <p>Next, the developed research software will be demonstrated at the example of a unique soil moisture dataset from Luxemburg.</p>
+                <p>And finally I will wrap this whole thing up and give a short outlook.</p>
+            </aside>) }
         </MainSlide>
     )
 }

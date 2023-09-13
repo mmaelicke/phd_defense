@@ -22,7 +22,9 @@ const Uncertainty: React.FC = () => {
             </Paper>
 
             <aside className="notes">
-                <p>This is the empirical variogram I showed you earlier, and our goal is to provide methods and tools to go from this empirical variogram to the one shown here. So, we want to propagate observation uncertainties into the empirical variogram. Instead of using error bars, I personally prefer representing uncertainty with an uncertainty bound. It's easy to imagine that there can be multiple parameterizations or even the possibility of fitting two different models to the uncertainty bound.</p>
+                <p>This is the empirical variogram I showed you earlier, and our goal is to provide methods and tools to go from this empirical variogram</p>
+                <p> to the one shown here. So, we want to propagate observation uncertainties into the empirical variogram. Instead of using error bars,</p>
+                <p>I personally prefer representing uncertainty with an uncertainty bound. It's easy to imagine that there can be multiple parameterizations or even more than one variogram model might fall within the uncertainty bound.</p>
             </aside>
         </MainSlide>
 
@@ -40,9 +42,10 @@ const Uncertainty: React.FC = () => {
                 </Paper>
 
                 <aside className="notes">
-                    <p>To give you an idea of the uncertainties we're dealing with, here you see the original pancake, and here you see a resample with a random error of five units of intensity. You can see that you can’t see any difference. To better understand how these uncertainties manifest, I introduced larger error margins, as you can see here. I performed the entire procedure, propagated the uncertainties into the pancake, and fitted several models.</p>
+                    <p>To give you an idea of the uncertainties we're dealing with, here you see the original pancake, and here you see a resample with a random error of five units of intensity. You can see that you can’t see any difference. To better understand how these uncertainties manifest, I introduced larger errors, as you can see here. For demonstration purposes, I ran a full geostatistical interpolation, after propagating the shown uncertainties into the pancake, and fitting of several models.</p>
                     <p>In this visualization, you can see two kriging interpolations that are quite distinct. One model exhibits a longer range and a smaller sill, while the other has a shorter range and a higher sill.</p>
-                    <p>Remember, we are dealing with small observation differences, which accumulate and lead to different model parameterization. Therefore, it's crucial to propagate observation uncertainties into the variogram and represent them with an uncertainty band. This approach allows for fitting multiple models, each potentially exhibiting different structural properties and correlation lengths, which can be a significant challenge to address.</p>
+                    <p>Remember, we are dealing with small observation differences, which accumulate and lead to different model parameterization, here exemplified in two distinct interpolations.</p>
+                    <p>Therefore, it's crucial to propagate observation uncertainties into the variogram and represent them with an uncertainty band. This approach allows for fitting multiple models, each potentially exhibiting different structural properties and correlation lengths, which can be a significant challenge to address.</p>
                 </aside>
             </MainSlide>
 
@@ -78,8 +81,8 @@ const Uncertainty: React.FC = () => {
                 <aside className="notes">
                     <p>The uncertainty extension of SciKit-GStat offers three main methods for uncertainty propagation: two for handling epistemic uncertainties and one for handling aleatory uncertainties.</p>
                     <p>For aleatory uncertainties that can be quantified, we provide a Monte Carlo simulation to resample the data and propagate the uncertainties into the method. Various semi-variances are simulated, and either the confidence interval of their mean or their range can be used as an uncertainty band. This approach is generally effective but can be time-consuming.</p>
-                    <p>When observation uncertainties cannot be estimated, we offer two methods. The first method involves using the value differences of all points within one lag class and using the confidence interval of their mean as the uncertainty bound for the semi-variance. This approach assumes a certain sample size to be effective.</p>
-                    <p>The second option is to use K-fold bootstrap, where the lag class is split into different folds, and the semi-variance is calculated by leaving out one fold at a time. This process is repeated multiple times, and the means of the semi-variance estimations can be used to create a confidence interval or uncertainty bound.</p>
+                    <p>When observation uncertainties cannot be estimated, we offer two methods. The first method involves using the value differences of all points within one lag class (blue) and using the confidence interval of their mean as the uncertainty bound for the semi-variance, depicted by the red dashed lines. This approach assumes a certain sample size to be effective, as you can see, when increasing the number of point pairs.</p>
+                    <p>The other option is to use K-fold bootstrap, where the lag class is split into different folds, and the semi-variance is calculated by leaving out one fold at a time. This process is repeated multiple times, and the means of the semi-variance estimations can be used to calculate the confidence interval or their range can be used as an uncertainty bound.</p>
                 </aside>
             </MainSlide>
 
@@ -113,7 +116,8 @@ const Uncertainty: React.FC = () => {
             </Stack>
 
             <aside className="notes">
-                <p>Aleatory uncertainties are propagated using a Monte Carlo simulation, while epistemic uncertainties are handled either by the confidence interval of the lag class's mean or by bootstrapping a k-fold semi-variance.</p>
+                <p>Aleatory uncertainties are propagated using a Monte Carlo simulation,</p>
+                <p>while epistemic uncertainties are handled either by the confidence interval of the lag class's mean or by bootstrapping a k-fold semi-variance.</p>
             </aside>
         </MainSlide>
 
@@ -132,7 +136,8 @@ const Uncertainty: React.FC = () => {
             </Paper>
 
             <aside className="notes">
-                <p>With these uncertainty propagation methods, we obtain an uncertainty bound, as shown in grey. Several models have been fitted and are shown in green. Manual fitting allows adjusting the sill and range to find a model that fits the uncertainty bound well. These uncertainty bounds allow for different parameterization and models.</p>
+                <p>With these uncertainty propagation methods, we obtain an uncertainty bound, as shown in grey, for the pancake variogram again. Several models have already been fitted and are shown in green. Manual fitting now allows adjusting the sill and range to find a model that fits the uncertainty bound well.</p>
+                <p>These uncertainty bounds allow for different parameterization and models.</p>
                 <p>However, the challenge lies in assessing these models and determining the best one.</p>
             </aside>
         </MainSlide>
@@ -157,13 +162,13 @@ const Uncertainty: React.FC = () => {
             </Paper>
 
             <aside className="notes">
-                <p>To assess the models, I fitted around 30 models to the empirical variogram. We evaluated the models and parameterizations using various metrics.</p>
+                <p>In the uncertainty extension's publication, we fitted around 30 models to the empirical variogram and evaluated the models and parameterizations using various metrics. By the way, this is not the pancake variogram anymore, I sneaked in the empirical variogram of a air-permeability measurement sample of Berea sandstone.</p>
                 <p>The first metric is the root mean square error (RMSE) of the model to the uncertainty bound.</p>
                 <p>The second metric is the deviance information criterion (DIC), similar to the AIC, which assesses how well the model fits the observed data.</p>
-                <p>The third metric is leave-one-out cross-validation, which examines how well the values can be reproduced using kriging.</p>
+                <p>The third metric is a leave-one-out cross-validation, which examines how well the values can be reproduced using kriging.</p>
                 <p>The models were ranked from best to worst for each metric, and percentiles were calculated, such as the top 10% and the worst 10%.</p>
                 <p>All this information is condensed into the graph presented. In the first column, the model types are color-coded, with greens representing spherical models and reds representing Gaussian models. The graph displays the rankings for each metric, with the best models at the top.</p>
-                <p>We can observe that Gaussian models exhibit a diverse performance. In terms of RMSE, they vary widely, while in terms of DIC, they perform well. However, in cross-validation, Gaussian models perform worse. On the other hand, spherical models show poor fit and DIC performance but excel in cross-validation.</p>
+                <p>We can see that Gaussian models exhibit a diverse performance. In terms of RMSE, they vary widely, while in terms of DIC, they perform well. However, in cross-validation, Gaussian models perform worse. On the other hand, spherical models show poor fit and DIC performance but excel in cross-validation.</p>
             </aside>
         </MainSlide>
 
@@ -177,7 +182,9 @@ const Uncertainty: React.FC = () => {
             </Stack>
 
             <aside className="notes">
-                <p>This makes it challenging to determine the correct model, as we have multiple equally probable parameterized models. However, we can exclude models that are not suitable based on these insights.</p>
+                <p>This makes it challenging to determine the correct model, </p>
+                <p>as we have multiple equally probable parametes or models (or both).</p>
+                <p>However, we can exclude models that are not suitable based on these insights.</p>
             </aside>
         </MainSlide>
     </>)

@@ -56,7 +56,7 @@ const Motivation: React.FC = () => {
                 <aside className="notes">
                     <p>We call this an empirical variogram, representing the relationship between separating distance (X-axis) and semi-variance (Y-axis). To describe it more coherently, we apply a formal mathematical model to it.</p>
                     <p>The software I'm about to present includes eight different models, three of which are implemented here. For example, fitting a Gaussian model doesn't seem to provide a good fit, while an exponential model appears more suitable.</p>
-                    <p>The model is described by at least two parameters, shown here. The upper horizontal line represents the sill, indicating the maximum spatial correlation between observations, while the effective range on the X-axis denotes where the model reaches 95% of its value.</p>
+                    <p>The model is described by at least two parameters, shown here. The upper horizontal line represents the sill, indicating the maximum sample variability of the observations, while the effective range on the X-axis denotes where the model reaches 95% of this value.</p>
                     <p>Now, discussing uncertainty, one crucial source arises from the fact that any geostatistical method we apply only uses the model, not the empirical variogram. Any uncertainty and errors introduced during model fitting will propagate into subsequent methods.</p>
                 </aside>
             </MainSlide>
@@ -147,6 +147,7 @@ const Motivation: React.FC = () => {
                         <p>Now, let's discuss the software. The software is called SciKit-GStat, an open-source Python package widely recognized and accepted by the community. It integrates seamlessly with typical geostatistical and scientific packages in Python, such as NumPy, SciPy, and scikit-learn.</p>
                         <p>Additionally, I developed an extension dedicated to uncertainty within SciKit-GStat. I am aware of a number of third-party applications building on SciKit-GStat.</p>
                         <p>Finally, I created a suite of educational web applications called geostat apps, leveraging the capabilities of this software. We will delve into that in more detail later on.</p>
+                        <p>To enhance interoperability, SciKit-GStat provides interfaces to GSTools, GStatSim, and SciKit-Learn, opening up broader possibilities for geostatistical analysis</p>
                     </aside>
                 </Box>
                 
@@ -191,7 +192,7 @@ const Motivation: React.FC = () => {
             </MainSlide>
         </section>
 
-        <Outline withFragments />
+        <Outline withFragments withNotes />
     </>
 }
 
