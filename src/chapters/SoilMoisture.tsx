@@ -1,4 +1,5 @@
 import { Box, Paper, Stack, Typography } from "@mui/material"
+import ReactImageMagnify from 'react-image-magnify'
 
 import MainSlide from "../components/MainSlide"
 import Outline from "../slides/Outline"
@@ -22,7 +23,7 @@ const SoilMoisture: React.FC = () => {
             </Paper>
 
             <aside className="notes">
-                <p>We use a soil moisture dataset observed in the Attert catchment in Luxembourg. Specifically, we used data from the Colpach sub-catchment, which consists of approximately 60 different locations with soil moisture measurements at three different depths.</p>
+                <p>Now we are leaving the emerging field of pancake geostatistics behind and turn to more meaningful datasets from a hydrological point of view. We use a soil moisture dataset observed in the Attert catchment in Luxembourg. Specifically, we used data from the Colpach sub-catchment, which consists of approximately 60 different locations with soil moisture measurements at three different depths.</p>
             </aside>
         </MainSlide>
 
@@ -31,15 +32,16 @@ const SoilMoisture: React.FC = () => {
                 <Box component="img" src="img/moisture_cluster_step1.png" sx={{maxHeight: '450px'}}  />
                 <Box component="img" src="img/moisture_cluster_step2.gif" sx={{maxHeight: '450px'}} className="fragment" data-fragment-index="1" />
                 <Box className="fragment" data-fragment-index="2">
-                    <Box component="img" src="img/moisture_cluster_step3.png" sx={{maxHeight: '450px'}} className="fragment custom blur-out" data-fragment-index="3" />
+                    {/* <Box component="img" src="img/moisture_cluster_step3.png" sx={{maxHeight: '450px'}} className="fragment custom blur-out" data-fragment-index="3" /> */}
+                    <Box component="img" src="img/moisture_cluster_step3.png" sx={{maxHeight: '450px'}} />
                 </Box>
                 
-                <Box className="fragment zoom-in" data-fragment-index="3">
+                {/* <Box className="fragment zoom-in" data-fragment-index="3">
                     <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
                         <LI>- The clusters evolve cohesively over time</LI>
                         <LI>- In general, clusters can be attributed to different processes</LI>
                     </Stack>
-                </Box>
+                </Box> */}
             </Paper>
 
             <aside className="notes">
@@ -47,11 +49,33 @@ const SoilMoisture: React.FC = () => {
                 <p>To analyze the soil moisture data, I calculated variograms using a moving window approach with a window size of 30 days. The variograms reflect the relationship between the spatial distances and the differences in soil moisture values.</p>
                 <p>As depicted in the graph, during dry periods, the variograms exhibit a nugget effect with a low sill value, indicating little correlation between nearby locations.</p>
                 <p>However, in the fall, as rainfall increases, the sill values rise, indicating stronger spatial correlation, and the shape of the models may change slightly. The correlation length also becomes shorter during heavy rainfall events towards the end of the year.</p>
-                <p>Next, I employed the mean-shift clustering algorithm to cluster the variogram parameters.</p>
+                <p>Next, I employed the mean-shift clustering algorithm to cluster the variogram parameters and colored everyting accoding to the three identified clusters. </p>
                 <p>Unlike the original 2020 publication, I did not cluster the empirical variograms themselves. Instead, I utilized the capabilities of the software to reproduce the analysis within minutes and explore alternative clustering methods.</p>
-                <p>The clustering results are quite promising, as they reveal three distinct clusters primarily differentiated by their sill values. The correlation lengths were relatively similar among the clusters.</p>
-                <p>By examining the lower plot depicting the time series, we can observe that the clusters emerge coherently over time. Each cluster can be associated with different processes: the yellow cluster represents dry conditions, the blue cluster indicates soil drying or wetting, and the green cluster signifies wet soil conditions.</p>
+                <p>The clustering results are quite promising, as they reveal three distinct clusters primarily differentiated by their sill values. This matches the original publication very well.</p>
+                <p>By examining the lower plot depicting the time series, we can observe that the clusters emerge coherently over time. Each cluster can be associated with different processes: the yellow cluster represents drying and dry conditions, the green cluster signifies wet soil conditions, and the blue cluster indicates a transient state.</p>
+                <p>With proper research software, I could reproduce the results from 2020 and improve on them effordlessly, while preparing this presentation.</p>
             </aside>
+        </MainSlide>
+        
+        <MainSlide title="2020's code">
+                <Stack direction="row" spacing={1} sx={{margin: 'auto'}}>
+                    <Stack direction="column" sx={{height: '500px', width: '150px'}}>
+                        {/* Put the marking colors here */}
+                        <Box style={{height: '25px', width: '100%', backgroundColor: '#FFC2C2', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Imports</span></Box>
+                        <Box style={{height: '25px', width: '100%', backgroundColor: '#FFF8DC', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Parameters</span></Box>
+                        <Box style={{height: '25px', width: '100%', backgroundColor: '#B2FFB2', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Load data</span></Box>
+                        <Box style={{height: '80px', width: '100%', backgroundColor: '#D2B48C', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Method</span></Box>
+                        <Box style={{height: '80px', width: '100%', backgroundColor: '#B2CCFF', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Visualization</span></Box>
+                        <Box style={{height: '25px', width: '100%', backgroundColor: '#FFE5B4', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Results</span></Box>
+                        <Box style={{height: '40px', width: '100%', backgroundColor: '#B2CCFF', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="2"><span>Visualization</span></Box>
+                        <Box style={{height: '80px', width: '100%', backgroundColor: '#D2B48C', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="3"><span>Method</span></Box>
+                        <Box style={{height: '60px', width: '100%', backgroundColor: '#B2CCFF', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="4"><span>Visualization</span></Box>
+                        <Box style={{height: '60px', width: '100%', backgroundColor: '#FFE5B4', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="4"><span>Results</span></Box>
+                    </Stack>
+                    <Box sx={{maxWidth: 500, margin: 'auto'}}>
+                        <ReactImageMagnify smallImage={{isFluidWidth: false, width: 40, height: 500, src: 'img/companion_code_small.png'}} largeImage={{src: 'img/companion_code.png', width: 700, height: 22000}} enlargedImageContainerDimensions={{width: 400, height: 450}}/>
+                    </Box>
+                </Stack>
         </MainSlide>
 
         <MainSlide title="What is so different?">
