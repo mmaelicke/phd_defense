@@ -27,7 +27,7 @@ const SoilMoisture: React.FC = () => {
             </aside>
         </MainSlide>
 
-        <MainSlide title="Moving window variogram models" autoAnimate>
+        <MainSlide title="Moving window variogram models" autoAnimate id="moving">
             <Paper elevation={3} className="r-stack" sx={{p: 2, m: 'auto', width: 'fit-content'}}>
                 <Box component="img" src="img/moisture_cluster_step1.png" sx={{maxHeight: '450px'}}  />
                 <Box component="img" src="img/moisture_cluster_step2.gif" sx={{maxHeight: '450px'}} className="fragment" data-fragment-index="1" />
@@ -76,14 +76,24 @@ const SoilMoisture: React.FC = () => {
                         <ReactImageMagnify smallImage={{isFluidWidth: false, width: 40, height: 500, src: 'img/companion_code_small.png'}} largeImage={{src: 'img/companion_code.png', width: 700, height: 22000}} enlargedImageContainerDimensions={{width: 400, height: 450}}/>
                     </Box>
                 </Stack>
+
+                <aside className="notes">
+                    <p>SciKit-GStat does not make research, but offers generic varigraphy tools. The code I wrote at the time for the 2020 paper, is shown here. It's a pretty straightforward research spaghetti-code. It implements the methods building on SciKit-GStat, loads the data and creates all figures published.</p>
+                    <p>I would argue that it is a solid, well-constructed, typical research spaghetti code with conventional structuring. A preamble of imports and parameters, followed by a section of used methods implemented as functions and the final visualisation and result generation.</p>
+                    <p>Then, you do some additional result visualization,</p>
+                    <p>Re-implement all the methods to satisfy your reviewers' feedback, while keeping your original methods,</p>
+                    <p>And finally visualize and generate the updated results for the revised manuscript. Multiple iterations are possible. Thus, you end-up with a very specific script, that only makes sense in the context of the publication and way harder to be extended as you intended it to be. That makes it at least questionable, if your method is really replicable into other contexts.</p>
+                </aside>
         </MainSlide>
 
-        <MainSlide title="What is so different?">
+        <MainSlide title="What is so different?" id="framework">
             <Box className="r-stack">
-                <Box className="fragment custom blur-out" data-fragment-index="1">
+                <Box className="fragment" data-fragment-index="1">
+                <Box className="fragment custom blur-out" data-fragment-index="2">
                     <WorkflowFlowchart />
                 </Box>
-                <Box className="fragment zoom-in" data-fragment-index="1">
+                </Box>
+                <Box className="fragment zoom-in" data-fragment-index="2">
                     <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
                         <LI>- Transparent about the data used</LI>
                         <LI>- Parameterization clearly separated from data</LI>
@@ -93,7 +103,14 @@ const SoilMoisture: React.FC = () => {
             </Box>
 
             <aside className="notes">
-                <p></p>
+                <p>
+                    I want to provide a framework that can help solving some of the described problems, while restricting scientists as little as possible in their used working habits. At it's core, this framework is built on docker, a containerization engine that can pack software along with all of its dependencies, including system requirements.
+                    The structure of the tool for calculating dispersion functions in a moving window is depicted here. First, every tool needs a machine-readble, easily structured file to provide minimal metadata file including at least a title and a description. Additionally, input data formats and available parameters defined.
+                    Parameters to configure the tool, and data to apply the tool to are clearly separated, as outside inputs. One restriction is, that both has to be provided in files. Client applications exist for Pyhton and NodeJS, that assist in creating the inputs from common file formats, or HTTP calls.
+                    The tool can be implemented in any language and at any level of proficiency to map input to output files. Templates exist for Ocatve, Matlab, Python, R and NodeJS, that help reading in parameters or data and writing logs and common result file formats like netCDF, CSV, HTML or PDF.
+                </p>
+                <p>Beside an improved runability and replicability, the implemented methods are more transparent about data and define their context more clearly.</p>
+
             </aside>
         </MainSlide>
 
@@ -102,15 +119,15 @@ const SoilMoisture: React.FC = () => {
                 <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
                     <LI className="fragment fade-up">- Containerized SciKit-GStat could reproduce the 2020 results exactly</LI>
                     <LI className="fragment fade-up">- Clustered variogram <strong>parameters</strong> instead of empirical variograms</LI>
-                    <LI className="fragment fade-up">- (Generic) workflow tool was used to test different scenarios</LI>
+                    <LI className="fragment fade-up">- Existing workflow tool can used to to run container</LI>
                     <LI className="fragment fade-up">- Lays the foundation for facilitating development of new methods</LI>
                 </Stack>
 
                 <aside className="notes">
-                    <p>It is worth mentioning that the software used for this analysis is a containerized version of SciKit-GStat, which allows for easy replication of the original 2020 results.</p>
-                    <p>Additionally, the software provides a robust and reproducible environment where different scenarios can be tested.</p>
-                    <p>For example, you can explore various window sizes, cluster using different metrics, or even cluster models instead of empirical variograms.</p>
-                    <p>This flexible and reliable software environment lays the foundation for facilitating the development of new methods, which I will introduce in the following section.</p>
+                    <p>To wrap this part up, I used a containerized version of SciKit-GStat, which allowed replication of the original 2020 results.</p>
+                    <p>The software provides a robust and reproducible environment where different scenarios can be tested. For example, I explored various window sizes, clustered using different metrics, and even clustered variogram models instead of empirical variograms.</p>
+                    <p>You can use established workflow tools to run the containers, as they contain all necessary metadata about needed inputs.</p>
+                    <p>This flexible and reliable software environment lays the foundation for facilitating the development of new methods, that truely build on top of existing methods, which I will exemplify in the following section.</p>
                 </aside>
             </MainSlide>
             
