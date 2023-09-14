@@ -118,6 +118,7 @@ const MCExample: React.FC = () => {
         ]
 
         const newLayout2 = {
+            title: 'Simulated semi-variances',
             autosize: true,
             xaxis: {range: [6, 9]},
             yaxis: {range: [0, 1.0]},
@@ -162,9 +163,14 @@ const MCExample: React.FC = () => {
                     <Plot 
                         data={data1}
                         layout={{
+                            title: 'Resampling',
                             autosize: true,
                             xaxis: {range: [0, 1]},
                             yaxis: {range: [0, 20]},
+                            annotations: [
+                                {xref: 'paper', yref: 'paper', x: 0.05, y: 0.8, text: 'observation', showarrow: false, font: {size: 12}},
+                                {xref: 'paper', yref: 'paper', x: 0.95, y: 0.8, text: '  re-sample', showarrow: false, font: {size: 12}}
+                            ]
                         }}
                         style={{height: '100%', width: '50%'}} 
                     />
