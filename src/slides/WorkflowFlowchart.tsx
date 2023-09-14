@@ -91,23 +91,23 @@ tools:
     moving-window:
         title: Moving window dispersion functions
         description: [...]
-    parameters:
-        window_size:
-            type: integer
-            description: The size of the moving window
-        variogram:
-            type: struct
-            description: | 
-                Mapping of variogram parameters as defined 
-                by SciKit-GStat
-    data:
-        observations:
-            type: timeseries
-        positions:
-            type: dataframe
-            description: | 
-                 'x', ['y', 'z'] headed list of positions 
-                 in the order of the timeseries
+        parameters:
+            window_size:
+                type: integer
+                description: The size of the moving window
+            variogram:
+                type: struct
+                description: | 
+                    Mapping of variogram parameters as defined 
+                    by SciKit-GStat
+        data:
+            observations:
+                type: timeseries
+            positions:
+                type: dataframe
+                description: | 
+                    'x', ['y', 'z'] headed list of positions 
+                    in the order of the timeseries
 `},
     'output': {
         type: 'text',
