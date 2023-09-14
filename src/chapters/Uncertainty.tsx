@@ -1,4 +1,5 @@
 import { Box, Paper, Stack } from "@mui/material"
+import { InlineMath } from "react-katex"
 
 import MainSlide from "../components/MainSlide"
 import BasicUncertainty from "../slides/BasicUncertainty"
@@ -142,35 +143,56 @@ const Uncertainty: React.FC = () => {
             </aside>
         </MainSlide>
 
-        <MainSlide title="Uncertain Models">
-            <Paper elevation={3} className="r-stack">
-                <Box className="fragment custom blur-in-out" data-fragment-index="1" sx={{width: '100%'}}>
-                    <ParallelMetrics />
-                </Box>
-                <Box className="fragment fade-in" data-fragment-index="1">
-                    <Box className="fragment fade-out" data-fragment-index="2">
-                        <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{p: 3}} className="info-box">
-                            <LI>- Assess models and parameterizations using different metrics</LI>
-                            <LI variant="body1" sx={{pl: 5}}>- RMSE</LI>
-                            <LI variant="body1" sx={{pl: 5}}>- Deviance information criterion (DIC)</LI>
-                            <LI variant="body1" sx={{pl: 5}}>- cross-validation</LI>
-                            <LI>- Rank models for each metric</LI>
-                            <LI>- Calucluate percentiles for ranks</LI>
-                        </Stack>
+        <section>
+            <MainSlide title="Uncertain Models">
+                <Paper elevation={3} className="r-stack">
+                    <Box className="fragment custom blur-in-out" data-fragment-index="1" sx={{width: '100%'}}>
+                        <ParallelMetrics />
                     </Box>
-                </Box>
-            </Paper>
+                    <Box className="fragment fade-in" data-fragment-index="1">
+                        <Box className="fragment fade-out" data-fragment-index="2">
+                            <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{p: 3}} className="info-box">
+                                <LI>- Assess models and parameterizations using different metrics</LI>
+                                <LI variant="body1" sx={{pl: 5}}>- RMSE</LI>
+                                <LI variant="body1" sx={{pl: 5}}>- Deviance information criterion (DIC)</LI>
+                                <LI variant="body1" sx={{pl: 5}}>- cross-validation</LI>
+                                <LI>- Rank models for each metric</LI>
+                                <LI>- Calucluate percentiles for ranks</LI>
+                            </Stack>
+                        </Box>
+                    </Box>
+                </Paper>
+                <aside className="notes">
+                    <p>In the uncertainty extension's publication, we fitted around 30 models to the empirical variogram and evaluated the models and parameterizations using various metrics. By the way, this is not the pancake variogram anymore, I sneaked in the empirical variogram of a air-permeability measurement sample of Berea sandstone.</p>
+                    <p>The first metric is the root mean square error (RMSE) of the model to the uncertainty bound.</p>
+                    <p>The second metric is the deviance information criterion (DIC), similar to the AIC, which assesses how well the model fits the observed data.</p>
+                    <p>The third metric is a leave-one-out cross-validation, which examines how well the values can be reproduced using kriging.</p>
+                    <p>The models were ranked from best to worst for each metric, and percentiles were calculated, such as the top 10% and the worst 10%.</p>
+                    <p>All this information is condensed into the graph presented. In the first column, the model types are color-coded, with greens representing spherical models and reds representing Gaussian models. The graph displays the rankings for each metric, with the best models at the top.</p>
+                    <p>We can see that Gaussian models exhibit a diverse performance. In terms of RMSE, they vary widely, while in terms of DIC, they perform well. However, in cross-validation, Gaussian models perform worse. On the other hand, spherical models show poor fit and DIC performance but excel in cross-validation.</p>
+                </aside>
+            </MainSlide>
 
-            <aside className="notes">
-                <p>In the uncertainty extension's publication, we fitted around 30 models to the empirical variogram and evaluated the models and parameterizations using various metrics. By the way, this is not the pancake variogram anymore, I sneaked in the empirical variogram of a air-permeability measurement sample of Berea sandstone.</p>
-                <p>The first metric is the root mean square error (RMSE) of the model to the uncertainty bound.</p>
-                <p>The second metric is the deviance information criterion (DIC), similar to the AIC, which assesses how well the model fits the observed data.</p>
-                <p>The third metric is a leave-one-out cross-validation, which examines how well the values can be reproduced using kriging.</p>
-                <p>The models were ranked from best to worst for each metric, and percentiles were calculated, such as the top 10% and the worst 10%.</p>
-                <p>All this information is condensed into the graph presented. In the first column, the model types are color-coded, with greens representing spherical models and reds representing Gaussian models. The graph displays the rankings for each metric, with the best models at the top.</p>
-                <p>We can see that Gaussian models exhibit a diverse performance. In terms of RMSE, they vary widely, while in terms of DIC, they perform well. However, in cross-validation, Gaussian models perform worse. On the other hand, spherical models show poor fit and DIC performance but excel in cross-validation.</p>
-            </aside>
-        </MainSlide>
+            <MainSlide title="Deviance information criterion" id="dic" visibility="uncounted">
+                <Stack direction="column" sx={{height: '100%'}} justifyContent="space-evenly">
+                        <Stack direction="column">
+                            <InlineMath math="DIC(\Theta) = D(\bar\Theta) + 2p_D" />
+                            <Box sx={{mt: 1}}></Box>
+                        </Stack>
+                        <Stack direction="column">
+                            <InlineMath math="D(\bar\Theta) = -2 \ln L(\bar\Theta)" /> 
+                        </Stack>
+                        <Stack direction="column">
+                            <InlineMath math="p_D = \overline{\left(\bar\Theta\right)} - D\left(\overline{\bar\Theta}\right)" />
+                            <Box sx={{mt: 2}}><InlineMath  math="p_D = \frac{1}{2}\overline{var(D(\Theta)})" /></Box>
+                        </Stack>
+                        <Stack></Stack>
+                        <Stack>
+                            <InlineMath math="AIC(\Theta) = -2 log L(\Theta) + 2k" />
+                        </Stack>
+                    </Stack>
+            </MainSlide>
+        </section>
 
         <MainSlide title="Summary">
             <Stack direction="column" spacing={3} className="info-box">
