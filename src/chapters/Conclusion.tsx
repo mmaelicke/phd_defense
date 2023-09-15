@@ -55,7 +55,8 @@ const Conclusion: React.FC = () => {
             </Stack>
 
             <aside className="notes">
-                <p>The software package SciKit-GStat has gained wide acceptance and usage within the community. It has a model description paper in GMD (Geoscientific Model Development) and is cited extensively. The Github repository is utilized by other packages and in online lectures.</p>
+                <p>The software package SciKit-GStat has gained wide acceptance and usage within the community.</p>
+                <p> It has a model description paper in GMD (Geoscientific Model Development) and is cited extensively. The Github repository is utilized by other packages and regularly used in summer schools.</p>
                 <p>Additionally, the presentation itself serves as a live demonstration of the research software.</p>
                 <p>Finally, coming back to the uncertainty extension. Propagating uncertainties into empirical variograms allowed for a multi-model approach.</p>
                 <p>Epistemic uncertainties arising from model selection will persist regardless of their visualization. Not visualizing uncertainties does not eliminate their presence.</p>
