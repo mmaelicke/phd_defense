@@ -104,10 +104,10 @@ const SoilMoisture: React.FC = () => {
 
             <aside className="notes">
                 <p>
-                    I want to provide a framework that can help solving some of the described problems, while restricting scientists as little as possible in their used working habits. At it's core, this framework is built on docker, a containerization engine that can pack software along with all of its dependencies, including system requirements.
-                    The structure of the tool for calculating dispersion functions in a moving window is depicted here. First, every tool needs a machine-readble, easily structured file to provide minimal metadata file including at least a title and a description. Additionally, input data formats and available parameters defined.
-                    Parameters to configure the tool, and data to apply the tool to are clearly separated, as outside inputs. One restriction is, that both has to be provided in files. Client applications exist for Pyhton and NodeJS, that assist in creating the inputs from common file formats, or HTTP calls.
-                    The tool can be implemented in any language and at any level of proficiency to map input to output files. Templates exist for Ocatve, Matlab, Python, R and NodeJS, that help reading in parameters or data and writing logs and common result file formats like netCDF, CSV, HTML or PDF.
+                I want to introduce a framework designed to address the issues outlined, all while allowing scientists to maintain their preferred working methods. At its core, this framework relies on Docker, a containerization engine capable of bundling software together with all necessary dependencies, including system requirements.
+                The tool for computing variograms within a moving window is illustrated here. Each tool needs a machine-readable, easily organized file to provide minimal metadata, requiring at least a title and description. Additionally, this file outlines input data formats and available tool parameters.
+                Parameters for configuring the tool and the data are separated as external inputs, provided in files. I provide client applications which simplify input creation from common formats or HTTP calls for Python and NodeJS.
+               Tools can be implemented in any language, at any proficiency level, mapping input to output files. The implementation is now more concises and significantly clearer. Templates are available for Octave, Matlab, Python, R, and NodeJS, streamlining input and generating logs and standard result file formats, like netCDF, CSV or HTML.
                 </p>
                 <p>Beside an improved runability and replicability, the implemented methods are more transparent about data and define their context more clearly.</p>
 
@@ -117,7 +117,7 @@ const SoilMoisture: React.FC = () => {
         <section>
             <MainSlide title="Build on tested software">
                 <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
-                    <LI className="fragment fade-up">- Containerized SciKit-GStat could reproduce the 2020 results exactly</LI>
+                    <LI>- Containerized SciKit-GStat could reproduce the 2020 results exactly</LI>
                     <LI className="fragment fade-up">- Clustered variogram <strong>parameters</strong> instead of empirical variograms</LI>
                     <LI className="fragment fade-up">- Existing workflow tool can used to to run container</LI>
                     <LI className="fragment fade-up">- Lays the foundation for facilitating development of new methods</LI>
@@ -204,7 +204,7 @@ const SoilMoisture: React.FC = () => {
                     <p>In this slide, I present the force-directed graphs for the yellow cluster of soil moisture measurements in the Colpach catchment.</p>
                     <p>What we can observe is that there are actually two separate, independent graphs when considering separating distances up to 500 meters.</p>
                     <p>However, when considering separating distances up to 1 kilometer, the two graphs become connected, particularly through three nodes in the middle. These nodes connect the other blobs but also keep them at some distance.</p>
-                    <p>Furthermore, force-directed graphs were also generated for the green and blue clusters, and they exhibit similar structures with minor differences.</p>
+                    <p>Furthermore, force-directed graphs were also generated for the green and blue clusters, and they exhibit similar structures with minor differences. A direct application of this graph is the identification of representative observation locations.</p>
                 </aside>
             </MainSlide>
 
