@@ -40,7 +40,7 @@ const Outline: React.FC<OutlineParams> = ({ withFragments, withNotes, highlight,
                         <CardActionArea href="#/start-soil-moisture">
                             <CardMedia component="img" image="img/geostatistical_patterns.png" className="card-img" />
                             <CardContent>
-                                <Typography variant="h5" component="div">Soil Moisture patterns</Typography>
+                                <Typography variant="h5" component="div">Software &amp; Reproducibility</Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>
