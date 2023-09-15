@@ -144,7 +144,7 @@ const Uncertainty: React.FC = () => {
         </MainSlide>
 
         <section>
-            <MainSlide title="Uncertain Models">
+            <MainSlide title="Uncertain Models" id="parallel">
                 <Paper elevation={3} className="r-stack">
                     <Box className="fragment custom blur-in-out" data-fragment-index="1" sx={{width: '100%'}}>
                         <ParallelMetrics />
@@ -163,7 +163,7 @@ const Uncertainty: React.FC = () => {
                     </Box>
                 </Paper>
                 <aside className="notes">
-                    <p>In the uncertainty extension's publication, we fitted around 30 models to the empirical variogram and evaluated the models and parameterizations using various metrics. By the way, this is not the pancake variogram anymore, I sneaked in the empirical variogram of a air-permeability measurement sample of Berea sandstone.</p>
+                    <p>In the uncertainty extension's publication, we fitted around 30 models to the empirical variogram and evaluated the models and parameterizations using various metrics.</p>
                     <p>The first metric is the root mean square error (RMSE) of the model to the uncertainty bound.</p>
                     <p>The second metric is the deviance information criterion (DIC), similar to the AIC, which assesses how well the model fits the observed data.</p>
                     <p>The third metric is a leave-one-out cross-validation, which examines how well the values can be reproduced using kriging.</p>
