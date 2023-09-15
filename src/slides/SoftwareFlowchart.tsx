@@ -13,12 +13,12 @@ import { Code } from "@gregcello/revealjs-react";
 // statically define nodes and edges
 const nodes: Node[] = [
     {id: 'skgstat', position: {x: 300, y: 150}, data: {label: 'SciKit-GStat'}},
-    {id: 'uncertainty', position: {x: 0, y: 50}, data: {label: 'SciKit-GStat: Uncertainty'}},
-    {id: 'gstools', position: {x: 0, y: 280}, data: {label: 'GSTools'}},
-    {id: 'gstatsim', position: {x: 180, y: 300}, data: {label: 'GStatSim'}},
-    {id: 'sklearn', position: {x: 180 + 180, y: 320}, data: {label: 'SciKit-Learn'}},
-    {id: 'geostat', position: {x: 180 + 180, y: 50}, data: {label: 'Geostat-Apps'}},
-    {id: 'third', position: {x: 180, y: 50}, data: {label: 'Third-Party Apps'}},
+    {id: 'uncertainty', position: {x: 0, y: 50}, type: 'input', data: {label: 'SciKit-GStat: Uncertainty'}},
+    {id: 'gstools', position: {x: 0, y: 280}, type: 'output', data: {label: 'GSTools'}},
+    {id: 'gstatsim', position: {x: 180, y: 300}, type: 'output', data: {label: 'GStatSim'}},
+    {id: 'sklearn', position: {x: 180 + 180, y: 320}, type: 'output', data: {label: 'SciKit-Learn'}},
+    {id: 'geostat', position: {x: 180 + 180, y: 50}, type: 'output', data: {label: 'Geostat-Apps'}},
+    {id: 'third', position: {x: 180, y: 50}, type: 'output', data: {label: 'Third-Party Apps'}},
 ]
 
 const edges: Edge[] = [
