@@ -43,14 +43,14 @@ const Uncertainty: React.FC = () => {
                 </Paper>
 
                 <aside className="notes">
-                    <p>To give you an idea of the uncertainties we're dealing with, here you see the original pancake, and here you see a resample with a random error of five units of intensity. You can see that you can’t see any difference. To better understand how these uncertainties manifest, I introduced larger errors, as you can see here. For demonstration purposes, I ran a full geostatistical interpolation, after propagating the shown uncertainties into the pancake, and fitting of several models.</p>
-                    <p>In this visualization, you can see two kriging interpolations that are quite distinct. One model exhibits a longer range and a smaller sill, while the other has a shorter range and a higher sill.</p>
-                    <p>Remember, we are dealing with small observation differences, which accumulate and lead to different model parameterization, here exemplified in two distinct interpolations.</p>
+                    <p>To give you an idea of the uncertainties we're dealing with, I brought an image of the pancake, and here you see a resample with a random error of five units of intensity. You can see that you can’t see any difference. To better visualize how these uncertainties manifest, I introduced larger errors, as you can see here. For demonstration, I generated several of these re-samples to obtain an uncertainty band and fitted two distinct variogram models to the band.</p>
+                    <p>In this visualization, you can see the two resulting kriging interpolations. One model exhibits a longer range and a smaller sill, while the other has a shorter range and a higher sill.</p>
+                    <p>Remember, we are dealing with small observation differences, which accumulate and allowed for different model parameterizations, here exemplified in two distinct interpolations.</p>
                     <p>Therefore, it's crucial to propagate observation uncertainties into the variogram and represent them with an uncertainty band. This approach allows for fitting multiple models, each potentially exhibiting different structural properties and correlation lengths, which can be a significant challenge to address.</p>
                 </aside>
             </MainSlide>
 
-            <MainSlide title="RGB uncertainty bands">
+            <MainSlide title="RGB uncertainty bands" visibility="uncounted">
                 <Paper elevation={3}>
                     <Box component="img" src="img/pancake_band_variograms.png" sx={{maxHeight: 450, maxWidth: '100%',  width: 'auto', height: 'auto'}} />
                 </Paper>
@@ -81,9 +81,9 @@ const Uncertainty: React.FC = () => {
 
                 <aside className="notes">
                     <p>The uncertainty extension of SciKit-GStat offers three main methods for uncertainty propagation: two for handling epistemic uncertainties and one for handling aleatory uncertainties.</p>
-                    <p>For aleatory uncertainties that can be quantified, we provide a Monte Carlo simulation to resample the data and propagate the uncertainties into the method. Various semi-variances are simulated, and either the confidence interval of their mean or their range can be used as an uncertainty band. This approach is generally effective but can be time-consuming.</p>
-                    <p>When observation uncertainties cannot be estimated, we offer two methods. The first method involves using the value differences of all points within one lag class (blue) and using the confidence interval of their mean as the uncertainty bound for the semi-variance, depicted by the red dashed lines. This approach assumes a certain sample size to be effective, as you can see, when increasing the number of point pairs.</p>
-                    <p>The other option is to use K-fold bootstrap, where the lag class is split into different folds, and the semi-variance is calculated by leaving out one fold at a time. This process is repeated multiple times, and the means of the semi-variance estimations can be used to calculate the confidence interval or their range can be used as an uncertainty bound.</p>
+                    <p>For aleatory uncertainties that can be quantified, we provide a Monte Carlo simulation to resample the data and propagate the uncertainties into the variogram. Various semi-variances are simulated and represented by the red bars, and the confidence interval of their expected value is used as an uncertainty band. This approach is generally effective but can be time-consuming.</p>
+                    <p>When observation uncertainties cannot be estimated, we offer two methods. The first method involves using the value differences of all points within one lag class, depicted by the blue bars. The confidence interval of their mean  is used as the uncertainty bound, depicted by the red dashed lines. This approach assumes a certain sample size to be effective, as you can see, when increasing the number of point pairs.</p>
+                    <p>The other option is to use K-fold bootstrap, where the each class is split into different folds, and the semi-variance is calculated by leaving out one fold at a time. This process is repeated multiple times, and the range or a quantile of the resulting semi-variance estimations is used as an uncertainty bound.</p>
                 </aside>
             </MainSlide>
 

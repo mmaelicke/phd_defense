@@ -69,8 +69,8 @@ const Introduction: React.FC = () => {
                 </Paper>
 
                 <aside className="notes">
-                    <p>You may suggest using rainfall radar instead. Indeed, rainfall patterns can be captured quite well in space using radar. Here's an example from the Starzel region in southwest Germany in 2008, where a severe flood occurred. However, you can also see that the storm of interest is shadowed by two other storms.</p>
-                    <p>The blue line represents the actual flood, while the green line depicts the flood prediction based on radar imagery only.</p>
+                    <p>You may suggest using rainfall radar instead. Indeed, rainfall patterns can be captured quite well in space using radar. Here's an example from the Starzel region in southwest Germany in 2008, where a severe flood occurred. You can also see that the storm of interest is shadowed by two other storms for both radar stations.</p>
+                    <p>The blue line in the event hydrograph represents the actual flood, while the green line depicts the flood prediction based on radar imagery only.</p>
                     <p>As you can see, the predicted flood was a two-year event, but the actual flood turned out to be a 100-year event.</p>
                     <p>However, if we consider the ground observations in the area alone, we achieve better predictions, in this case.</p>
                     <p>To obtain an even more precise prediction, we can combine both the accuracy of ground observations and the spatial patterns captured by rainfall radar. By combining the strengths of both data sources, we can generate a more reliable prediction, represented by the red line in this case.</p>
