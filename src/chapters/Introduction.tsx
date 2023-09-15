@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, Stack, Typography } from "@mui/material"
+import { Box, Paper, Stack, Typography } from "@mui/material"
 import MainSlide from "../components/MainSlide"
 import React from "react"
 import LI from "../components/LI"
