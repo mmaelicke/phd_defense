@@ -65,7 +65,7 @@ a {
 }
 
 .info-box {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgb(255, 255, 255);
     border: 0.5px solid #2EA28A;
     border-radius: 0px 10px 0px 10px;
     box-shadow: 1px 4px 6px #2EA28A;
@@ -74,4 +74,12 @@ a {
 
 aside.notes  {
     font-size: 0.5rem;
+}
+
+div.slide-number {
+    font-size: 16px!important;
+}
+
+aside.controls {
+    bottom: 30px!important;
 }
