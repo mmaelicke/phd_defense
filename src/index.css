@@ -7,6 +7,13 @@
     transition: filter 0.4s ease-in-out;
 }
 
+.fragment.pale-out {
+    color: rgba(0, 0, 0, 1.)
+}
+.fragment.pale-out.visible {
+    color: rgba(0, 0, 0, 0.3)!important;
+}
+
 .fragment.blur-out {
     filter: blur(0);
     transition: filter 0.4s ease-in-out;
@@ -82,4 +89,12 @@ div.slide-number {
 
 aside.controls {
     bottom: 30px!important;
+}
+
+p.method  {
+    color: darkgreen;
+}
+
+p.software {
+    color: purple;
 }
