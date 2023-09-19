@@ -11,7 +11,87 @@ import NuggetSillExample from "../slides/NuggetSillExample"
 
 const Motivation: React.FC = () => {
     return <>
-        <MainSlide id="motivation">
+        
+
+        <MainSlide title="Observations are sparse" visibility="uncounted">
+            <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
+                <Box className="fragment-disabled custom blur-out" data-fragment-index="1">
+                    <Box component="img" src="img/kidd_fig1.jpg" sx={{maxHeight: 400}} />
+                    <Typography variant="caption" component="div" sx={{textAlign: 'left', mt: 1}}>
+                        Distance to the next professionally operated rain gauge, global coverage. Figure taken from <a href="https://journals.ametsoc.org/view/journals/bams/98/1/bams-d-14-00283.1.xml#:~:text=View%20Full%20Size-,Fig.%201.,-Map%20showing%20the" target="_blank" rel="noreferrer">Kidd et al. (2017)</a>.
+                    </Typography>
+                </Box>
+            </Paper>
+            
+            <aside className="notes">
+                <p>The presented map is indicating the distance to the nearest rainfall ground station for each location on the Earth. The white areas signify distances of at least 100 kilometers. When we focus on Europe, especially in countries like Germany or the UK, the density increases, but we still observe distances of around 25 to 50 kilometers to the nearest rainfall station. Hence, our rainfall pancake has gaps, and we do not have an exhaustive dataset.</p>
+            </aside>
+        </MainSlide>
+
+        <MainSlide title="" visibility="uncounted">
+            <i>Geostatistics are important on the small scale as well, to understand the dynamics of a system</i>
+            <i>already show soil moisture data and an iterpolation of such, maybe even the force-directed graph</i>
+        </MainSlide>
+
+        <MainSlide title="My past 7 years" id="motivation" visibility="uncounted">
+            <Stack  direction="row" spacing={1} justifyContent="space-around">
+                <Stack direction="column" sx={{textAlign: 'left'}}>
+                    <Typography variant="h5" component="div">2020 - Soil Moisture dynamics</Typography>
+                    <p className="method">- Method: moving dispersion functions</p>
+                    <p className="method fragment custom pale-out" data-fragment-index="1">- Cluster periods of similar spatial correlation</p>
+                    <p className="method fragment custom pale-out" data-fragment-index="1">- Cluster without information loss</p>
+                    <p className="method fragment custom pale-out" data-fragment-index="1">- </p>
+                </Stack>
+                <Stack direction="column" sx={{textAlign: 'left'}}>
+                <Typography variant="h5" component="div">2022 - SciKit-GStat</Typography>
+                    <p className="software "> - generic variography library</p>
+                    <p className="software fragment custom pale-out" data-fragment-index="1"> - educational material &amp; apps</p>
+                    <p className="software fragment custom pale-out" data-fragment-index="1">- extensive documentation, plotting, tutorials</p>
+                    <p className="method fragment custom pale-out" data-fragment-index="1">- Method: novel binning approaches</p>
+                    <p className="software fragment custom pale-out" data-fragment-index="1">- Ongoing development (&gt;7 years) &amp; user support</p>
+
+                </Stack>
+            </Stack>
+            <Stack  direction="row" spacing={1} justifyContent="space-around" sx={{mt: 2}}>
+                <Stack direction="column" sx={{textAlign: 'left'}}>
+                <Typography variant="h5" component="div">2023 - SciKit-GStat Uncertainty</Typography>
+                    <p className="software "> - extension to SciKit-GStat</p>
+                    <p className="software fragment custom pale-out" data-fragment-index="1">sophisticated web-applications</p>
+                    <p className="method">Uncertainty estimation for empirical variogram</p>
+                    <p className="method">Multi-model interpretation of variograms</p>
+                </Stack>
+                <Stack direction="column" sx={{textAlign: 'left'}}>
+                <Typography variant="h5" component="div">Unpublished</Typography>
+                    <p className="software ">Docker-based software framework</p>
+                    <p className="software fragment custom pale-out" data-fragment-index="1">Open specification + &gt; 6 client applications</p>
+                    <p className="method">Method: Force-directed graphs for variograms</p>
+                    <p className="method fragment custom pale-out" data-fragment-index="1">Benchmark force-directed graphs for interpretation</p>
+                </Stack>
+            </Stack>
+
+            <aside className="notes">
+                <p></p>
+            </aside>
+        </MainSlide>
+
+        <MainSlide title="Research Questions" visibility="uncounted">
+            <Paper elevation={3} sx={{p: 2}} className="r-stack">
+                <Stack direction="column" spacing={3} sx={{p: 1}}>
+                    <LI className="fragment">- By including observation uncertainties into variogram modeling, can we provide better insights into spatial datasets?</LI>
+                    <LI className="fragment">- By implementing a minimal interface and minimal metadata requirements, can we replicate and extend (geostatistical) more easily?</LI>
+                </Stack>
+            </Paper>
+
+            <aside className="notes">
+                <p>Before we jump into the next section about uncertain empirical variograms, let's take a moment to formulate two core questions underpinning this presentation today.</p>
+                <p>'By including observation uncertainties into variogram modeling, can we provide better insights into spatial datasets?' - With this, I mainly seek to enhance existing approaches and propose an exiting new method for variography to you.</p>
+                <p>For the second part we want to explore research software reproducibility. 'By implementing a minimal interface and minimal metadata requirements, can we replicate and extend (geostatistical) more easily?'. I will demonstrate this at a rather uncommon example.</p>
+            </aside>
+        </MainSlide>
+
+
+
+        {/* <MainSlide>
             <Typography variant="h2" component="div">
                 How can pancakes help us to build better geostatistical software?
             </Typography>
@@ -19,7 +99,7 @@ const Motivation: React.FC = () => {
             <aside className="notes">
                 <p>... we will explore how pancakes can help us improve geostatistical software.</p>
             </aside>
-        </MainSlide>
+        </MainSlide> */}
 
         <MainSlide title="The original pancake">
             <Paper elevation={3} sx={{width: 'fit-content', p: 1, m: 'auto'}}>
