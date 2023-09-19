@@ -28,6 +28,7 @@ function App() {
         // slideNumber={slide =>  {console.log(slide); return `4`}}
         hash
         autoAnimateDuration={1.4}
+        controlsTutorial={false}
 
       >
         
