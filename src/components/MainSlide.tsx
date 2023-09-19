@@ -20,7 +20,7 @@ const MainSlide: React.FC<React.PropsWithChildren<MainSlideProps>> = ({ children
                 </Box>
                 <Box sx={{height: '40px'}}>
                     <Typography variant="caption" component="div" sx={{textAlign: 'center'}}>
-                        Mälicke - PhD Defense - geostatistical Software - (17.07.2023)
+                        Mälicke - PhD Defense - geostatistical Software - (29.09.2023)
                     </Typography>
                 </Box>
 
