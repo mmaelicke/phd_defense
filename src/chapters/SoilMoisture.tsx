@@ -103,10 +103,9 @@ const SoilMoisture: React.FC = () => {
             </Box>
 
             <aside className="notes">
-                <p>
-                I want to introduce a framework designed to address the issues outlined, all while allowing scientists to maintain their preferred working methods. At its core, this framework relies on Docker, a containerization engine capable of bundling software together with all necessary dependencies, including system requirements.
-                The tool for computing variograms within a moving window is illustrated here. Each tool needs a machine-readable, easily organized file to provide minimal metadata, requiring at least a title and description. Additionally, this file outlines input data formats and available tool parameters.
-                Parameters for configuring the tool and the data are separated as external inputs, provided in files. I provide client applications which simplify input creation from common formats or HTTP calls for Python and NodeJS.
+                <p>I want to introduce a framework designed to address the issues outlined, all while allowing scientists to maintain their preferred working methods. At its core, this framework relies on Docker, a containerization engine capable of bundling software together with all necessary dependencies, including system requirements. The tool for computing variograms within a moving window is illustrated here.<br />
+                Each tool needs a machine-readable, easily organized file to provide minimal metadata, requiring at least a title and description. Additionally, this file outlines input data formats and available tool parameters.<br />
+                Parameters for configuring the tool and the data are separated as external inputs, provided in files. I provide client applications which simplify input creation from common formats or HTTP calls for Python and NodeJS.<br />
                Tools can be implemented in any language, at any proficiency level, mapping input to output files. The implementation is now more concises and significantly clearer. Templates are available for Octave, Matlab, Python, R, and NodeJS, streamlining input and generating logs and standard result file formats, like netCDF, CSV or HTML.
                 </p>
                 <p>Beside an improved runability and replicability, the implemented methods are more transparent about data and define their context more clearly.</p>
