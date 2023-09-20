@@ -79,6 +79,15 @@ a {
     padding: 1rem;
 }
 
+.pub-frame {
+    background-color: #2ea28b0B;
+    border: 0.5px solid #2EA28A;
+    border-radius: 0px 15px 0px 15px;
+    padding: 0.6rem;
+    font-size: 0.85rem!important;
+}
+
+
 aside.notes  {
     font-size: 0.5rem;
 }
