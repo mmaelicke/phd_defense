@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { FormControl, Grid, InputLabel, MenuItem, Select, Slider } from "@mui/material";
+import { Button, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select, Slider, Switch } from "@mui/material";
 import { Data, Layout, ScatterData } from "plotly.js";
 import Plot from "react-plotly.js";
 
@@ -48,6 +48,8 @@ const BasicUncertainModels: React.FC = () => {
     const [range, setRange] = useState<number>(BINS.reduce((a, b) => a + b) / BINS.length)
     const [sill, setSill]  = useState<number>(1500)
     const [model, setModel] = useState<'exponential' | 'gaussian' | 'spherical'>('exponential')
+    const [showModels, setShowModels] = useState<boolean>(false)
+    const [showControls, setShowControls] = useState<boolean>(false)
 
     // create the state of the plot
     const [data, setData] = useState<Partial<Data>[]>([])
@@ -76,29 +78,33 @@ const BasicUncertainModels: React.FC = () => {
         ]
 
         // push all predefined models to the plot
-        DATA['models'].forEach((y: number[]) => {
+        if (showModels) {
+            DATA['models'].forEach((y: number[]) => {
+                newData.push({
+                    mode: 'lines',
+                    x: BINS,
+                    y: y,
+                    line: {color: 'green', width: 0.6},
+                    showlegend: false
+                } as ScatterData)
+            })
+        }
+        
+        
+        if (showControls) {
+            // calculate the current model
+            const modelFunc = MODEL_FUNC[model]
+            const modelData = BINS.map((x: number) => modelFunc(x, range, sill))
+
+            // add to the plot
             newData.push({
                 mode: 'lines',
                 x: BINS,
-                y: y,
-                line: {color: 'green', width: 0.6},
-                showlegend: false
+                y: modelData,
+                line: {color: 'blue', width: 2},
+                name: `${MODELS[model]} (r=${range.toFixed(0)}, s=${sill.toFixed(0)}))`
             } as ScatterData)
-        })
-
-        // calculate the current model
-        const modelFunc = MODEL_FUNC[model]
-        const modelData = BINS.map((x: number) => modelFunc(x, range, sill))
-
-        // add to the plot
-        newData.push({
-            mode: 'lines',
-            x: BINS,
-            y: modelData,
-            line: {color: 'red', width: 2},
-            name: `${MODELS[model]} (r=${range.toFixed(0)}, s=${sill.toFixed(0)}))`
-        } as ScatterData)
-
+        }
         // create the layout
         const newLayout = {
             autosize: true,
@@ -110,12 +116,12 @@ const BasicUncertainModels: React.FC = () => {
         // finally set the new data
         setData(newData)
         setLayout(newLayout)
-    }, [range, sill, model])
+    }, [range, sill, model, showModels, showControls])
 
     return (
         <Grid container spacing={3} sx={{width: 'inherit'}}>
 
-            <Grid item xs={12}>
+            <Grid item xs={8}>
                 <FormControl fullWidth>
                     <InputLabel id="model-label">Theoretical Model</InputLabel>
                     <Select labelId="model-label" label="Theoretical Model" value={model} onChange={e => setModel(e.target.value as 'spherical' | 'gaussian' | 'exponential')}>
@@ -125,9 +131,16 @@ const BasicUncertainModels: React.FC = () => {
                     </Select>
                 </FormControl>
             </Grid>
+            <Grid item xs={4}>
+                <FormControlLabel control={<Switch onChange={e => setShowModels(e.target.checked)} color="success" />} label="models" />
+                <FormControlLabel control={<Switch onChange={e => setShowControls(e.target.checked)} color="primary" />} label="fit" />
+            </Grid>
 
             <Grid item xs={1} sx={{py: 5}}>
-                <Slider orientation="vertical" defaultValue={sill} min={0} max={2000} onChange={(e, value) => setSill(value as number)} valueLabelDisplay="auto" />
+                {showControls ? (
+                    <Slider orientation="vertical" defaultValue={sill} min={0} max={2000} onChange={(e, value) => setSill(value as number)} valueLabelDisplay="auto" />
+                ) : null}
+                
             </Grid>
             <Grid item xs={11}>
                 <Plot
@@ -137,7 +150,9 @@ const BasicUncertainModels: React.FC = () => {
                 />
             </Grid>
             <Grid item xs={12} sx={{px: 5}}>
-                <Slider defaultValue={range} min={10} max={350} onChange={(e, value) => setRange(value as number)} valueLabelDisplay="auto" />
+                {showControls ? (
+                    <Slider defaultValue={range} min={10} max={350} onChange={(e, value) => setRange(value as number)} valueLabelDisplay="auto" />
+                ) : null}
             </Grid>
 
         </Grid>
