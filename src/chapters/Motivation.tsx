@@ -116,27 +116,37 @@ const Motivation: React.FC = () => {
         </MainSlide>
         <MainSlide title="Contributions" autoAnimate visibility="uncounted">
             <Typography data-id="claim" variant="h4" component="div" sx={{fontSize: '120%'}}>I made the estimation of the variogram more robust</Typography>
-            <Stack direction="row" spacing={1} justifyContent="space-around" sx={{mt: '5rem'}}>
+            <Stack direction="row" spacing={3} justifyContent="space-around" sx={{mt: '5rem'}}>
 
                 <Stack direction="column" sx={{textAlign: 'left'}}>
                     <Typography variant="h6" component="div" sx={{mb: 2}}>novel methods</Typography>
-                    <Box className="fragment">
+                    <Box className="fragment" data-fragment-index="1" sx={{mb: 3}}>
                         <p>Uncertainty estimation for empirical variograms</p>
                         <p>Multi-model interpretation of variograms</p>
                         {/* <p>Moving-window variograms</p>
                         <p>Clustering of variograms without information loss</p> */}
                     </Box>
+                    <Typography className="fragment pub-frame" data-fragment-index="3" variant="body1" component="div">
+                        <strong>Mälicke, M.</strong>, Hassler, S. K., Blume, T., Weiler, M., & Zehe, E. <strong>(2020)</strong>. <i>Soil moisture: variable in space but redundant in time.</i> Hydrology and Earth System Sciences, 24(5), 2633-2653.
+                    </Typography>
                 </Stack>
 
                 <Stack direction="column" sx={{textAlign: 'left'}}>
                     <Typography variant="h6" component="div" sx={{mb: 2}}>reliable software</Typography>
-                    <Box className="fragment">
+                    <Box className="fragment" data-fragment-index="2" sx={{mb: 3}}>
                         <p>Variogram library for Python</p>
                         {/* <p>extensive documentation, plotting, tutorials</p> */}
                         <p>Docker-based software framework</p>
                     </Box>
+                    <Typography className="fragment pub-frame" data-fragment-index="3" variant="body1" component="div">
+                        <strong>Mälicke, M. (2022)</strong>. <i>SciKit-GStat 1.0: a SciPy-flavored geostatistical variogram estimation toolbox written in Python.</i> Geoscientific Model Development, 15(6), 2505-2532.
+                    </Typography>
                 </Stack>
             </Stack>
+
+            <Typography className="fragment pub-frame" data-fragment-index="3" variant="body1" component="div" sx={{mt: 2}}>
+                <strong>Mälicke, M.</strong>, Guadagnini, A., & Zehe, E. <strong>(2023)</strong>. <i>SciKit-GStat Uncertainty: A software extension to cope with uncertain geostatistical estimates.</i> Spatial Statistics, 54, 100737.
+            </Typography>
 
             <aside className="notes">
                 <p></p>
@@ -152,7 +162,7 @@ const Motivation: React.FC = () => {
 
 
 
-        <MainSlide title="Publications" visibility="uncounted">
+        {/* <MainSlide title="Publications" visibility="uncounted">
             <Stack direction="column" spacing={4} className="fragment">
                 <Typography variant="body1" component="div">
                     <strong>Mälicke, M.</strong>, Hassler, S. K., Blume, T., Weiler, M., & Zehe, E. <strong>(2020)</strong>. <i>Soil moisture: variable in space but redundant in time.</i> Hydrology and Earth System Sciences, 24(5), 2633-2653.
@@ -211,7 +221,7 @@ const Motivation: React.FC = () => {
                 <p>Today I will only talk about these ones. In 2020 we published a method for moving-window variograms, for clustering the latter, and we could link them to information theory. This year was all focused on uncertainty in variograms and its implications, and recently I added a novel visualization for variograms.</p>
                 <p>The software connecting all the dots is called SciKit-GStat and has always been developed further. But first, let me outline this mess here for this presentation.</p>
             </aside>
-        </MainSlide>
+        </MainSlide> */}
 
         <MainSlide title="Research Questions" visibility="uncounted">
             <Paper elevation={3} sx={{p: 2}} className="r-stack">
@@ -229,14 +239,6 @@ const Motivation: React.FC = () => {
         </MainSlide>
 
         <Outline withFragments withNotes />
-
-
-
-        <MainSlide title="" visibility="uncounted">
-            <i>Geostatistics are important on the small scale as well, to understand the dynamics of a system</i>
-            <i>already show soil moisture data and an iterpolation of such, maybe even the force-directed graph</i>
-        </MainSlide>
-
 
 
         {/* <MainSlide>
