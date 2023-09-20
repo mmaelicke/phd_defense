@@ -155,9 +155,9 @@ const Uncertainty: React.FC = () => {
                                 <LI>- Assess models and parameterizations using different metrics</LI>
                                 <LI variant="body1" sx={{pl: 5}}>- RMSE</LI>
                                 <LI variant="body1" sx={{pl: 5}}>- Deviance information criterion (DIC)</LI>
-                                <LI variant="body1" sx={{pl: 5}}>- cross-validation</LI>
+                                <LI variant="body1" sx={{pl: 5}}>- Cross-Validation</LI>
                                 <LI>- Rank models for each metric</LI>
-                                <LI>- Calucluate percentiles for ranks</LI>
+                                <LI>- Calculate percentiles for ranks</LI>
                             </Stack>
                         </Box>
                     </Box>

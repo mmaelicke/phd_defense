@@ -118,7 +118,7 @@ const SoilMoisture: React.FC = () => {
                 <Stack direction="column" justifyContent="space-evenly" spacing={3} sx={{p: 3}} className="info-box">
                     <LI>- Containerized SciKit-GStat could reproduce the 2020 results exactly</LI>
                     <LI className="fragment fade-up">- Clustered variogram <strong>parameters</strong> instead of empirical variograms</LI>
-                    <LI className="fragment fade-up">- Existing workflow tool can used to to run container</LI>
+                    <LI className="fragment fade-up">- Existing workflow tools can be used to run the container</LI>
                     <LI className="fragment fade-up">- Lays the foundation for facilitating development of new methods</LI>
                 </Stack>
 

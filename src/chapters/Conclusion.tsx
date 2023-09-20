@@ -41,7 +41,7 @@ const Conclusion: React.FC = () => {
                 <Typography variant="h6">Software package</Typography>
                 <Box className="info-box" sx={{mt: 3, p: 3}}>
                     <LI>- <i>SciKit-GStat</i> is widly accepted and used in the community</LI>
-                    <LI className="fragment" >- Model description paper is cited, Github repository is used lectures, summer schools ... </LI>
+                    <LI className="fragment" >- Model description paper is cited, Github repository is used in lectures, summer schools ... </LI>
                     <LI className="fragment" >- This presentation itself is a live-demonstration of (good) research software</LI>
                 </Box>
                 </Box>
