@@ -129,7 +129,7 @@ const SoilMoisture: React.FC = () => {
                 </Stack>
 
                 <aside className="notes">
-                    <p>To wrap this part up, the containerized tool easily allowed replication of the original 2020 results, and allowed for systematically testing different variations of the tool. </p>
+                    <p>To wrap this part up, the containerized tool easily allowed replication of the original results, and allowed for systematically testing different variations of the tool. </p>
                     <p>This was exemplified by clustering variogram models instead of empirical variograms.</p>
                     <p>The container includes all necessary metadata, parameterizations and data. Beyond reproducibility, this clearly separates parameters from data and is transparent about the context of application.</p>
                     <p>This lays the foundation for facilitating the development of new methods, that truely build on top of existing methods, which I will exemplify in the following section.</p>
