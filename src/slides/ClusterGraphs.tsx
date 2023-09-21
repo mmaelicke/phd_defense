@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { Button, Grid, Slider, Stack, ToggleButton, ToggleButtonGroup } from "@mui/material"
+import { Button, Grid, Slider, Stack, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material"
 import { ThreeDRotation, ViewInAr, ScatterPlot, Straighten, CandlestickChart } from "@mui/icons-material"
 import { ForceGraph2D, ForceGraph3D, ForceGraphVR } from "react-force-graph"
 
@@ -19,7 +19,7 @@ const DATA = {
 }
 
 // calculate the min and max for the distance slider
-const MIN_D = YL.links.reduce((a, b) => a.separating < b.separating ? a : b).separating
+const MIN_D = Math.floor(YL.links.reduce((a, b) => a.separating < b.separating ? a : b).separating)
 const MAX_D = YL.links.reduce((a, b) => a.separating > b.separating ? a : b).separating
 
 const ClusterGraphs: React.FC = () => {
@@ -92,8 +92,9 @@ const ClusterGraphs: React.FC = () => {
                         <ToggleButton value="ar"><ViewInAr /></ToggleButton>
                     </ToggleButtonGroup>
                     </Stack>
-                    <Stack sx={{p:3}}>
-                        <Slider min={MIN_D} max={MAX_D} value={distFilter} valueLabelDisplay="auto" onChange={(_, v) => setDistFilter(v as number[])} /> 
+                    <Stack sx={{p:3, mt: 3}}>
+                        <Slider min={MIN_D} max={MAX_D} value={distFilter} valueLabelDisplay="on" onChange={(_, v) => setDistFilter(v as number[])} /> 
+                        <Typography variant="caption">Pairwise separating distance (m)</Typography>
                     </Stack>
                 </Stack>
                 <Stack sx={{p: 3}}>
