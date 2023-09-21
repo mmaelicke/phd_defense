@@ -140,15 +140,18 @@ ENV:    cd4e84f4***
 
 // define the SX props for the hoverBoxes
 const hoverSX: SX = {
+    width: "160px",
     border: "1px solid black",
     p: 1,
     borderRadius: "3px",
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
     ":hover": { backgroundColor: "rgba(0,0,0,0.2)", cursor: "pointer" },
 };
 
 const inputSX: SX = {
+    width: "200px",
     height: "60px",
     border: "1px solid black",
     p: 0.8,
@@ -156,7 +159,8 @@ const inputSX: SX = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    ":hover": { backgroundColor: "rgba(0,0,0,0.2)", cursor: "pointer" },
+    backgroundColor: "white",
+    ":hover": { backgroundColor: "#e0e0e0", cursor: "pointer" },
 };
 
 
@@ -190,32 +194,35 @@ const DockerOverview: React.FC = () => {
 
         <MainSlide title="What is so different?" autoAnimate visibility="uncounted">
             <Stack direction="row" spacing={5} justifyContent="space-around">
-
-            <Stack direction="column" spacing={3}>
-                <Box className="fragment fade-down" data-fragment-index="3">
-                    <Box sx={inputSX} onClick={() => setCurrentNode('params')}>
-                        data &amp; parameter
+                <Stack direction="column" spacing={3}>
+                    <Box className="fragment fade-down" data-fragment-index="3" sx={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <Box className="r-stack">
+                            <Box sx={inputSX} style={{marginTop: '14px', marginRight: '15px'}}></Box>
+                            <Box sx={inputSX} style={{marginTop: '10px', marginRight: '12px'}}></Box>
+                            <Box sx={inputSX} onClick={() => setCurrentNode('params')}>
+                                data &amp; parameter
+                            </Box>
+                        </Box>
+                        <Icon component={KeyboardDoubleArrowDown} sx={{fontSize: '3rem'}} />
                     </Box>
-                    <Icon component={KeyboardDoubleArrowDown} sx={{fontSize: '3rem'}} />
-                </Box>
-
-                <Box data-id="docker-frame" sx={{height: '100%', border: '1px solid #1D63ED', p: 1, borderRadius: '15px', flexDirection: 'column', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-                    <Stack direction="column" spacing={3} sx={{minHeight: 60, mb: 1}}>
-                        <Box className="fragment" data-fragment-index="1"  sx={hoverSX} onClick={() => setCurrentNode('yaml')}>tool.yml</Box>
-                        <Box className="fragment" data-fragment-index="1" sx={hoverSX} onClick={() => setCurrentNode('tool')}>run.py</Box>
-                        {/* <Box sx={hoverSX} onClick={() => setCurrentNode('params')}>input.json</Box> */}
-                    </Stack>
-                    <Box data-id="docker-img" component="img" src="img/docker.png" sx={{maxHeight: 48, maxWidth: 600}} />
-                </Box>
-                <Box className="fragment fade-up" data-fragment-index="3">
-                    <Icon component={KeyboardDoubleArrowDown} sx={{fontSize: '3rem'}} />
-                    <Box sx={inputSX} onClick={() => setCurrentNode('output')}>
-                        result &amp; logs
+                    <Box data-id="docker-frame" sx={{height: '100%', border: '1px solid #1D63ED', p: 1, borderRadius: '15px', flexDirection: 'column', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                        <Stack direction="column" spacing={3} sx={{minHeight: 60, mb: 1}}>
+                            <Box className="fragment" data-fragment-index="1"  sx={hoverSX} onClick={() => setCurrentNode('yaml')}>tool.yml</Box>
+                            <Box className="fragment" data-fragment-index="1" sx={hoverSX} onClick={() => setCurrentNode('tool')}>run.py</Box>
+                        </Stack>
+                        <Box data-id="docker-img" component="img" src="img/docker.png" sx={{maxHeight: 48, maxWidth: 600}} />
                     </Box>
-                </Box>
-                
-            </Stack>
-
+                    <Box className="fragment fade-up" data-fragment-index="3" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <Icon component={KeyboardDoubleArrowDown} sx={{fontSize: '3rem'}} />
+                        <Box className="r-stack">
+                            <Box sx={inputSX} style={{marginTop: '13px', marginRight: '15px'}}></Box>
+                            <Box sx={inputSX} style={{marginTop: '10px', marginRight: '12px'}}></Box>
+                            <Box sx={inputSX} onClick={() => setCurrentNode('output')}>
+                                result &amp; logs
+                            </Box>
+                        </Box>
+                    </Box>
+                </Stack>
                 <Paper elevation={3} sx={{height: 500, p: 0.5, m: 0, borderRadius: '15px'}} className="fragment" data-fragment-index="2">
                     <Code
                         language={currentNode === 'yaml' ? 'yaml' : currentNode === 'tool' ? 'python' : 'text'}
@@ -225,16 +232,9 @@ const DockerOverview: React.FC = () => {
                         {({
                             code: Object.keys(CODE).includes(currentNode) ?  CODE[currentNode].code : '# no example available'
                         } as unknown) as {code: string} & ReactNode}
-
                     </Code>
                 </Paper>
-
             </Stack>
-            
-            
-            
-            
-            
 
             <aside className="notes">
                 <p></p>
