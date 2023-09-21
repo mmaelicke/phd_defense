@@ -163,12 +163,12 @@ const Uncertainty: React.FC = () => {
                     </Box>
                 </Paper>
                 <aside className="notes">
-                    <p>In the uncertainty extension's publication, we fitted around 30 models to the empirical variogram and evaluated the models and parameterizations using various metrics.</p>
+                    <p>IWe fitted around 30 models to the empirical variogram and evaluated the models and parameterizations using various metrics.</p>
                     <p>The first metric is the root mean square error (RMSE) of the model to the uncertainty bound.</p>
                     <p>The second metric is the deviance information criterion (DIC), similar to the AIC, which assesses how well the model fits the observed data.</p>
                     <p>The third metric is a leave-one-out cross-validation, which examines how well the values can be reproduced using kriging.</p>
-                    <p>The models were ranked from best to worst for each metric, and percentiles were calculated, such as the top 10% and the worst 10%.</p>
-                    <p>All this information is condensed into the graph presented. In the first column, the model types are color-coded, with greens representing spherical models and reds representing Gaussian models. The graph displays the rankings for each metric, with the best models at the top.</p>
+                    <p>The models were ranked from best to worst for each metric, and quartiles were calculated.</p>
+                    <p>All this information is condensed into the graph presented. In the first column, the model types are color-coded. The graph displays the rankings for each metric, with the best models at the top.</p>
                     <p>We can see that Gaussian models exhibit a diverse performance. In terms of RMSE, they vary widely, while in terms of DIC, they perform well. However, in cross-validation, Gaussian models perform worse. On the other hand, spherical models show poor fit and DIC performance but excel in cross-validation.</p>
                 </aside>
             </MainSlide>
