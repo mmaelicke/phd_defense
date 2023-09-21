@@ -8,31 +8,6 @@ const Conclusion: React.FC = () => {
 
         <Outline highlight="software" />
 
-        <MainSlide title="Conclusion" id="start-conclusion" autoAnimate>
-            <Typography variant="h4">How can pancakes help us to build better geostatistical software?</Typography>
-            {/* <h4>How can pancakes help us to build better geostatistical software?</h4> */}
-
-            <aside className="notes">
-                <p>Let's come back to the initial question of this presentation.</p>
-            </aside>
-        </MainSlide>
-
-        <MainSlide title="Pancake Dataset" autoAnimate>
-            <Typography variant="h4" sx={{fontSize: '120%'}}>How can pancakes help us to build better geostatistical software?</Typography>
-            <Box className="info-box" sx={{mt: 5, p: 3}}>
-                <LI>- Prime example of geostatistical development dataset that is not artificially created.</LI>
-                <LI>- Greatly facilitated the development of research software in variography</LI>
-                <LI>- Methods can be universally tested, irrespective of individual data dependencies</LI>
-                {/* <LI>-key advancement lies in the incorporation of observation uncertainties into the empirical variogram</LI>
-                <LI>-(Experimental) expansion to force-directed graphs only due to robust software</LI> */}
-            </Box>
-
-            <aside className="notes">
-                <p>In terms of the contribution of pancake datasets, they serve as valuable geostatistical development datasets that are not artificially created.</p>
-                <p>They helped me to translate very specific Python scripts into a generic, robust, and tested software.</p>
-                <p>I could test methods on different samples, without the need to consider catchment-specific details, as usually done using environmental datasets, especially in reviews.</p>
-            </aside>
-        </MainSlide>
         
         <section>
         <MainSlide title="Conclusion">
@@ -74,9 +49,28 @@ const Conclusion: React.FC = () => {
         </MainSlide>
         </section>
 
-            
-            
-        
+        {/* <MainSlide title="Conclusion" id="start-conclusion" autoAnimate>
+            <Typography variant="h4">How can pancakes help us to build better geostatistical software?</Typography>
+
+            <aside className="notes">
+                <p>Let's come back to the initial question of this presentation.</p>
+            </aside>
+        </MainSlide>
+
+        <MainSlide title="Pancake Dataset" autoAnimate>
+            <Typography variant="h4" sx={{fontSize: '120%'}}>How can pancakes help us to build better geostatistical software?</Typography>
+            <Box className="info-box" sx={{mt: 5, p: 3}}>
+                <LI>- Prime example of geostatistical development dataset that is not artificially created.</LI>
+                <LI>- Greatly facilitated the development of research software in variography</LI>
+                <LI>- Methods can be universally tested, irrespective of individual data dependencies</LI>
+            </Box>
+
+            <aside className="notes">
+                <p>In terms of the contribution of pancake datasets, they serve as valuable geostatistical development datasets that are not artificially created.</p>
+                <p>They helped me to translate very specific Python scripts into a generic, robust, and tested software.</p>
+                <p>I could test methods on different samples, without the need to consider catchment-specific details, as usually done using environmental datasets, especially in reviews.</p>
+            </aside>
+        </MainSlide> */}
 
     </>)
 }
