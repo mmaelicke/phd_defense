@@ -6783,7 +6783,9 @@
       }
     },
     "legend": {
-      "orientation": "h"
+      "orientation": "h",
+      "yanchor": "bottom",
+      "y": 1.02
     },
     "xaxis": {
       "title": {
