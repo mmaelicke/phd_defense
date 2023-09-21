@@ -6,7 +6,7 @@ import Title from "./slides/Title";
 import Motivation from "./chapters/Motivation";
 import Introduction from './chapters/Introduction';
 import Uncertainty from './chapters/Uncertainty';
-import SoilMoisture from './chapters/SoilMoisture';
+import Software from './chapters/Software';
 import Conclusion from "./chapters/Conclusion";
 import Appendix from './chapters/Appendix';
 
@@ -36,8 +36,7 @@ function App() {
         <Motivation />
         <Introduction />
         <Uncertainty />
-        <SoilMoisture />
-        {/* <Software /> */}
+        <Software />
         <Conclusion />
         <Appendix />
       </RevealJS>
