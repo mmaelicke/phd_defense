@@ -1,5 +1,5 @@
 import { ReactNode, useEffect } from "react";
-import { Box, Paper, Stack } from "@mui/material";
+import { Paper, Stack } from "@mui/material";
 import { Code } from "@gregcello/revealjs-react";
 import ReactImageMagnify from "react-image-magnify";
 

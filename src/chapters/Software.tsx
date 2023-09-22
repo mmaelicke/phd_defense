@@ -85,10 +85,14 @@ const SoilMoisture: React.FC = () => {
             <MainSlide title="original moving-variogram script">
                 <SpaghettiFragments />
                 <Box fontSize="0.6rem" mt={1} textAlign="left">
-                    <a href="https://doi.org/10.5281/zenodo.3773110" target="_blank"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3773110.svg" alt="DOI" /></a>
+                    <a href="https://doi.org/10.5281/zenodo.3773110" target="_blank" rel="noreferrer"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3773110.svg" alt="DOI" /></a>
                 </Box>
                 <aside className="notes">
-                    <p>The original code written is shown and referenced here. I</p>
+                    <p>The original code written is shown and referenced here. I would argue that it is a common research spaghetti code.</p>
+                    <p>At the top you find a preamble of imports, data loading and global paramters. Let's hope these are the latest and they are still in use.</p>
+                    <p>Next a couple of functions implement the methods. In this example, an unused paramenter is unfortunately still in the function signature.</p>
+                    <p>After processing, we need some visualization. Here, we use globals instead of function arguments, as the figures are very specific anyways.</p>
+                    <p>Finally, results are created and saved somewhere on the host system. I want to propose an alternative approach here.</p>
                 </aside>
             </MainSlide>
 
@@ -132,7 +136,7 @@ const SoilMoisture: React.FC = () => {
                 </Stack>
 
                 <aside className="notes">
-                    <p>To wrap this part up, the containerized tool easily allowed replication of the original results, and allowed for systematically testing different variations of the tool. </p>
+                    <p>The containerized tool easily allowed replication of the original results, and allowed for systematically testing different variations of the tool. </p>
                     <p>This was exemplified by clustering variogram models instead of empirical variograms.</p>
                     <p>The container includes all necessary metadata, parameterizations and data. Beyond reproducibility, this clearly separates parameters from data and is transparent about the context of application.</p>
                     <p>This lays the foundation for facilitating the development of new methods, that truely build on top of existing methods, which I will exemplify in the following section.</p>
@@ -195,11 +199,10 @@ const SoilMoisture: React.FC = () => {
 
             <aside className="notes">
                 <p>I explored an alternative approach to visualizing the correlation structure of a geostatistical dataset using force-directed graphs.</p>
-                <p>I found this method particularly useful as it provides a different perspective compared to variograms.</p>
-                <p>A force-directed graph is a mathematical graph where each node represents an observation location, and the algorithm adjusts the positions of the nodes to keep the links at a pre-defined length.</p>
-                <p>To create the graph, I created links between observation locations that fell within the same lag class, with the link lengths set to the absolute value difference between them.</p>
-                <p>Initially, with a small number of observations and links, the force-directed graph is relatively straightforward to build.</p>
-                <p>However, as the number of observations increases, it becomes more challenging to find an exact configuration that respects all the settings.</p>
+                <p>A force-directed graph is a mathematical graph where each node represents an observation location</p>
+                <p>To create the graph, links between observation locations that fell within the same lag class are created, with the link lengths set to the absolute value difference between them.</p>
+                <p>The algorithm then moves nodes to match the chosen link lengths.</p>
+                <p>As the number of observations increases, it becomes more challenging to respects all the settings.</p>
                 <p>Here, you can see that the graph cannot represent the settings for the links exactly, which can be thought of as "friction" in a network of springs under tension.</p>
             </aside>
         </MainSlide>
@@ -213,8 +216,8 @@ const SoilMoisture: React.FC = () => {
 
                 <aside className="notes">
                     <p>In this slide, I present the force-directed graphs for the yellow cluster of soil moisture measurements in the Colpach catchment.</p>
-                    <p>What we can observe is that there are actually two separate, independent graphs when considering separating distances up to 500 meters.</p>
-                    <p>However, when considering separating distances up to 1 kilometer, the two graphs become connected, particularly through three nodes in the middle. These nodes connect the other blobs but also keep them at some distance.</p>
+                    <p>We can see that there are actually two independent graphs when considering separating distances up to 500 meters.</p>
+                    <p>However, when considering separating distances up to 1 kilometer, the two graphs connect, particularly through three nodes in the middle. These nodes connect the other blobs but also keep them at some distance.</p>
                     <p>Although this short example was only an appetizer for this unpublished work - a direct application is the identification of representative observation locations.</p>
                 </aside>
             </MainSlide>

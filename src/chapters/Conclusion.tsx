@@ -46,7 +46,7 @@ const Conclusion: React.FC = () => {
                     <p>A possible way forward is a multi-model interpretation of emirical variograms and their application for example in kriging or simulations.</p>
                     <p>To conclude the second question about replicable tools, the first conclusion unfortunately is that a proper software library does not save you from the pitfalls of spaghetti-code</p>
                     <p>It is more of a prerequisite to effectively enhance reproducibility like demonstrated. The key feature from my point of view is to keep the overhead for the scientist as small as possible.</p>
-                    <p>Finally, as a personal note I would like to conclude from the past 7 years, that maintaining a library like SciKit-GStat is a lot of work, that is not yet sufficiently values by a scientific working environment.</p>
+                    <p>Finally, as a personal note I would like to conclude from the past 7 years, that maintaining a library like SciKit-GStat is a lot of work, that is not yet sufficiently valued by science.</p>
                 </aside>
             </MainSlide>
 

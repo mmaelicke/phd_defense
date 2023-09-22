@@ -188,7 +188,7 @@ const DockerOverviewSlide: React.FC = () => {
             </Box>
 
             <aside className="notes">
-                <p></p>
+                <p>The alternative builds on a very mature and common software for containerization, called docker. Simply speaking you can think of docker as a lightweight virtual machine.</p>
             </aside>
         </MainSlide>
 
@@ -237,7 +237,10 @@ const DockerOverviewSlide: React.FC = () => {
             </Stack>
 
             <aside className="notes">
-                <p></p>
+                <p>We want to build each of our tools into a docker container.</p>
+                <p>To do so, we need to specify metadata in a simple machine-readable file, called tool.yaml</p>
+                <p>Beside a title and a description, we can provide hints on data format and define needed parameter. The tool itself can be written in any langauge and at any level of proficiency. Here, I chose a single file script without much fuss.</p>
+                <p>Parameters and data have to be provided as files, and the container is now effectively mapping input onto outputs. Inputs, outputs and logfiles are finally bundled together with the container state, which is in my opinion a step towards result provenance.</p>
             </aside>
         </MainSlide>
     </>)
