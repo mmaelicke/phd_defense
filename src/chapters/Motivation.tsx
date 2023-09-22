@@ -153,7 +153,7 @@ const Motivation: React.FC = () => {
             </aside>
         </MainSlide>
 
-        <MainSlide title="Research Questions" visibility="uncounted">
+        <MainSlide title="Research Questions">
             <Paper elevation={3} sx={{p: 2}} className="r-stack">
                 <Stack direction="column" spacing={3} sx={{p: 1}}>
                     <LI className="fragment">- By including observation uncertainties into variogram modeling, can we provide better insights into spatial datasets?</LI>
