@@ -164,7 +164,7 @@ const inputSX: SX = {
 };
 
 
-const DockerOverview: React.FC = () => {
+const DockerOverviewSlide: React.FC = () => {
     // add state to handle the code example
     const [currentNode, setCurrentNode] = useState<string>('')
 
@@ -243,4 +243,4 @@ const DockerOverview: React.FC = () => {
     </>)
 }
 
-export default DockerOverview
+export default DockerOverviewSlide

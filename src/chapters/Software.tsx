@@ -8,7 +8,7 @@ import GraphExamples from "../slides/GraphExamples"
 import ClusterGraphs from "../slides/ClusterGraphs"
 import LI from "../components/LI"
 import WorkflowFlowchart from "../slides/WorkflowFlowchart"
-import DockerOverview from "../slides/DockerOverview"
+import DockerOverviewSlide from "../slides/DockerOverviewSlide"
 
 const SoilMoisture: React.FC = () => {
     return (<>
@@ -117,7 +117,7 @@ const SoilMoisture: React.FC = () => {
                 </aside>
         </MainSlide>
 
-        <DockerOverview />
+        <DockerOverviewSlide />
 
         <section>
             <MainSlide title="Build on tested software">
