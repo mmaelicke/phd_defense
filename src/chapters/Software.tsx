@@ -1,6 +1,8 @@
 import { Box, Paper, Stack, Typography } from "@mui/material"
 import ReactImageMagnify from 'react-image-magnify'
 
+
+
 import MainSlide from "../components/MainSlide"
 import Outline from "../slides/Outline"
 import ForceGraphExample from "../slides/ForceGraphExample"
@@ -9,24 +11,13 @@ import ClusterGraphs from "../slides/ClusterGraphs"
 import LI from "../components/LI"
 import WorkflowFlowchart from "../slides/WorkflowFlowchart"
 import DockerOverviewSlide from "../slides/DockerOverviewSlide"
+import SpaghettiFragments from "../slides/SpaghettiFragments";
+
 
 const SoilMoisture: React.FC = () => {
     return (<>
 
         <Outline highlight="moisture" />
-
-        {/* <MainSlide title="Attert catchment in Luxembourg" id="start-soil-moisture" autoAnimate>
-            <Paper elevation={3} sx={{p: 1, width: 'fit-content', margin: 'auto'}}>
-                <Box component="img" src="img/Attert.png" sx={{maxHeight: '450px'}} />
-                <Typography variant="caption" component="div" sx={{textAlign: 'left', mt: 1}}>
-                    Figure changed after <a href="https://hess.copernicus.org/articles/23/3807/2019/#section3" target="_blank" rel="noreferrer">Loritz et al. (2019)</a>
-                </Typography>
-            </Paper>
-
-            <aside className="notes">
-                <p>Now we are leaving the emerging field of pancake geostatistics behind and turn to more meaningful datasets from a hydrological point of view. We use a soil moisture dataset observed in the Attert catchment in Luxembourg. Specifically, we used data from the Colpach sub-catchment, which consists of approximately 60 different locations with soil moisture measurements at three different depths.</p>
-            </aside>
-        </MainSlide> */}
 
         <section>
             <MainSlide title="Moving window variogram models" autoAnimate id="start-soil-moisture">
@@ -90,32 +81,44 @@ const SoilMoisture: React.FC = () => {
             </MainSlide>
         </section>
         
-        <MainSlide title="2020's code">
-                <Stack direction="row" spacing={1} sx={{margin: 'auto'}}>
-                    <Stack direction="column" sx={{height: '500px', width: '150px'}}>
-                        {/* Put the marking colors here */}
-                        <Box style={{height: '25px', width: '100%', backgroundColor: '#FFC2C2', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Imports</span></Box>
-                        <Box style={{height: '25px', width: '100%', backgroundColor: '#FFF8DC', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Parameters</span></Box>
-                        <Box style={{height: '25px', width: '100%', backgroundColor: '#B2FFB2', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Load data</span></Box>
-                        <Box style={{height: '80px', width: '100%', backgroundColor: '#D2B48C', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Method</span></Box>
-                        <Box style={{height: '80px', width: '100%', backgroundColor: '#B2CCFF', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Visualization</span></Box>
-                        <Box style={{height: '25px', width: '100%', backgroundColor: '#FFE5B4', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Results</span></Box>
-                        <Box style={{height: '40px', width: '100%', backgroundColor: '#B2CCFF', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Visualization</span></Box>
-                        <Box style={{height: '80px', width: '100%', backgroundColor: '#D2B48C', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Method</span></Box>
-                        <Box style={{height: '60px', width: '100%', backgroundColor: '#B2CCFF', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Visualization</span></Box>
-                        <Box style={{height: '60px', width: '100%', backgroundColor: '#FFE5B4', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Results</span></Box>
-                    </Stack>
-                    <Box sx={{maxWidth: 500, margin: 'auto'}}>
-                        <ReactImageMagnify smallImage={{isFluidWidth: false, width: 40, height: 500, src: 'img/companion_code_small.png'}} largeImage={{src: 'img/companion_code.png', width: 700, height: 22000}} enlargedImageContainerDimensions={{width: 400, height: 450}}/>
-                    </Box>
-                </Stack>
-
+        <section>
+            <MainSlide title="original moving-variogram script">
+                <SpaghettiFragments />
+                <Box fontSize="0.6rem" mt={1} textAlign="left">
+                    <a href="https://doi.org/10.5281/zenodo.3773110" target="_blank"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3773110.svg" alt="DOI" /></a>
+                </Box>
                 <aside className="notes">
-                    <p>SciKit-GStat does not make research, but offers generic varigraphy tools. The code I wrote at the time for the 2020 paper, is shown here.</p>
-                    <p>I would argue that it is a solid, well-constructed, typical research spaghetti code with conventional structuring. A preamble of imports and parameters, followed by a section of used methods implemented as functions and the final visualisation and result generation.</p>
-                    <p>While you usually start from a lean structure, changed methods and new visualization are usually added for each round of feedback or reviews. Thus, you end-up with a specific script, that is bound to the context of the publication and is usually not as usable and extendable as you intended it to be.</p>
+                    <p>The original code written is shown and referenced here. I</p>
                 </aside>
-        </MainSlide>
+            </MainSlide>
+
+            <MainSlide title="2020's code" visibility="uncounted">
+                    <Stack direction="row" spacing={1} sx={{margin: 'auto'}}>
+                        <Stack direction="column" sx={{height: '500px', width: '150px'}}>
+                            {/* Put the marking colors here */}
+                            <Box style={{height: '25px', width: '100%', backgroundColor: '#FFC2C2', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Imports</span></Box>
+                            <Box style={{height: '25px', width: '100%', backgroundColor: '#FFF8DC', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Parameters</span></Box>
+                            <Box style={{height: '25px', width: '100%', backgroundColor: '#B2FFB2', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Load data</span></Box>
+                            <Box style={{height: '80px', width: '100%', backgroundColor: '#D2B48C', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Method</span></Box>
+                            <Box style={{height: '80px', width: '100%', backgroundColor: '#B2CCFF', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Visualization</span></Box>
+                            <Box style={{height: '25px', width: '100%', backgroundColor: '#FFE5B4', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Results</span></Box>
+                            <Box style={{height: '40px', width: '100%', backgroundColor: '#B2CCFF', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Visualization</span></Box>
+                            <Box style={{height: '80px', width: '100%', backgroundColor: '#D2B48C', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Method</span></Box>
+                            <Box style={{height: '60px', width: '100%', backgroundColor: '#B2CCFF', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Visualization</span></Box>
+                            <Box style={{height: '60px', width: '100%', backgroundColor: '#FFE5B4', display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="fragment" data-fragment-index="1"><span>Results</span></Box>
+                        </Stack>
+                        <Box sx={{maxWidth: 500, margin: 'auto'}}>
+                            <ReactImageMagnify smallImage={{isFluidWidth: false, width: 40, height: 500, src: 'img/companion_code_small.png'}} largeImage={{src: 'img/companion_code.png', width: 700, height: 22000}} enlargedImageContainerDimensions={{width: 400, height: 450}}/>
+                        </Box>
+                    </Stack>
+
+                    <aside className="notes">
+                        <p>SciKit-GStat does not make research, but offers generic varigraphy tools. The code I wrote at the time for the 2020 paper, is shown here.</p>
+                        <p>I would argue that it is a solid, well-constructed, typical research spaghetti code with conventional structuring. A preamble of imports and parameters, followed by a section of used methods implemented as functions and the final visualisation and result generation.</p>
+                        <p>While you usually start from a lean structure, changed methods and new visualization are usually added for each round of feedback or reviews. Thus, you end-up with a specific script, that is bound to the context of the publication and is usually not as usable and extendable as you intended it to be.</p>
+                    </aside>
+            </MainSlide>
+        </section>
 
         <DockerOverviewSlide />
 
