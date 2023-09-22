@@ -119,8 +119,6 @@ const Motivation: React.FC = () => {
                     <Box className="fragment" data-fragment-index="1" sx={{mb: 3}}>
                         <p>Uncertainty estimation for empirical variograms</p>
                         <p>Multi-model interpretation of variograms</p>
-                        {/* <p>Moving-window variograms</p>
-                        <p>Clustering of variograms without information loss</p> */}
                     </Box>
                     <Typography className="fragment pub-frame" data-fragment-index="3" variant="body1" component="div">
                         <strong>Mälicke, M.</strong>, Hassler, S. K., Blume, T., Weiler, M., & Zehe, E. <strong>(2020)</strong>. <i>Soil moisture: variable in space but redundant in time.</i> Hydrology and Earth System Sciences, 24(5), 2633-2653.
@@ -131,8 +129,7 @@ const Motivation: React.FC = () => {
                     <Typography variant="h6" component="div" sx={{mb: 2}}>reliable software</Typography>
                     <Box className="fragment" data-fragment-index="2" sx={{mb: 3}}>
                         <p>Variogram library for Python</p>
-                        {/* <p>extensive documentation, plotting, tutorials</p> */}
-                        <p>Docker-based software framework</p>
+                        <p>Docker-based reproducibility framework</p>
                     </Box>
                     <Typography className="fragment pub-frame" data-fragment-index="3" variant="body1" component="div">
                         <strong>Mälicke, M. (2022)</strong>. <i>SciKit-GStat 1.0: a SciPy-flavored geostatistical variogram estimation toolbox written in Python.</i> Geoscientific Model Development, 15(6), 2505-2532.
@@ -169,85 +166,6 @@ const Motivation: React.FC = () => {
         </MainSlide>
 
         <Outline withFragments withNotes />
-
-
-
-
-
-
-
-
-        {/* <MainSlide title="Publications" visibility="uncounted">
-            <Stack direction="column" spacing={4} className="fragment">
-                <Typography variant="body1" component="div">
-                    <strong>Mälicke, M.</strong>, Hassler, S. K., Blume, T., Weiler, M., & Zehe, E. <strong>(2020)</strong>. <i>Soil moisture: variable in space but redundant in time.</i> Hydrology and Earth System Sciences, 24(5), 2633-2653.
-                </Typography>
-                <Typography variant="body1" component="div">
-                    <strong>Mälicke, M. (2022)</strong>. <i>SciKit-GStat 1.0: a SciPy-flavored geostatistical variogram estimation toolbox written in Python.</i> Geoscientific Model Development, 15(6), 2505-2532.
-                </Typography>
-                <Typography variant="body1" component="div">
-                    <strong>Mälicke, M.</strong>, Guadagnini, A., & Zehe, E. <strong>(2023)</strong>. <i>SciKit-GStat Uncertainty: A software extension to cope with uncertain geostatistical estimates.</i> Spatial Statistics, 54, 100737.
-                </Typography>
-            </Stack>
-
-            <aside className="notes">
-                <p>The title of this work already implies a two-fold focus of my work: geostatistics and software development.</p>
-                <p>This is also reflected by my three publications: Method development for analyzing soil moisture patterns in HESS, followed by a model description paper in GMD and finally an extension to that in Spatial Statistics, which involved both.</p>
-            </aside>
-        </MainSlide>
-
-        <MainSlide title="My past 7 years" id="motivation" visibility="uncounted">
-            <Stack  direction="row" spacing={1} justifyContent="space-around">
-                <Stack direction="column" sx={{textAlign: 'left'}}>
-                    <Typography variant="h5" component="div">2020 - Soil Moisture dynamics</Typography>
-                    <p className="method">- Method: moving dispersion functions</p>
-                    <p className="method fragment custom pale-out" data-fragment-index="1">- Cluster periods of similar spatial correlation</p>
-                    <p className="method fragment custom pale-out" data-fragment-index="1">- Cluster without information loss</p>
-                </Stack>
-                <Stack direction="column" sx={{textAlign: 'left'}}>
-                <Typography variant="h5" component="div">2022 - SciKit-GStat</Typography>
-                    <p className="software "> - generic variography library</p>
-                    <p className="software fragment custom pale-out" data-fragment-index="1"> - educational material &amp; apps</p>
-                    <p className="software fragment custom pale-out" data-fragment-index="1">- extensive documentation, plotting, tutorials</p>
-                    <p className="method fragment custom pale-out" data-fragment-index="1">- Method: novel binning approaches</p>
-                    <p className="software fragment custom pale-out" data-fragment-index="1">- Ongoing development (&gt;7 years) &amp; user support</p>
-
-                </Stack>
-            </Stack>
-            <Stack  direction="row" spacing={1} justifyContent="space-around" sx={{mt: 2}}>
-                <Stack direction="column" sx={{textAlign: 'left'}}>
-                <Typography variant="h5" component="div">2023 - SciKit-GStat Uncertainty</Typography>
-                    <p className="software "> - extension to SciKit-GStat</p>
-                    <p className="software fragment custom pale-out" data-fragment-index="1">sophisticated web-applications</p>
-                    <p className="method">Uncertainty estimation for empirical variogram</p>
-                    <p className="method">Multi-model interpretation of variograms</p>
-                </Stack>
-                <Stack direction="column" sx={{textAlign: 'left'}}>
-                <Typography variant="h5" component="div">Unpublished</Typography>
-                    <p className="software ">Docker-based software framework</p>
-                    <p className="software fragment custom pale-out" data-fragment-index="1">Open specification + &gt; 6 client applications</p>
-                    <p className="method">Method: Force-directed graphs for variograms</p>
-                    <p className="method fragment custom pale-out" data-fragment-index="1">Benchmark force-directed graphs for interpretation</p>
-                </Stack>
-            </Stack>
-
-            <aside className="notes">
-                <p>My main contributions are listed here, organized by these publication. Methodological contributions are green and are all about variograms. Software contributions are purple and are mainly intended to replicate and develop methods more easily.</p>
-                <p>Today I will only talk about these ones. In 2020 we published a method for moving-window variograms, for clustering the latter, and we could link them to information theory. This year was all focused on uncertainty in variograms and its implications, and recently I added a novel visualization for variograms.</p>
-                <p>The software connecting all the dots is called SciKit-GStat and has always been developed further. But first, let me outline this mess here for this presentation.</p>
-            </aside>
-        </MainSlide> */}
-
-        {/* <MainSlide>
-            <Typography variant="h2" component="div">
-                How can pancakes help us to build better geostatistical software?
-            </Typography>
-
-            <aside className="notes">
-                <p>... we will explore how pancakes can help us improve geostatistical software.</p>
-            </aside>
-        </MainSlide> */}
-
     </>
 }
 
