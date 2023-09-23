@@ -32,8 +32,8 @@ const ClusterGraphs: React.FC = () => {
     const [distFilter, setDistFilter] = useState<number[]>([MIN_D, 550])
 
     // state for loading the correct graph
-    const [currentGraph, setCurrentGraph] = useState<'yl' | 'gr' | 'bu'>('yl')
-    const [graphData, setGraphData] = useState<typeof DATA.yl.graph>(cloneDeep(DATA.yl.graph))
+    const [currentGraph, setCurrentGraph] = useState<'yl' | 'gr' | 'bu'>('gr')
+    const [graphData, setGraphData] = useState<typeof DATA.yl.graph>(cloneDeep(DATA.gr.graph))
 
     // state to switch from 2D to 3D graph
     const [graphType, setGraphType] = useState<'2d' | '3d' | 'ar'>('2d')
@@ -98,9 +98,9 @@ const ClusterGraphs: React.FC = () => {
                     </Stack>
                 </Stack>
                 <Stack sx={{p: 3}}>
-                    <Button variant="contained" color="warning" onClick={() => setCurrentGraph('yl')} disabled={currentGraph==='yl'}>Yellow</Button>
-                    <Button variant="contained" color="success" onClick={() => setCurrentGraph('gr')} disabled={currentGraph==='gr'}>Green</Button>
-                    <Button variant="contained" color="primary" onClick={() => setCurrentGraph('bu')} disabled={currentGraph==='bu'}>Blue</Button>
+                    <Button variant="outlined" color="info" onClick={() => setCurrentGraph('yl')} disabled={currentGraph==='yl'}>Yellow</Button>
+                    <Button variant="outlined" color="info" onClick={() => setCurrentGraph('gr')} disabled={currentGraph==='gr'}>Green</Button>
+                    <Button variant="outlined" color="primary" onClick={() => setCurrentGraph('bu')} disabled={currentGraph==='bu'}>Blue</Button>
                 </Stack>
                 <span />
             </Grid>

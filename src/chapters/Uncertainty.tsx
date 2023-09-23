@@ -23,9 +23,9 @@ const Uncertainty: React.FC = () => {
             </Paper>
 
             <aside className="notes">
-                <p>This is the empirical variogram I showed you earlier, and our goal is to provide methods and tools to go from this empirical variogram</p>
-                <p> to the one shown here. So, we want to propagate observation uncertainties into the empirical variogram. Instead of using error bars,</p>
-                <p>I personally prefer representing uncertainty with an uncertainty bound. It's easy to imagine that there can be multiple parameterizations or even more than one variogram model might fall within the uncertainty bound.</p>
+                <p>Our goal is to provide methods and tools to go from this empirical variogram...</p>
+                <p>... to the one shown here. So, we want to propagate observation uncertainties into the empirical variogram. Instead of using error bars,</p>
+                <p>I personally prefer representing uncertainty with an uncertainty bound. It's easy to imagine that there can be multiple parameterizations or even more than one variogram model that falls within the uncertainty bound.</p>
             </aside>
         </MainSlide>
 
@@ -154,22 +154,22 @@ const Uncertainty: React.FC = () => {
                             <Stack direction="column" spacing={3} justifyContent="space-evenly" sx={{p: 3}} className="info-box">
                                 <LI>- Assess models and parameterizations using different metrics</LI>
                                 <LI variant="body1" sx={{pl: 5}}>- RMSE</LI>
-                                <LI variant="body1" sx={{pl: 5}}>- Deviance information criterion (DIC)</LI>
+                                <LI variant="body1" sx={{pl: 5}}>- Deviance Information Criterion (DIC)</LI>
                                 <LI variant="body1" sx={{pl: 5}}>- Cross-Validation</LI>
                                 <LI>- Rank models for each metric</LI>
-                                <LI>- Calculate percentiles for ranks</LI>
+                                <LI>- Calculate quartiles for ranks</LI>
                             </Stack>
                         </Box>
                     </Box>
                 </Paper>
                 <aside className="notes">
-                    <p>IWe fitted around 30 models to the empirical variogram and evaluated the models and parameterizations using various metrics.</p>
-                    <p>The first metric is the root mean square error (RMSE) of the model to the uncertainty bound.</p>
+                    <p>We fitted around 30 models to the empirical variogram as show here and now need to assess them.</p>
+                    <p>For this we use various metrics. The first metric is the root mean square error (RMSE) of the model to the uncertainty bound.</p>
                     <p>The second metric is the deviance information criterion (DIC), similar to the AIC, which assesses how well the model fits the observed data.</p>
                     <p>The third metric is a leave-one-out cross-validation, which examines how well the values can be reproduced using kriging.</p>
                     <p>The models were ranked from best to worst for each metric, and quartiles were calculated.</p>
-                    <p>All this information is condensed into the graph presented. In the first column, the model types are color-coded. The graph displays the rankings for each metric, with the best models at the top.</p>
-                    <p>We can see that Gaussian models exhibit a diverse performance. In terms of RMSE, they vary widely, while in terms of DIC, they perform well. However, in cross-validation, Gaussian models perform worse. On the other hand, spherical models show poor fit and DIC performance but excel in cross-validation.</p>
+                    <p>All this information is condensed into the graph presented. In the first column, the model types are color-coded. The graph displays the rankings for each metric, with the first quartile at the top.</p>
+                    <p>We can see that Gaussian models exhibit a diverse performance. In terms DIC they perform well, while in terms of RMSE, they vary widely. However, in cross-validation, Gaussian models perform worse. On the other hand, exponential models models show really poor fit but excel in cross-validation and DIC.</p>
                 </aside>
             </MainSlide>
 

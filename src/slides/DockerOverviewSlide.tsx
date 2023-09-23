@@ -188,14 +188,14 @@ const DockerOverviewSlide: React.FC = () => {
             </Box>
 
             <aside className="notes">
-                <p>The alternative builds on a very mature and common software for containerization, called docker. Simply speaking you can think of docker as a lightweight virtual machine.</p>
+                <p>The alternative I want to propose builds on a very mature and common software for containerization, called docker. Simply speaking you can think of docker as a lightweight virtual machine.</p>
             </aside>
         </MainSlide>
 
         <MainSlide title="What is so different?" autoAnimate visibility="uncounted">
             <Stack direction="row" spacing={5} justifyContent="space-around">
                 <Stack direction="column" spacing={3}>
-                    <Box className="fragment fade-down" data-fragment-index="3" sx={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box className="fragment fade-down" data-fragment-index="2" sx={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <Box className="r-stack">
                             <Box sx={inputSX} style={{marginTop: '14px', marginRight: '15px'}}></Box>
                             <Box sx={inputSX} style={{marginTop: '10px', marginRight: '12px'}}></Box>
@@ -207,12 +207,12 @@ const DockerOverviewSlide: React.FC = () => {
                     </Box>
                     <Box data-id="docker-frame" sx={{height: '100%', border: '1px solid #1D63ED', p: 1, borderRadius: '15px', flexDirection: 'column', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                         <Stack direction="column" spacing={3} sx={{minHeight: 60, mb: 1}}>
-                            <Box className="fragment" data-fragment-index="1"  sx={hoverSX} onClick={() => setCurrentNode('yaml')}>tool.yml</Box>
-                            <Box className="fragment" data-fragment-index="1" sx={hoverSX} onClick={() => setCurrentNode('tool')}>run.py</Box>
+                            <Box sx={hoverSX} onClick={() => setCurrentNode('yaml')}>tool.yml</Box>
+                            <Box sx={hoverSX} onClick={() => setCurrentNode('tool')}>run.py</Box>
                         </Stack>
                         <Box data-id="docker-img" component="img" src="img/docker.png" sx={{maxHeight: 48, maxWidth: 600}} />
                     </Box>
-                    <Box className="fragment fade-up" data-fragment-index="3" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                    <Box className="fragment fade-up" data-fragment-index="2" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <Icon component={KeyboardDoubleArrowDown} sx={{fontSize: '3rem'}} />
                         <Box className="r-stack">
                             <Box sx={inputSX} style={{marginTop: '13px', marginRight: '15px'}}></Box>
@@ -223,7 +223,7 @@ const DockerOverviewSlide: React.FC = () => {
                         </Box>
                     </Box>
                 </Stack>
-                <Paper elevation={3} sx={{height: 500, p: 0.5, m: 0, borderRadius: '15px'}} className="fragment" data-fragment-index="2">
+                <Paper elevation={3} sx={{height: 500, p: 0.5, m: 0, borderRadius: '15px'}} className="fragment" data-fragment-index="1">
                     <Code
                         language={currentNode === 'yaml' ? 'yaml' : currentNode === 'tool' ? 'python' : 'text'}
                         style={{height: '100%', width: '600px', textAlign: 'left', margin: 0, borderRadius: '15px', fontSize: '16pt', overflowY: 'auto'}}
@@ -238,9 +238,10 @@ const DockerOverviewSlide: React.FC = () => {
 
             <aside className="notes">
                 <p>We want to build each of our tools into a docker container.</p>
-                <p>To do so, we need to specify metadata in a simple machine-readable file, called tool.yaml</p>
-                <p>Beside a title and a description, we can provide hints on data format and define needed parameter. The tool itself can be written in any langauge and at any level of proficiency. Here, I chose a single file script without much fuss.</p>
-                <p>Parameters and data have to be provided as files, and the container is now effectively mapping input onto outputs. Inputs, outputs and logfiles are finally bundled together with the container state, which is in my opinion a step towards result provenance.</p>
+                <p>To do so, we need to create a simple machine-readable file, called tool.yaml. Beside a title and a description, we can provide hints on data formats and define the needed parameter.</p>
+                <p>The tool itself can be written in any langauge and at any level of proficiency. Here, I chose to implement the moving window method in a single file script without much fuss.</p>
+                <p>Parameters and data have to be provided as files, and the container now effectively just maps input to outputs. After one run is finished,  inputs, outputs and logfiles are finally bundled together with the container state and can be saved. This is in my opinion a step towards reproducible science.</p>
+                <p>Beside the specification, I developed a number of libraries that help creating the necessary files for Python, R, Matlab, Octave and NodeJS.</p>
             </aside>
         </MainSlide>
     </>)

@@ -26,7 +26,7 @@ const Motivation: React.FC = () => {
                 </Paper>
                 
                 <aside className="notes">
-                    <p>Let's consider a crucial variable like rainfall. The presented map is indicating the distance to the nearest rainfall ground station for each location on the Earth. The white areas signify distances of at least 100 kilometers. When we focus on Europe, especially in countries like Germany or the UK, the density increases, but we still observe distances of around 25 to 50 kilometers to the nearest rainfall station. Hence, we do not have an exhaustive dataset and may miss entire events by ground stations. Geostatistics provide means to model the spatial correation between observations and for example interpolate maps among others.</p>
+                    <p>Let's consider a crucial variable like rainfall. The presented map is indicating the distance to the nearest rainfall ground station for each location on the Earth. The white areas signify distances of at least 100 kilometers. When we focus on Europe, especially in countries like Germany or the UK, the density increases, but we still observe distances of around 25 to 50 kilometers to the nearest rainfall station. Hence, we do not have an exhaustive dataset and may miss entire events by ground stations. Geostatistics provide means to model the spatial correation between observations and use that for example for interpolating maps.</p>
                     <p>Geostatistics has been around for several decades now, but as you can see in this graph, geostatistical methods are referenced in research articles ever since. The bars signify the number of peer-reviewed arcticles, that can be found by the keywords 'rainfall' and 'kriging' in the web of science database.</p>
                 </aside>
             </MainSlide>
@@ -102,13 +102,18 @@ const Motivation: React.FC = () => {
 
             <aside className="notes">
                 <p>Here, you can see the soil moisture observations from 30cm depth for the year 2015.</p>
-                <p>For the sake of today's presentation, I ran the interpolation based on daily observations for the last couple of months of observation. The interpolated map can effectively help to visualize the spatial distribution of soil moisture. This represents one of the key applications of geostatistics</p>
+                <p>For the sake of today's presentation, I ran the interpolation based on daily observations for the last couple of months of observation. The interpolated map can effectively help to visualize the spatial distribution of soil moisture. This interpolation represents one of the key applications of geostatistics.</p>
+                <p>But if that works all so well, why do I care?</p>
             </aside>
         </MainSlide>
 
 
         <MainSlide title="Contributions" autoAnimate>
-        <Typography data-id="claim" variant="h4" component="div">I have enhanced the robustness of variogram estimation</Typography>
+            <Typography data-id="claim" variant="h4" component="div">I have enhanced the robustness of variogram estimation</Typography>
+
+            <aside className="notes">
+            <p>When summarizing 7 years of my work into a single statement, my significant contribution is an enhancement of variogram estimation.</p>
+            </aside>
         </MainSlide>
         <MainSlide title="Contributions" autoAnimate visibility="uncounted">
             <Typography data-id="claim" variant="h4" component="div" sx={{fontSize: '120%'}}>I have enhanced the robustness of variogram estimation</Typography>
@@ -142,9 +147,8 @@ const Motivation: React.FC = () => {
             </Typography>
 
             <aside className="notes">
-                <p>When summarizing 7 years of work into a single statement, my significant contribution is an enhancement of variogram estimation.</p>
                 <p>I did that by contributing from two different ends, by proposing novel methods and by developing reliable software.</p>
-                <p>Most methods seek to represent observation uncertainty better, especially in empirical variograms, as well as an investigation of the implications.</p>
+                <p>I propose methods to systematically propagate observation uncertainty into empirical variograms, as well as an investigate the implications.</p>
                 <p>The outstanding software contribution is a variogram estimations toolsbox, which is especially helpful in combination with a software framework for reproducible applications.</p>
                 <p>With the exception of the software framework, all work has been published in different peer-reviewed journals. Methods are published in HESS and spatial statistics, while the software is published in GMD.</p>
             </aside>

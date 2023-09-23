@@ -22,7 +22,7 @@ const Title: React.FC = () => {
               <p>Welcome to my PhD defense presentation, titled 'From method development to software integration: A comprehensive approach to geostatistical uncertainty.' For the next 30 minutes, let me take you on a journey</p>
               <p> about new exciting methods ...</p>
               <p>and sophisticated software solutions,</p>
-              <p>all based in the field of geostatistics. Why geostatistics? Is it still relevant in times of Big Data and AI?</p>
+              <p>all based in the field of geostatistics. But why geostatistics? Is it still relevant in times of Big Data and AI?</p>
             </aside>
         </Slide>
 

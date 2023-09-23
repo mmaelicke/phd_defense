@@ -43,10 +43,10 @@ const SoilMoisture: React.FC = () => {
                     <p>As depicted in the graph, during dry periods, the sill collapses close to zero indicating no significant variability in the observations.</p>
                     <p>However, in the fall, as rainfall increases, the sill values rises. The shape of the models changes, especially during heavy rainfall events towards the end of the year.</p>
                     <p>Next, I employed the mean-shift clustering algorithm to cluster the variogram parameters and colored everyting accoding to the three identified clusters. </p>
-                    <p>Unlike the original 2020 publication, I did not cluster the empirical variograms themselves. Instead, I utilized the capabilities of the software to reproduce the analysis within minutes and explore alternative clustering methods.</p>
+                    <p>Unlike the original publication, I did not cluster the empirical variograms themselves. Instead, I utilized the capabilities of the software to reproduce the analysis within minutes and explore alternative clustering methods.</p>
                     <p>The clustering results are quite promising, as they reveal three distinct clusters primarily differentiated by their sill values. This matches the original publication very well.</p>
                     <p>By examining the lower plot depicting the time series, we can see that the clusters emerge coherently over time. Each cluster may be associated with different processes: the yellow cluster represents drying and dry conditions, the green cluster signifies wet soil conditions, and the blue cluster indicates a transient state.</p>
-                    <p>With proper research software, I could reproduce the results from 2020 and improve on them effordlessly, while preparing this presentation.</p>
+                    <p>With proper research software, I could reproduce the original results and improve on them effordlessly, while preparing this presentation.</p>
                 </aside>
             </MainSlide>
 
@@ -89,10 +89,11 @@ const SoilMoisture: React.FC = () => {
                 </Box>
                 <aside className="notes">
                     <p>The original code written is shown and referenced here. I would argue that it is a common research spaghetti code.</p>
-                    <p>At the top you find a preamble of imports, data loading and global paramters. Let's hope these are the latest and they are still in use.</p>
-                    <p>Next a couple of functions implement the methods. In this example, an unused paramenter is unfortunately still in the function signature.</p>
-                    <p>After processing, we need some visualization. Here, we use globals instead of function arguments, as the figures are very specific anyways.</p>
-                    <p>Finally, results are created and saved somewhere on the host system. I want to propose an alternative approach here.</p>
+                    <p>At the top you find a preamble of imports, data loading and global paramters.</p>
+                    <p>Next a couple of functions implement the methods, here the core function applying the moving window.</p>
+                    <p>After processing, we need some visualization. This is the function that plots all input data and the model for each window</p>
+                    <p>Finally, results are created by saving the plot and saving the parameters for later use.</p>
+                    <p>There are also some pitfalls, that I noticed while trying to reuse the code. We define an unused global variable. Similarly, the function signature contains an argument that has absolutely no effect in the function. The plot function references global objects, so it can't be used anywhere else. And finally, the results are saved to specific path on the host.</p>
                 </aside>
             </MainSlide>
 
@@ -199,10 +200,8 @@ const SoilMoisture: React.FC = () => {
 
             <aside className="notes">
                 <p>I explored an alternative approach to visualizing the correlation structure of a geostatistical dataset using force-directed graphs.</p>
-                <p>A force-directed graph is a mathematical graph where each node represents an observation location</p>
-                <p>To create the graph, links between observation locations that fell within the same lag class are created, with the link lengths set to the absolute value difference between them.</p>
-                <p>The algorithm then moves nodes to match the chosen link lengths.</p>
-                <p>As the number of observations increases, it becomes more challenging to respects all the settings.</p>
+                <p>A force-directed graph is a mathematical graph where each node represents an observation location. To create the graph, links between observation locations that fell within the same lag class are created, with the link lengths set to the absolute value difference between them.</p>
+                <p>With just two links it is easy to move the nodes to match the chosen lint lenghts. As the number of observations increases, it becomes more challenging to respects all the settings.</p>
                 <p>Here, you can see that the graph cannot represent the settings for the links exactly, which can be thought of as "friction" in a network of springs under tension.</p>
             </aside>
         </MainSlide>
@@ -215,9 +214,9 @@ const SoilMoisture: React.FC = () => {
                 </Paper>
 
                 <aside className="notes">
-                    <p>In this slide, I present the force-directed graphs for the yellow cluster of soil moisture measurements in the Colpach catchment.</p>
+                    <p>In this slide, I present the force-directed graphs for the green cluster of soil moisture measurements in the Colpach catchment.</p>
                     <p>We can see that there are actually two independent graphs when considering separating distances up to 500 meters.</p>
-                    <p>However, when considering separating distances up to 1 kilometer, the two graphs connect, particularly through three nodes in the middle. These nodes connect the other blobs but also keep them at some distance.</p>
+                    <p>However, when considering separating distances up to 1 kilometer, the two graphs connect, particularly through three nodes in the middle. Note how these three locationes do not share a single link, meaing they are all at least 1km apart from each other. They connect the other blobs but also keep them at some distance.</p>
                     <p>Although this short example was only an appetizer for this unpublished work - a direct application is the identification of representative observation locations.</p>
                 </aside>
             </MainSlide>

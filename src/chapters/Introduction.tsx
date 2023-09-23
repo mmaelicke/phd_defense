@@ -14,7 +14,7 @@ const Introduction: React.FC = () => {
                 <Box component="img" src="img/first_pancake.png" sx={{height: 450}} />
 
                 <aside className="notes">
-                    <p>Geostatistics can not only be applied to hydrological datasets. During my parental leave in 2018, while making pancakes for dinner, I noticed a spatial correlation structure in the browning of the pancake. I did what everyone of you would have done.</p>
+                    <p>Geostatistics are generic and can not only be applied to hydrological datasets. During my parental leave in 2018, while making pancakes for dinner, I noticed a spatial correlation structure in the browning of the pancake. I did what everyone of you would have done.</p>
                 </aside>
             </Paper>
         </MainSlide>
@@ -94,28 +94,27 @@ const Introduction: React.FC = () => {
                     <NuggetSillExample />
                 </Paper>
             </MainSlide>
+
+            <MainSlide title="Interpolate a pancake">
+                <Paper elevation={3}>
+                    <Stack direction="row" spacing={3} sx={{pt: 2}}>
+                        <Box>
+                            <Typography variant="h6" component="div">Pancake on a grid</Typography>
+                            <Box component="img" src="img/motivation_pancake_original.png" sx={{height: 450}} />
+                        </Box>
+                        <Box className="fragment">
+                            <Typography variant="h6" component="div">Kriging interpolation</Typography>
+                            <Box component="img" src="img/motivation_pancake_krige.png" sx={{height: 450}} />
+                        </Box>
+                    </Stack>
+                </Paper>
+
+                <aside className="notes">
+                    <p>For illustration purposes, I repeated this procedure for each channel.</p>
+                    <p>Here is how the combination looks like. Based on the 300 observed points, kriging effectively reproduces mid and large-scale variability on the pancake surface, with generally matching colors.</p>
+                </aside>
+            </MainSlide>
         </section>
-
-        <MainSlide title="Interpolate a pancake">
-            <Paper elevation={3}>
-                <Stack direction="row" spacing={3} sx={{pt: 2}}>
-                    <Box>
-                        <Typography variant="h6" component="div">Pancake on a grid</Typography>
-                        <Box component="img" src="img/motivation_pancake_original.png" sx={{height: 450}} />
-                    </Box>
-                    <Box className="fragment">
-                        <Typography variant="h6" component="div">Kriging interpolation</Typography>
-                        <Box component="img" src="img/motivation_pancake_krige.png" sx={{height: 450}} />
-                    </Box>
-                </Stack>
-            </Paper>
-
-            <aside className="notes">
-                <p>For illustration purposes, I repeated this procedure for each channel.</p>
-                <p>Here is how the combination looks like. Based on the 300 observed points, kriging effectively reproduces mid and large-scale variability on the pancake surface, with generally matching colors.</p>
-            </aside>
-        </MainSlide>
-
 
         {/* <MainSlide title="Learning with pancakes">
             <Stack direction="row">
