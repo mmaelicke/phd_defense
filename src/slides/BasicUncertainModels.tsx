@@ -108,8 +108,8 @@ const BasicUncertainModels: React.FC = () => {
         // create the layout
         const newLayout = {
             autosize: true,
-            xaxis: {title: 'Distance (m)'},
-            yaxis: {title: 'Semivariance (bit)'},
+            xaxis: {title: 'Separating distance lag (m)'},
+            yaxis: {title: 'Semi-variance (intensity²)'},
             legend: {orientation: 'h', yanchor: 'top', y: 1.2}
         } as Layout
 

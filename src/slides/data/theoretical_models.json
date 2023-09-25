@@ -9,7 +9,7 @@
       "x": [
         0.9929691125475903,
         2.8942058371660675,
-        4.73647080327688,
+        4.736470803276879,
         6.597774585215278,
         8.398579235266304,
         10.109752011136823,
@@ -44,7 +44,7 @@
       "x": [
         0.9929691125475903,
         2.8942058371660675,
-        4.73647080327688,
+        4.736470803276879,
         6.597774585215278,
         8.398579235266304,
         10.109752011136823,
@@ -6784,18 +6784,20 @@
     },
     "legend": {
       "orientation": "h",
-      "yanchor": "bottom",
-      "y": 1.02
+      "yanchor": "top",
+      "y": 0.99,
+      "xanchor": "left",
+      "x": 0.01
     },
     "xaxis": {
       "title": {
-        "text": "Lag"
+        "text": "Separating distance lag (pixel)"
       },
       "showgrid": false
     },
     "yaxis": {
       "title": {
-        "text": "Matheron semi-variance"
+        "text": "Semi-variance (intensity\u00b2)"
       },
       "showgrid": false
     }
