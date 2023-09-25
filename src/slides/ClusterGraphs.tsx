@@ -14,7 +14,7 @@ import cloneDeep from "lodash.clonedeep"
 // group into one object
 const DATA = {
     yl: {graph: YL, color: '#ffd700'},
-    gr: {graph: GR, color: '#008000'},
+    gr: {graph: GR, color: '#00ad00'},
     bu: {graph: BU, color: '#0077be'},
 }
 
