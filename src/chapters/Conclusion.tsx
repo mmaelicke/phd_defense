@@ -6,7 +6,9 @@ import Outline from "../slides/Outline"
 const Conclusion: React.FC = () => {
     return (<>
 
-        <Outline highlight="software" />
+        <MainSlide title="Outline">
+            <Outline highlight="software" />
+        </MainSlide>
 
         <MainSlide title="Conclusions" autoAnimate>
 

@@ -17,7 +17,13 @@ import SpaghettiFragments from "../slides/SpaghettiFragments";
 const SoilMoisture: React.FC = () => {
     return (<>
 
-        <Outline highlight="moisture" />
+        <MainSlide title="outline">
+            <Outline highlight="moisture" />
+
+            <aside className="notes">
+                <p>For the second part of this presentation, we will shift away from uncertainty, and focus more on the software.</p>
+            </aside>
+        </MainSlide>
 
         <section>
             <MainSlide title="Moving window variogram models" autoAnimate id="start-soil-moisture">

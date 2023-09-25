@@ -169,7 +169,16 @@ const Motivation: React.FC = () => {
             </aside>
         </MainSlide>
 
-        <Outline withFragments withNotes />
+        <MainSlide title="Outline" id="outline">
+            <Outline withFragments />
+
+            <aside className="notes">
+                <p>As a starter we will discuss what geostatistics actually is.</p>
+                <p>Then, there are two main courses: some exciting findings about uncertainties in variogram analyses,</p>
+                <p>and the developed software, SciKit-GStat will be demonstrated at the example of a unique soil moisture dataset from Luxemburg.</p>
+                <p>The desert will be some take-home messages and hopefully a fruitful discussion afterwards.</p>
+            </aside>
+        </MainSlide>
     </>
 }
 

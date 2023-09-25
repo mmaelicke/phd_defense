@@ -12,8 +12,13 @@ import CompareObservationUncertainty from "../slides/CompareObservationUncertain
 
 const Uncertainty: React.FC = () => {
     return (<>
+        <MainSlide title="Outline">
+            <Outline highlight="uncertainty" />
 
-        <Outline highlight="uncertainty" />
+            <aside className="notes">
+                <p>Wit the next section, we will have a closer look on uncertainty in empirical variograms</p>
+            </aside>
+        </MainSlide>
 
         <MainSlide title="Propagate uncertainties">
             <Paper elevation={3} sx={{p: 1, width: 'fit-content', m: 'auto'}} className="r-stack">
