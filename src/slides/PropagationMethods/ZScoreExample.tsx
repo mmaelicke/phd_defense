@@ -72,12 +72,15 @@ const ZScoreExample: React.FC = () => {
         const newLayout = {
             title: 'Confidence Interval',
             xaxis: {
-                title: 'x',
+                title: 'Sample mean',
                 range: [0, MAX_X]
             },
             yaxis: {
-                title: 'y',
-                range: [0, MAX_Y]
+                visible: false,
+                zeroline: false,
+                showgrid: false
+                // title: 'Probability density',
+                // range: [0, MAX_Y]
             },
             autosize: true,
             shapes: [
@@ -90,9 +93,10 @@ const ZScoreExample: React.FC = () => {
                     x1: lowerBound,
                     y1: MAX_Y,
                     line: {
-                        color: 'red',
+                        color: 'blue',
                         width: 1,
                         dash: 'dot'
+
                     }
                 },
                 {
@@ -104,7 +108,7 @@ const ZScoreExample: React.FC = () => {
                     x1: upperBound,
                     y1: MAX_Y,
                     line: {
-                        color: 'red',
+                        color: 'blue',
                         width: 1,
                         dash: 'dot'
                     }
@@ -119,8 +123,9 @@ const ZScoreExample: React.FC = () => {
                         x1: y_,
                         y1: MAX_Y / 6,
                         line: {
-                            color: 'blue',
+                            color: 'red',
                             width: 0.8,
+                            //dash: 'dot'
                         }
                     }
                 })

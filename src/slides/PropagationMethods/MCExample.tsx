@@ -120,8 +120,8 @@ const MCExample: React.FC = () => {
         const newLayout2 = {
             title: 'Simulated semi-variances',
             autosize: true,
-            xaxis: {range: [6, 9]},
-            yaxis: {range: [0, 1.0]},
+            xaxis: {range: [6, 9], title: 'Sample Mean'},
+            yaxis: {range: [0, 1.0], visible: false},
             shapes: [
                 ...meansRef.current.map(x => {
                     return {
@@ -165,8 +165,8 @@ const MCExample: React.FC = () => {
                         layout={{
                             title: 'Resampling',
                             autosize: true,
-                            xaxis: {range: [0, 1]},
-                            yaxis: {range: [0, 20]},
+                            xaxis: {range: [0, 1], visible: false, zeroline: false},
+                            yaxis: {range: [0, 20], zeroline: true, showgrid: true, title: 'Observation value'},
                             annotations: [
                                 {xref: 'paper', yref: 'paper', x: 0.05, y: 0.8, text: 'observation', showarrow: false, font: {size: 12}},
                                 {xref: 'paper', yref: 'paper', x: 0.95, y: 0.8, text: '  re-sample', showarrow: false, font: {size: 12}}

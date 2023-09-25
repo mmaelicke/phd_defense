@@ -56,7 +56,7 @@ const KFoldExample: React.FC = () => {
         if (!running) return
         if (foldIndex < folds) {
             // set a timeout of 1 second to run increase the fold index
-            setTimeout(() => setFoldIndex(foldIndex + 1), simIndex === 42 ? 1000 : 50)
+            setTimeout(() => setFoldIndex(foldIndex + 1), simIndex === 42 ? 300 : 50)
         } else if (simIndex < 52) {
             // generate a new sample
             DATAREF.current = generateSample(simIndex + 1)
