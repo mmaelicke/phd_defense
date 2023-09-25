@@ -46,26 +46,48 @@ const BasicVariogram = () => {
             } as ScatterData)
 
             if (hasDescription) {
-                newLayout = {...newLayout, shapes: [
-                    {
-                        type: 'line',
-                        yref: 'paper',
-                        y0: 0,
-                        y1: 1,
-                        x0: DATA.paramsGauss[0],
-                        x1: DATA.paramsGauss[0],
-                        line: {color: 'black', width: 1, dash: 'dot'}
-                    },
-                    {
-                        type: 'line',
-                        xref: 'paper',
-                        x0: 0,
-                        x1: 1,
-                        y0: DATA.paramsGauss[1],
-                        y1: DATA.paramsGauss[1],
-                        line: {color: 'black', width: 1, dash: 'dot'}
-                    }
-                ]}
+                newLayout = {
+                    ...newLayout, 
+                    shapes: [
+                        {
+                            type: 'line',
+                            yref: 'paper',
+                            y0: 0,
+                            y1: 1,
+                            x0: DATA.paramsGauss[0],
+                            x1: DATA.paramsGauss[0],
+                            line: {color: 'black', width: 1, dash: 'dot'}
+                        },
+                        {
+                            type: 'line',
+                            xref: 'paper',
+                            x0: 0,
+                            x1: 1,
+                            y0: DATA.paramsGauss[1],
+                            y1: DATA.paramsGauss[1],
+                            line: {color: 'black', width: 1, dash: 'dot'}
+                        }
+                    ],
+                    annotations: [
+                        {
+                            xref: 'paper',
+                            x: 0.2,
+                            xanchor: 'left',
+                            y: DATA.paramsGauss[1],
+                            yanchor: 'bottom',
+                            text: 'sill',
+                            showarrow: false
+                        },
+                        {
+                            yref: 'paper',
+                            x: DATA.paramsGauss[0],
+                            xanchor: 'right',
+                            y: 0.1,
+                            text: 'effective range',
+                            showarrow: false
+                        }
+                    ]
+                }
             }
         }
 
@@ -80,26 +102,48 @@ const BasicVariogram = () => {
             } as ScatterData)
 
             if (hasDescription) {
-                newLayout = {...newLayout, shapes: [
-                    {
-                        type: 'line',
-                        yref: 'paper',
-                        y0: 0,
-                        y1: 1,
-                        x0: DATA.paramsSph[0],
-                        x1: DATA.paramsSph[0],
-                        line: {color: 'black', width: 1, dash: 'dot'}
-                    },
-                    {
-                        type: 'line',
-                        xref: 'paper',
-                        x0: 0,
-                        x1: 1,
-                        y0: DATA.paramsSph[1],
-                        y1: DATA.paramsSph[1],
-                        line: {color: 'black', width: 1, dash: 'dot'}
-                    }
-                ]}
+                newLayout = {
+                    ...newLayout, 
+                    shapes: [
+                        {
+                            type: 'line',
+                            yref: 'paper',
+                            y0: 0,
+                            y1: 1,
+                            x0: DATA.paramsSph[0],
+                            x1: DATA.paramsSph[0],
+                            line: {color: 'black', width: 1, dash: 'dot'}
+                        },
+                        {
+                            type: 'line',
+                            xref: 'paper',
+                            x0: 0,
+                            x1: 1,
+                            y0: DATA.paramsSph[1],
+                            y1: DATA.paramsSph[1],
+                            line: {color: 'black', width: 1, dash: 'dot'}
+                        }
+                    ],
+                    annotations: [
+                        {
+                            xref: 'paper',
+                            x: 0.2,
+                            xanchor: 'left',
+                            y: DATA.paramsSph[1],
+                            yanchor: 'bottom',
+                            text: 'sill',
+                            showarrow: false
+                        },
+                        {
+                            yref: 'paper',
+                            x: DATA.paramsSph[0],
+                            xanchor: 'right',
+                            y: 0.1,
+                            text: 'effective range',
+                            showarrow: false
+                        }
+                    ]
+                }
             }
         }
 
@@ -114,26 +158,48 @@ const BasicVariogram = () => {
             } as ScatterData)
 
             if (hasDescription) {
-                newLayout = {...newLayout, shapes: [
-                    {
-                        type: 'line',
-                        yref: 'paper',
-                        y0: 0,
-                        y1: 1,
-                        x0: DATA.paramsExp[0],
-                        x1: DATA.paramsExp[0],
-                        line: {color: 'black', width: 1, dash: 'dot'}
-                    },
-                    {
-                        type: 'line',
-                        xref: 'paper',
-                        x0: 0,
-                        x1: 1,
-                        y0: DATA.paramsExp[1],
-                        y1: DATA.paramsExp[1],
-                        line: {color: 'black', width: 1, dash: 'dot'}
-                    }
-                ]}
+                newLayout = {
+                    ...newLayout, 
+                    shapes: [
+                        {
+                            type: 'line',
+                            yref: 'paper',
+                            y0: 0,
+                            y1: 1,
+                            x0: DATA.paramsExp[0],
+                            x1: DATA.paramsExp[0],
+                            line: {color: 'black', width: 1, dash: 'dot'}
+                        },
+                        {
+                            type: 'line',
+                            xref: 'paper',
+                            x0: 0,
+                            x1: 1,
+                            y0: DATA.paramsExp[1],
+                            y1: DATA.paramsExp[1],
+                            line: {color: 'black', width: 1, dash: 'dot'}
+                        }
+                    ],
+                    annotations: [
+                        {
+                            xref: 'paper',
+                            x: 0.2,
+                            xanchor: 'left',
+                            y: DATA.paramsExp[1],
+                            yanchor: 'bottom',
+                            text: 'sill',
+                            showarrow: false
+                        },
+                        {
+                            yref: 'paper',
+                            x: DATA.paramsExp[0],
+                            xanchor: 'right',
+                            y: 0.1,
+                            text: 'effective range',
+                            showarrow: false
+                        }
+                    ]
+                }
             }
         }
 
