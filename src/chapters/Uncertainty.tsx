@@ -173,7 +173,7 @@ const Uncertainty: React.FC = () => {
                     <p>The second metric is the deviance information criterion (DIC), which assesses the likelihood of the model given the observed data, while also accounting for its complexity.</p>
                     <p>The third metric is a leave-one-out cross-validation, which examines how well the values can be reproduced using kriging.</p>
                     <p>The models were ranked from best to worst for each metric, and quartiles were calculated.</p>
-                    <p>All this information is condensed into the graph presented. In the first column, the model types are color-coded. The graph displays the rankings for each metric, with the first quartile at the top.</p>
+                    <p>All this information is condensed into the graph presented. In the first column, the model types are color-coded. The other columns show the rankings per metric, with the best models at the top.</p>
                     <p>We can see that Gaussian models exhibit a diverse performance. In terms DIC they perform well, while in terms of RMSE, they vary widely. However, in cross-validation, Gaussian models perform worse. On the other hand, exponential models models show really poor fit but excel in cross-validation and DIC.</p>
                 </aside>
             </MainSlide>
@@ -191,10 +191,10 @@ const Uncertainty: React.FC = () => {
                             <InlineMath math="p_D = \overline{\left(\bar\Theta\right)} - D\left(\overline{\bar\Theta}\right)" />
                             <Box sx={{mt: 2}}><InlineMath  math="p_D = \frac{1}{2}\overline{var(D(\Theta)})" /></Box>
                         </Stack>
-                        <Stack></Stack>
+                        {/* <Stack></Stack>
                         <Stack>
                             <InlineMath math="AIC(\Theta) = -2 log L(\Theta) + 2k" />
-                        </Stack>
+                        </Stack> */}
                     </Stack>
             </MainSlide>
         </section>
@@ -211,7 +211,7 @@ const Uncertainty: React.FC = () => {
             <aside className="notes">
                 <p>This makes it challenging to determine the correct model, </p>
                 <p>as we have multiple equally probable parametes or models (or both).</p>
-                <p>However, we can exclude models that are not suitable based on these insights.</p>
+                <p>However, we can exclude models that are not suitable and limit the parameter space based on these insights.</p>
             </aside>
         </MainSlide>
     </>)
