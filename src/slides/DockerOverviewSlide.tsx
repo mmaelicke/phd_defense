@@ -188,7 +188,7 @@ const DockerOverviewSlide: React.FC = () => {
             </Box>
 
             <aside className="notes">
-                <p>The alternative I want to propose builds on a very mature and common software for containerization, called docker. Simply speaking you can think of docker as a lightweight virtual machine.</p>
+                <p>For that I build on a very mature and common software for containerization, called docker.</p>
             </aside>
         </MainSlide>
 
@@ -237,10 +237,10 @@ const DockerOverviewSlide: React.FC = () => {
             </Stack>
 
             <aside className="notes">
-                <p>We want to build each of our tools into a docker container.</p>
+                <p>Simply speaking you can think of docker as a lightweight virtual machine. Each tool will be contained by its own docker container.</p>
                 <p>To do so, we need to create a simple machine-readable file, called tool.yaml. Beside a title and a description, we can provide hints on data formats and define the needed parameter.</p>
                 <p>The tool itself can be written in any langauge and at any level of proficiency. Here, I chose to implement the moving window method in a single file script without much fuss.</p>
-                <p>Parameters and data have to be provided as files, and the container now effectively just maps input to outputs. After one run is finished,  inputs, outputs and logfiles are finally bundled together with the container state and can be saved. This is in my opinion a step towards reproducible science.</p>
+                <p>Parameters and data have to be provided as files, and the container now effectively just maps input to outputs. After one run is finished,  inputs, outputs and logfiles are finally bundled together with the container state and can be saved and associated with unique checksums for input, output and the whole archive. This is in my opinion a huge step towards reproducible science.</p>
                 <p>Beside the specification, I developed a number of libraries that help creating the necessary files for Python, R, Matlab, Octave and NodeJS.</p>
             </aside>
         </MainSlide>

@@ -99,7 +99,7 @@ const SoilMoisture: React.FC = () => {
                     <p>Next a couple of functions implement the methods, here the core function applying the moving window.</p>
                     <p>After processing, we need some visualization. This is the function that plots all input data and the model for each window</p>
                     <p>Finally, results are created by saving the plot and saving the parameters for later use.</p>
-                    <p>There are also some pitfalls, that I noticed while trying to reuse the code. We define an unused global variable. Similarly, the function signature contains an argument that has absolutely no effect in the function. The plot function references global objects, so it can't be used anywhere else. And finally, the results are saved to specific path on the host.</p>
+                    <p>There are also some pitfalls, that I noticed while trying to reuse the code. We define an unused global variable. Similarly, the function signature contains an argument that has absolutely no effect in the function. The plot function references global objects, so it can't be used anywhere else. And finally, the results are saved to specific path on the host. All this combined makes it quite hard to reuse the code or even extend it. I am suggesting to identify the actual methods in the code and implement them as reusable tools.</p>
                 </aside>
             </MainSlide>
 
