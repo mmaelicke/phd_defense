@@ -170,7 +170,7 @@ const Uncertainty: React.FC = () => {
                 <aside className="notes">
                     <p>We fitted around 30 models to the empirical variogram as show here and now need to assess them.</p>
                     <p>For this we use various metrics. The first metric is the root mean square error (RMSE) of the model to the uncertainty bound.</p>
-                    <p>The second metric is the deviance information criterion (DIC), similar to the AIC, which assesses how well the model fits the observed data.</p>
+                    <p>The second metric is the deviance information criterion (DIC), which assesses the likelihood of the model given the observed data, while also accounting for its complexity.</p>
                     <p>The third metric is a leave-one-out cross-validation, which examines how well the values can be reproduced using kriging.</p>
                     <p>The models were ranked from best to worst for each metric, and quartiles were calculated.</p>
                     <p>All this information is condensed into the graph presented. In the first column, the model types are color-coded. The graph displays the rankings for each metric, with the first quartile at the top.</p>
