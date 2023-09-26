@@ -90,7 +90,7 @@ const Conclusion: React.FC = () => {
                     <strong>Mälicke, M.</strong>, Guadagnini, A., & Zehe, E. <strong>(2023)</strong>. <i>SciKit-GStat Uncertainty: A software extension to cope with uncertain geostatistical estimates.</i> Spatial Statistics, 54, 100737.
                 </Typography>
                     <p className="software "> - extension to SciKit-GStat</p>
-                    <p className="software" data-fragment-index="1">sophisticated web-applications</p>
+                    <p className="software" data-fragment-index="1">- sophisticated web-applications</p>
                     <p className="method">- Uncertainty estimation for empirical variogram</p>
                     <p className="method">- Multi-model interpretation of variograms</p>
                 </Stack>
