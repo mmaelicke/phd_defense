@@ -94,7 +94,7 @@ const Motivation: React.FC = () => {
             </aside>
         </MainSlide>
 
-        <MainSlide title="Not sure yet">
+        <MainSlide title="Soil moisture observations">
             <Paper elevation={3} sx={{padding: '0.3rem'}} className="r-stack">
                 <Box component="img" src="img/motivation_colpach.png" sx={{maxHeight: 300}} />
                 <Box component="img" src="img/motivation_kriging.gif" sx={{maxHeight: 300}} className="fragment" />
