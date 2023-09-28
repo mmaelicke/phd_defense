@@ -39,6 +39,10 @@ jobs:
         run: npm run build
         env:
           CI: false
+      - name: create GH pages specific files
+        run: |
+          touch ./build/.nojekyll
+          cp ./build/index.html ./build/404.html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
