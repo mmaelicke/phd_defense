@@ -16,7 +16,7 @@ const Outline: React.FC<OutlineParams> = ({ withFragments, highlight}) => {
                     <Card>
                         <CardActionArea href="#/motivation">
                             <CardContent>
-                                <CardMedia component="img" image="https://imgs.xkcd.com/comics/like_im_five.png" className="card-img" />
+                                <CardMedia component="img" image="img/Attert_overview.png" className="card-img" sx={{minHeight: 300}} />
                                 <Typography variant="h5" component="div">Motivation & Introduction</Typography>
                             </CardContent>
                         </CardActionArea>
